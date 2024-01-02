@@ -1,24 +1,43 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import styled from 'styled-components'
+import Header from './components/header/Header';
+import HomePage from './pages/HomePage';
+import ShopPage from './pages/ShopPage';
+import theme from './theme/theme';
+
+const AppStyled = styled.div`
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 10px;
+
+  @media (min-width: ${theme.breakpoints.devices.sm}) {
+    width: ${theme.breakpoints.devices.sm};
+  }
+
+  @media (min-width: ${theme.breakpoints.devices.md}) {
+    width: ${theme.breakpoints.devices.md};
+  }
+
+  @media (min-width: ${theme.breakpoints.devices.lg}) {
+    width: ${theme.breakpoints.devices.lg};
+  }
+
+  @media (min-width: ${theme.breakpoints.devices.xl}) {
+    width: 1200px;
+  }
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppStyled>
+      <Header />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/shop" element={<ShopPage/>} />
+      </Routes>
+    </AppStyled>
   );
 }
 

@@ -1,0 +1,1 @@
+export const priceRange = [39, 1230]

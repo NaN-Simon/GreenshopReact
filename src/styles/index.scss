@@ -1,6 +1,15 @@
+@import "./reset";
+@import "./fonts";
+
+html {
+  color: #000000;
+  background: #ffffff;
+  font-size: 14px;
+  font-family: 'Cera Pro', Arial, Helvetica, sans-serif;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Cera Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
