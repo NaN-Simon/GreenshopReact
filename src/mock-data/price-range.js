@@ -1,1 +1,1 @@
-export const priceRange = [39, 1230]
+export const initialPrice = [39, 1230]

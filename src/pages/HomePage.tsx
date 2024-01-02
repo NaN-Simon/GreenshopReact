@@ -10,6 +10,7 @@ import RangeSlider from '../components/UI/range-slider/RangeSlider';
 import { categories } from '../mock-data/categories'
 import { size } from '../mock-data/size'
 import { cards } from '../mock-data/cards'
+import { initialPrice } from '../mock-data/price-range'
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -50,7 +51,7 @@ const HomePage = () => {
       <StyledMain data-name='main'>
         <StyledCategoriesFilters>
           <Categories header='Categories' list={categories} />
-          <RangeSlider header='Price range'/>
+          <RangeSlider initialPrice={initialPrice} header='Price range'/>
           <Categories header='Size' list={size} />
         </StyledCategoriesFilters>
         <StyledContent data-name='content'>
