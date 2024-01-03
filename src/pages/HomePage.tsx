@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import theme from '../theme/theme';
 import Banner from '../components/banner/Banner'
 import Categories from '../components/navigation/Categories';
-import Tab from '../components/UI/tab/Tab';
+import CustomTab from '../components/UI/tab/CustomTab';
 import Dropdown from '../components/UI/dropdown/Dropdown';
 import Card from '../components/card/Card';
 import RangeSlider from '../components/UI/range-slider/RangeSlider';
@@ -56,7 +56,7 @@ const HomePage = () => {
         </StyledCategoriesFilters>
         <StyledContent data-name='content'>
           <StyledCardFilters data-name='filters'>
-            <Tab />
+            <CustomTab />
             <Dropdown />
           </StyledCardFilters>
           <Card list={cards}/>
