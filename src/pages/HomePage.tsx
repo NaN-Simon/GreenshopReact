@@ -12,6 +12,7 @@ import { size } from '../mock-data/size'
 import { cards } from '../mock-data/cards'
 import { initialPrice } from '../mock-data/price-range'
 import Pagination from '../components/pagination/Pagination';
+import ArticleBanner from '../components/banner/ArticleBanner';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -25,6 +26,7 @@ const StyledMain = styled.main`
   gap: 50px;
   width: 100%;
   margin-top: 46px;
+  margin-bottom: 94px;
 `
 
 const StyledCategoriesFilters = styled.div`
@@ -45,6 +47,16 @@ const StyledCardFilters = styled.div`
   background: ${theme.palette.testBox};
 `
 
+const StyledArticleBannerGroup = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  width: 100%;
+  background: ${theme.palette.testBox};
+`
+
 const HomePage = () => {
   return (
     <StyledHomePage>
@@ -52,7 +64,7 @@ const HomePage = () => {
       <StyledMain data-name='main'>
         <StyledCategoriesFilters>
           <Categories header='Categories' list={categories} />
-          <RangeSlider initialPrice={initialPrice} header='Price range'/>
+          <RangeSlider initialPrice={initialPrice} header='Price range' />
           <Categories header='Size' list={size} />
         </StyledCategoriesFilters>
         <StyledContent data-name='content'>
@@ -60,9 +72,13 @@ const HomePage = () => {
             <CustomTab />
             <Dropdown />
           </StyledCardFilters>
-          <Pagination itemsPerPage={9} items={cards}/>
+          <Pagination itemsPerPage={9} items={cards} />
         </StyledContent>
       </StyledMain>
+      <StyledArticleBannerGroup>
+        <ArticleBanner />
+        <ArticleBanner />
+      </StyledArticleBannerGroup>
     </StyledHomePage>
   )
 }
