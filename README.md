@@ -25,3 +25,5 @@ name project: GREENSHOP
 [rc-slider](https://github.com/react-component/slider)
 
 [react-tabs](https://github.com/reactjs/react-tabs)
+
+[react-paginate](https://github.com/AdeleD/react-paginate)

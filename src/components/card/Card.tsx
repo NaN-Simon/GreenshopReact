@@ -1,25 +1,7 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import theme from '../../theme/theme';
-
-interface ICard {
-  list: {
-    id: number,
-    name: string,
-    cost: string
-  }[]
-}
-
-const StyledUl = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 33px;
-  list-style-type: none;
-  background: ${theme.palette.testBox}
-`
+import { ICard } from '../../types/card'
+// import theme from '../../theme/theme';
 
 const StyledLi = styled.li`
   display: flex;
@@ -29,21 +11,12 @@ const StyledLi = styled.li`
   background: #c3c2c2;
 `
 
-const Card: FC<ICard> = ({ list }) => {
-  console.log(list);
-
+const Card: FC<ICard> = ({ id, name, cost }) => {
   return (
-    <div>
-      <StyledUl>
-        {list.map((item: any) => (
-          <StyledLi key={item.name}>
-            <div>{item.name}</div>
-            <div>{item.cost}</div>
-          </StyledLi>
-        ))}
-      </StyledUl>
-
-    </div>
+    <StyledLi key={id}>
+      <div>{name}</div>
+      <div>{cost}</div>
+    </StyledLi>
   )
 }
 

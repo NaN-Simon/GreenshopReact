@@ -11,6 +11,7 @@ import { categories } from '../mock-data/categories'
 import { size } from '../mock-data/size'
 import { cards } from '../mock-data/cards'
 import { initialPrice } from '../mock-data/price-range'
+import Pagination from '../components/pagination/Pagination';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -59,7 +60,7 @@ const HomePage = () => {
             <CustomTab />
             <Dropdown />
           </StyledCardFilters>
-          <Card list={cards}/>
+          <Pagination itemsPerPage={9} items={cards}/>
         </StyledContent>
       </StyledMain>
     </StyledHomePage>

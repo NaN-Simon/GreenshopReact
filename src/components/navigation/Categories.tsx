@@ -47,7 +47,7 @@ const Categories: FC<ICategories> = ({ list, header }) => {
         {header}
       </StyledHeader>
       <StyledUl>
-        {list.map((item: any) => (
+        {list.map((item: { id?: number, name: string, count: number }) => (
           <StyledLi key={item.name}>
             <div>{item.name}</div>
             <div>({item.count})</div>
