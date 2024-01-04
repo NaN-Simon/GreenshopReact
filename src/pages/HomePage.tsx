@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import theme from '../theme/theme';
 import Banner from '../components/banner/Banner'
 import Categories from '../components/navigation/Categories';
-import CustomTab from '../components/UI/tab/CustomTab';
+import CustomTab from '../components/tab/CustomTab';
 import Dropdown from '../components/UI/dropdown/Dropdown';
 import Card from '../components/card/Card';
 import RangeSlider from '../components/UI/range-slider/RangeSlider';
@@ -30,7 +30,7 @@ const StyledMain = styled.main`
   margin-bottom: 94px;
 `
 
-const StyledCategoriesFilters = styled.div`
+const StyledCategoriesFilterGroup = styled.div`
   width: auto;
 `
 
@@ -41,7 +41,7 @@ const StyledContent = styled.div`
   width: 100%;
 `
 
-const StyledCardFilters = styled.div`
+const StyledCardFilterGroup = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,17 +63,20 @@ const HomePage = () => {
     <StyledHomePage>
       <Banner />
       <StyledMain data-name='main'>
-        <StyledCategoriesFilters>
-          <Categories header='Categories' list={categories} />
-          <RangeSlider initialPrice={initialPrice} header='Price range' />
-          <Categories header='Size' list={size} />
-          <AsideBanner/>
-        </StyledCategoriesFilters>
+        <div>
+          <StyledCategoriesFilterGroup>
+            <Categories header='Categories' list={categories} />
+            <RangeSlider initialPrice={initialPrice} header='Price range' />
+            <Categories header='Size' list={size} />
+          </StyledCategoriesFilterGroup>
+          <AsideBanner />
+        </div>
         <StyledContent data-name='content'>
-          <StyledCardFilters data-name='filters'>
+          <StyledCardFilterGroup data-name='filters'>
             <CustomTab />
             <Dropdown />
-          </StyledCardFilters>
+          </StyledCardFilterGroup>
+          {/* Сами карточки с товарами передаются в Pagination */}
           <Pagination itemsPerPage={9} items={cards} />
         </StyledContent>
       </StyledMain>

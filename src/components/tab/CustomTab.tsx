@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import styled from 'styled-components'
-import theme from '../../../theme/theme';
+import theme from '../../theme/theme';
 import 'react-tabs/style/react-tabs.css';
 
 const StyledTabs = styled(Tabs)`
@@ -12,7 +12,7 @@ const StyledTabList = styled(TabList)`
   gap: 37px
 `
 const StyledTab = styled(Tab)`
-  padding: 0 5px 7px 5px;
+  padding: 0 5px 3px 5px;
   border-radius: 0;
   list-style: none;
   outline: none;
