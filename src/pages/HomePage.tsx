@@ -13,6 +13,7 @@ import { cards } from '../mock-data/cards'
 import { initialPrice } from '../mock-data/price-range'
 import Pagination from '../components/pagination/Pagination';
 import ArticleBanner from '../components/banner/ArticleBanner';
+import AsideBanner from '../components/banner/AsideBanner';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -66,6 +67,7 @@ const HomePage = () => {
           <Categories header='Categories' list={categories} />
           <RangeSlider initialPrice={initialPrice} header='Price range' />
           <Categories header='Size' list={size} />
+          <AsideBanner/>
         </StyledCategoriesFilters>
         <StyledContent data-name='content'>
           <StyledCardFilters data-name='filters'>
