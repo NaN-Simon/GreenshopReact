@@ -59,7 +59,7 @@ const BlogPage = () => {
   }
 
   return (
-    <StyledBlogPageWrapper>
+    <StyledBlogPageWrapper id='blog'>
       <StyledHeader>
         Our Blog Posts
       </StyledHeader>
