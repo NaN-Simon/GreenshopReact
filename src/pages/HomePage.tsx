@@ -5,7 +5,6 @@ import Banner from '../components/banner/Banner'
 import Categories from '../components/navigation/Categories';
 import CustomTab from '../components/tab/CustomTab';
 import Dropdown from '../components/UI/dropdown/Dropdown';
-import Card from '../components/card/Card';
 import RangeSlider from '../components/UI/range-slider/RangeSlider';
 import { categories } from '../mock-data/categories'
 import { size } from '../mock-data/size'
@@ -14,6 +13,7 @@ import { initialPrice } from '../mock-data/price-range'
 import Pagination from '../components/pagination/Pagination';
 import ArticleBanner from '../components/banner/ArticleBanner';
 import AsideBanner from '../components/banner/AsideBanner';
+import BlogPage from './BlogPage';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -56,6 +56,7 @@ const StyledArticleBannerGroup = styled.div`
   gap: 28px;
   width: 100%;
   background: ${theme.palette.testBox};
+  margin-bottom: 138px;
 `
 
 const HomePage = () => {
@@ -84,6 +85,7 @@ const HomePage = () => {
         <ArticleBanner />
         <ArticleBanner />
       </StyledArticleBannerGroup>
+      <BlogPage/>
     </StyledHomePage>
   )
 }

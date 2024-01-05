@@ -17,13 +17,13 @@ const StyledNav = styled.nav`
   background: ${theme.palette.testBox}
 `
 
-const StyledHeader = styled.h2`
-  color: ${theme.typography.h2.color};
-  font-family: ${theme.typography.h2.fontFamily};
-  font-style: ${theme.typography.h2.fontStyle};
+const StyledHeader = styled.h3`
+  color: ${theme.typography.h3.color};
+  font-family: ${theme.typography.h3.fontFamily};
+  font-style: ${theme.typography.h3.fontStyle};
   font-weight: 700;
-  font-size: ${theme.typography.h2.fontSize};
-  line-height: ${theme.typography.h2.lineHeight};
+  font-size: ${theme.typography.h3.fontSize};
+  line-height: ${theme.typography.h3.lineHeight};
 `
 
 const StyledUl = styled.ul`

@@ -16,21 +16,21 @@ const StyledWrapper = styled.div`
   padding: 30px;
 `
 
-const StyledHeader = styled.h2`
-  color: ${theme.typography.h2.color};
-  font-family: ${theme.typography.h2.fontFamily};
-  font-style: ${theme.typography.h2.fontStyle};
+const StyledHeader = styled.h3`
+  color: ${theme.typography.h3.color};
+  font-family: ${theme.typography.h3.fontFamily};
+  font-style: ${theme.typography.h3.fontStyle};
   font-weight: 700;
-  font-size: ${theme.typography.h2.fontSize};
-  line-height: ${theme.typography.h2.lineHeight};
+  font-size: ${theme.typography.h3.fontSize};
+  line-height: ${theme.typography.h3.lineHeight};
 `
-const StyledPrice = styled.h4`
-  color: ${theme.typography.h4.color};
-  font-family: ${theme.typography.h4.fontFamily};
-  font-style: ${theme.typography.h4.fontStyle};
-  font-weight: ${theme.typography.h4.fontWeight};
-  font-size: ${theme.typography.h4.fontSize};
-  line-height: ${theme.typography.h4.lineHeight};
+const StyledPrice = styled.h5`
+  color: ${theme.typography.h5.color};
+  font-family: ${theme.typography.h5.fontFamily};
+  font-style: ${theme.typography.h5.fontStyle};
+  font-weight: ${theme.typography.h5.fontWeight};
+  font-size: ${theme.typography.h5.fontSize};
+  line-height: ${theme.typography.h5.lineHeight};
   & span{
     color: ${theme.palette.info};
     font-weight: 700

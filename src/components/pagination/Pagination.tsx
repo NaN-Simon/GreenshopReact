@@ -14,12 +14,12 @@ const StyledReactPaginate = styled(ReactPaginate)`
     padding: 5px 12px;
     border: 1px solid #E5E5E5;
     border-radius: 4px;
-    color: ${theme.typography.h2.color};
-    font-family: ${theme.typography.h2.fontFamily};
-    font-style: ${theme.typography.h2.fontStyle};
-    font-weight: ${theme.typography.h2.fontWeight};
-    font-size: ${theme.typography.h2.fontSize};
-    line-height: ${theme.typography.h2.lineHeight};
+    color: ${theme.typography.h3.color};
+    font-family: ${theme.typography.h3.fontFamily};
+    font-style: ${theme.typography.h3.fontStyle};
+    font-weight: ${theme.typography.h3.fontWeight};
+    font-size: ${theme.typography.h3.fontSize};
+    line-height: ${theme.typography.h3.lineHeight};
     cursor: pointer;
   }
   li.previous a,

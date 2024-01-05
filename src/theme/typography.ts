@@ -12,6 +12,14 @@ const typography = {
     textTransform: 'uppercase',
   },
   h2: {
+    color: palette.primary,
+    fontFamily: 'Cera Pro',
+    fontSize: '30px',
+    fontStyle: 'normal',
+    fontWeight: 700,
+    lineHeight: '40px',
+  },
+  h3: {
     "color": palette.primary,
     "fontFamily": "Cera Pro",
     "fontSize": "18px",
@@ -19,7 +27,7 @@ const typography = {
     "fontWeight": "400",
     "lineHeight": "28px"
   },
-  h3: {
+  h4: {
     "color": palette.primary,
     "fontFamily": "Cera Pro",
     "fontSize": "16px",
@@ -27,7 +35,7 @@ const typography = {
     "fontWeight": "400",
     "lineHeight": "26px"
   },
-  h4: {
+  h5: {
     "color": palette.primary,
     "fontFamily": "Cera Pro",
     "fontSize": "15px",
@@ -35,7 +43,7 @@ const typography = {
     "fontWeight": "400",
     "lineHeight": "25px"
   },
-  h5: {
+  h6: {
     "color": palette.secondary,
     "fontFamily": "Cera Pro",
     "fontSize": "14px",

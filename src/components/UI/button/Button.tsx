@@ -18,11 +18,11 @@ const StyledButton = styled.button`
   outline: none;
   border: none;
   color: ${theme.palette.backgroundPrimary};
-  font-family: ${theme.typography.h3.fontFamily};
-  font-style: ${theme.typography.h3.fontStyle};
-  font-weight: ${theme.typography.h3.fontWeight};
-  font-size: ${theme.typography.h3.fontSize};
-  line-height: ${theme.typography.h3.lineHeight};
+  font-family: ${theme.typography.h4.fontFamily};
+  font-style: ${theme.typography.h4.fontStyle};
+  font-weight: ${theme.typography.h4.fontWeight};
+  font-size: ${theme.typography.h4.fontSize};
+  line-height: ${theme.typography.h4.lineHeight};
   background: ${theme.palette.info};
   transition: 0.25s all;
   cursor: pointer;

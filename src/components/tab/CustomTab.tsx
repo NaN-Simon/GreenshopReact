@@ -16,12 +16,12 @@ const StyledTab = styled(Tab)`
   border-radius: 0;
   list-style: none;
   outline: none;
-  color: ${theme.typography.h4.color};
-  font-family: ${theme.typography.h4.fontFamily};
-  font-style: ${theme.typography.h4.fontStyle};
-  font-weight: ${theme.typography.h4.fontWeight};
-  font-size: ${theme.typography.h4.fontSize};
-  line-height: ${theme.typography.h4.lineHeight};
+  color: ${theme.typography.h5.color};
+  font-family: ${theme.typography.h5.fontFamily};
+  font-style: ${theme.typography.h5.fontStyle};
+  font-weight: ${theme.typography.h5.fontWeight};
+  font-size: ${theme.typography.h5.fontSize};
+  line-height: ${theme.typography.h5.lineHeight};
   cursor: pointer;
   transition: border 0.7s;
   &.react-tabs__tab--selected {
