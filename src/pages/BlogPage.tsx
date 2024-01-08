@@ -13,6 +13,7 @@ const StyledBlogPageWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 `
 const StyledHeader = styled.h2`
     color: ${theme.typography.h2.color};
@@ -39,6 +40,7 @@ const StyledUl = styled.ul`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 44px;
+  width: 100%;
   padding: 0;
   list-style-type: none;
   background: ${theme.palette.testBox}

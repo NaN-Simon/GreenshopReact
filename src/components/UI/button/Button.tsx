@@ -1,10 +1,11 @@
-import React, { PropsWithChildren, ReactNode } from 'react'
+import React, { PropsWithChildren, ReactNode, CSSProperties } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import theme from '../../../theme/theme';
 
 interface IButton {
   children: ReactNode;
+  styles?: CSSProperties;
 }
 
 const StyledButton = styled.button`
@@ -31,9 +32,9 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ children }: PropsWithChildren<IButton>) => {
+const Button = ({ children, styles }: PropsWithChildren<IButton>) => {
   return (
-    <StyledButton>
+    <StyledButton style={{...styles}}>
       {children}
     </StyledButton>
   )

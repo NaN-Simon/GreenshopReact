@@ -5,6 +5,7 @@ import Header from './components/header/Header';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import theme from './theme/theme';
+import Footer from './components/footer/Footer';
 
 const AppStyled = styled.div`
   width: 100%;
@@ -37,6 +38,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage/>} />
       </Routes>
+      <Footer/>
     </AppStyled>
   );
 }
