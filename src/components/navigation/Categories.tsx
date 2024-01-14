@@ -5,7 +5,7 @@ import theme from '../../theme/theme';
 interface ICategories {
   header?: string,
   list: {
-    id?: number,
+    id: number,
     name: string,
     count: number
   }[]
@@ -14,7 +14,8 @@ interface ICategories {
 const StyledNav = styled.nav`
   width: 310px;
   flex-shrink: 0;
-  background: ${theme.palette.testBox}
+  background: ${theme.palette.backgroundSecondary};
+  padding: 9px 18px;
 `
 
 const StyledHeader = styled.h3`
@@ -29,26 +30,37 @@ const StyledHeader = styled.h3`
 const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 14px;
   list-style-type: none;
-  padding: 30px;
+  padding: 12px;
 `
 
-const StyledLi = styled.li`
+const StyledLi = styled.li<{ $info?: boolean; }>`
   display: flex;
   justify-content: space-between;
-  background: #c3c2c2;
+  color: ${props => props.$info ? theme.palette.info : theme.palette.primary};
+  font-family: ${theme.typography.h5.fontFamily};
+  font-style: ${theme.typography.h5.fontStyle};
+  font-weight: ${theme.typography.h5.fontWeight};
+  font-size: ${theme.typography.h5.fontSize};
+  line-height: ${theme.typography.h5.lineHeight};
+  transition: all 0.4s;
+  cursor: pointer;
+  &:hover{
+    opacity: 0.7
+  }
 `
 
 const Categories: FC<ICategories> = ({ list, header }) => {
+  const currentItem = list[0].id
   return (
     <StyledNav data-name='categories' >
       <StyledHeader>
         {header}
       </StyledHeader>
       <StyledUl>
-        {list.map((item: { id?: number, name: string, count: number }) => (
-          <StyledLi key={item.name}>
+        {list.map((item: { id: number, name: string, count: number }) => (
+          <StyledLi $info={currentItem === item.id} key={item.name}>
             <div>{item.name}</div>
             <div>({item.count})</div>
           </StyledLi>
