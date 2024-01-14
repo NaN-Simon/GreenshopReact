@@ -5,15 +5,19 @@ import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap_white.css";
 import styled from 'styled-components'
 import theme from '../../../theme/theme';
+import Button from '../button/Button';
 
 interface IRangeSlider {
   header?: string,
   initialPrice: number | number[]
 }
 
+const StyledRangeSlider = styled.div`
+  padding: 20px 18px;
+  background: ${theme.palette.backgroundSecondary};
+`
 const StyledWrapper = styled.div`
-  background: ${theme.palette.testBox};
-  padding: 30px;
+  padding: 17px 46px 14px 10px;
 `
 
 const StyledHeader = styled.h3`
@@ -25,6 +29,7 @@ const StyledHeader = styled.h3`
   line-height: ${theme.typography.h3.lineHeight};
 `
 const StyledPrice = styled.h5`
+  padding: 3px 2px 9px 2px;
   color: ${theme.typography.h5.color};
   font-family: ${theme.typography.h5.fontFamily};
   font-style: ${theme.typography.h5.fontStyle};
@@ -39,27 +44,29 @@ const StyledPrice = styled.h5`
 
 const rangeSliderCustomStyles = {
   track: {
+    top: '8px',
     background: theme.palette.info,
   },
   handle: {
     background: theme.palette.info,
     border: `3px solid ${theme.palette.backgroundSecondary}`,
-    width: 15,
-    height: 15
+    width: 20,
+    height: 20,
   },
   rail: {
-    background: `${theme.palette.info}33`
+    top: '8px',
+    background: `${theme.palette.info}33`,
   }
 }
 
 const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
   const [value, setValue] = useState<number | number[]>(initialPrice)
   return (
-    <div>
-      <StyledHeader>
+    <StyledRangeSlider data-name='range-slider'>
+      <StyledHeader data-name='range-slider-header'>
         {header}
       </StyledHeader>
-      <StyledWrapper>
+      <StyledWrapper data-name='range-slider-wrapper'>
         <Slider
           range
           min={39}
@@ -67,6 +74,7 @@ const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
           defaultValue={initialPrice}
           allowCross={false}
           onChange={setValue}
+          style={{ height: '23px' }}
           styles={rangeSliderCustomStyles}
           handleRender={(node, handleProps) => {
             return (
@@ -80,13 +88,14 @@ const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
             );
           }}
         />
-        <StyledPrice>
-          Price: <span>
-            ${Array.isArray(value) && value.join(" - $")}
-          </span>
+        <StyledPrice data-name='range-slider-price'>
+          Price: <span> ${Array.isArray(value) && value.join(" - $")} </span>
         </StyledPrice>
+        <Button styles={{ width: '90px', fontWeight: '700' }}>
+          Filter
+        </Button>
       </StyledWrapper>
-    </div>
+    </StyledRangeSlider>
   )
 }
 
