@@ -11,7 +11,7 @@ const AppStyled = styled.div`
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-top: 10px;
+  padding-top: 13px;
 
   @media (min-width: ${theme.breakpoints.devices.sm}) {
     width: ${theme.breakpoints.devices.sm};

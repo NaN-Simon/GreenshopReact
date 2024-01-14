@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import theme from '../../theme/theme';
 
 const StyledNav = styled.nav`
-background: ${theme.palette.testBox}
+/* background: ${theme.palette.testBox} */
 `
 const StyledUl = styled.ul`
   display: flex;
@@ -14,10 +14,13 @@ const StyledUl = styled.ul`
   width: 100%;
 `
 const StyledLi = styled.li`
-list-style-type: none;
+  list-style-type: none;
+  /* height: 70px; */
+  display: flex;
+  align-items: center;
 `
 const StyledLink = styled(Link)`
-  padding: 5px;
+  padding: 15px 0;
   color: ${theme.typography.h3.color};
   font-family: ${theme.typography.h3.fontFamily};
   font-style: ${theme.typography.h3.fontStyle};
@@ -32,7 +35,7 @@ const StyledLink = styled(Link)`
   }
 `
 const StyledHashLink = styled(HashLink)`
-  padding: 5px;
+  padding: 15px 0;
   color: ${theme.typography.h3.color};
   font-family: ${theme.typography.h3.fontFamily};
   font-style: ${theme.typography.h3.fontStyle};

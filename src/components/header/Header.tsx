@@ -11,7 +11,7 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 53px;
+  height: 64px;
   border-bottom: 0.3px solid ${theme.palette.info}7e;
 `
 const Header = () => {
