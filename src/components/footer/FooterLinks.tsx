@@ -59,12 +59,12 @@ const FooterLinks = () => {
   return (
     <StyledFooterLinks data-name='footer-links' >
       {footerLinks.map((linkGroup) => (
-        <StyledFooterLinkGroup>
+        <StyledFooterLinkGroup key={linkGroup.header}>
           <StyledFooterHeader>
             {linkGroup.header}
           </StyledFooterHeader>
           {linkGroup.links.map((link) => (
-            <StyledFooterLink>{link}</StyledFooterLink>
+            <StyledFooterLink key={link}>{link}</StyledFooterLink>
           ))}
         </StyledFooterLinkGroup>
       ))}
