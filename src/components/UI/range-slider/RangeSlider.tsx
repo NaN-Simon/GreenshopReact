@@ -91,7 +91,7 @@ const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
         <StyledPrice data-name='range-slider-price'>
           Price: <span> ${Array.isArray(value) && value.join(" - $")} </span>
         </StyledPrice>
-        <Button styles={{ width: '90px', fontWeight: '700' }}>
+        <Button style={{ width: '90px', fontWeight: '700' }}>
           Filter
         </Button>
       </StyledWrapper>

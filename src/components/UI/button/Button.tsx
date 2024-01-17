@@ -5,7 +5,7 @@ import theme from '../../../theme/theme';
 
 interface IButton {
   children: ReactNode;
-  styles?: CSSProperties;
+  style?: CSSProperties;
 }
 
 const StyledButton = styled.button`
@@ -32,9 +32,9 @@ const StyledButton = styled.button`
   }
 `
 
-const Button = ({ children, styles }: PropsWithChildren<IButton>) => {
+const Button = ({ children, style, ...datum }: PropsWithChildren<IButton>) => {
   return (
-    <StyledButton style={{...styles}}>
+    <StyledButton style={{...style}} {...datum}>
       {children}
     </StyledButton>
   )

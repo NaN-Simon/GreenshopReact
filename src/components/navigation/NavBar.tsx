@@ -12,6 +12,7 @@ const StyledUl = styled.ul`
   justify-content: space-between;
   gap: 40px;
   width: 100%;
+  white-space: nowrap;
 `
 const StyledLi = styled.li`
   list-style-type: none;

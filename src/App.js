@@ -26,7 +26,7 @@ const AppStyled = styled.div`
   }
 
   @media (min-width: ${theme.breakpoints.devices.xl}) {
-    width: 1200px;
+    width: ${theme.breakpoints.devices.xl};
   }
 `
 

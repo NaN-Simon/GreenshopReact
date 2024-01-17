@@ -38,8 +38,8 @@ const StyledBannerText = styled.div`
 `
 const StyledBannerPicture = styled.div`
   position: relative;
-  width: 518px;
-  height: 518px;
+  width: 450px;
+  height: 450px;
 
   @media (max-width: ${theme.breakpoints.devices.sm}) {
    display: none
@@ -85,7 +85,7 @@ const Banner = () => {
           <StyledHeaderH1>Let’s Make a Better <span style={{ color: theme.palette.info }}>Planet</span></StyledHeaderH1>
           <StyledHeaderDescription>{description}</StyledHeaderDescription>
         </StyledBannerText>
-        <Button styles={{ width: '140px', fontWeight: '700' }}>
+        <Button style={{ width: '140px', fontWeight: '700' }}>
           SHOP NOW
         </Button>
       </div>

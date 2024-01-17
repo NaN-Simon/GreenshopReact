@@ -1,20 +1,21 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import theme from '../../theme/theme';
 import Button from '../UI/button/Button';
+import Input from '../UI/input/Input';
 
 const StyledFeedback = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 355px;
+  width: 380px;
   height: 250px;
-  padding: 1px 30px 1px 25px;
+  padding: 0px 25px 0px 0px;
   background: #C3C2C2;
 `
 
-const StyledInputForm = styled.div`
+const StyledInputForm = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,11 +23,29 @@ const StyledInputForm = styled.div`
 `
 
 const Feedback = () => {
+  const [email, setEmail] = useState('')
+
+  const handleSubmit = (event: React.FormEvent) => {
+    event.preventDefault()
+    alert(email)
+    setEmail('')
+  }
+
   return (
     <StyledFeedback>
-      <StyledInputForm>
-        <input type="text" name="" id="" />
-        <Button styles={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0 }} >
+      <StyledInputForm onSubmit={handleSubmit}>
+        <Input
+          value={email}
+          setValue={setEmail}
+          type='email'
+          style={{
+            borderTopRightRadius: 0,
+            borderBottomRightRadius: 0
+          }}
+          name='feedback'
+          placeholder='enter your email address...'
+        />
+        <Button style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, height: '40px' }} >
           Join
         </Button>
       </StyledInputForm>
