@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import theme from '../../theme/theme';
-import flower1 from '../../assets/image/flowers/flower1.png';
-import flower2 from '../../assets/image/flowers/flower2.png';
+import flower4 from '../../assets/image/flowers/flower4.png';
 import Button from '../UI/button/Button';
 
 const StyledBannerSection = styled.section`
@@ -91,8 +90,8 @@ const Banner = () => {
       </div>
       <StyledBannerPicture data-name='banner-picture'>
         <div style={{ width: '100%' }}>
-          <img style={{ width: '100%', position: 'absolute', left: '10px', bottom: '13px' }} src={flower1} alt="flower1" />
-          <img style={{ width: '26%', position: 'absolute', left: '66px', bottom: '0px' }} src={flower2} alt="flower2" />
+          <img style={{ width: '100%', position: 'absolute', left: '10px', bottom: '13px' }} src={flower4} alt="flower4" />
+          <img style={{ width: '26%', position: 'absolute', left: '66px', bottom: '0px' }} src={flower4} alt="flower4" />
         </div>
       </StyledBannerPicture>
     </StyledBannerSection>
