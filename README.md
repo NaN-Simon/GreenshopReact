@@ -27,3 +27,7 @@ name project: GREENSHOP
 [react-tabs](https://github.com/reactjs/react-tabs)
 
 [react-paginate](https://github.com/AdeleD/react-paginate)
+
+[react-slick, slick-carousel](https://github.com/akiran/react-slick)
+
+[react-select](https://github.com/JedWatson/react-select/tree/master)
