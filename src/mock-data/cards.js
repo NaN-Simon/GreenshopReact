@@ -1,207 +1,303 @@
+import flower1 from '../assets/image/flowers/flower1.png'
+import flower2 from '../assets/image/flowers/flower2.png'
+import flower3 from '../assets/image/flowers/flower3.png'
+import flower4 from '../assets/image/flowers/flower4.png'
+import flower5 from '../assets/image/flowers/flower5.png'
+import flower6 from '../assets/image/flowers/flower6.png'
+import flower7 from '../assets/image/flowers/flower7.png'
+import flower8 from '../assets/image/flowers/flower8.png'
+import flower9 from '../assets/image/flowers/flower9.png'
+import nirnroot from '../assets/image/flowers/nirnroot.png'
+
 export const cards = [
   {
+    id: 1,
+    image: flower1,
     name: "Barberton Daisy",
-    cost: "$119.00",
-    id: 1
+    price: "119.00",
+    currency: '$',
   },
   {
+    id: 2,
+    image: flower2,
     name: "Angel Wing Begonia",
-    cost: "$169.00",
-    id: 2
+    price: "169.00",
+    currency: '$',
   },
   {
+    id: 3,
+    image: flower3,
     name: "African Violet",
-    cost: "$199.00",
-    id: 3
+    price: "199.00",
+    currency: '$',
+    prevPrice: '229.00',
   },
   {
+    id: 4,
+    image: flower4,
     name: "Beach Spider Lily",
-    cost: "$229.00",
-    id: 4
+    price: "229.00",
+    currency: '$',
   },
   {
+    id: 5,
+    image: flower5,
     name: "Blushing Bromeliad",
-    cost: "$129.00",
-    id: 5
+    price: "129.00",
+    currency: '$',
   },
   {
+    id: 6,
+    image: flower6,
     name: "Aluminum Plant",
-    cost: "$139.00",
-    id: 6
+    price: "139.00",
+    currency: '$',
   },
   {
+    id: 7,
+    image: flower7,
     name: "Bird's Nest Fern",
-    cost: "$99.00",
-    id: 7
+    price: "99.00",
+    currency: '$',
   },
   {
+    id: 8,
+    image: flower8,
     name: "Broadleaf Lady Palm",
-    cost: "$59.00",
-    id: 8
+    price: "59.00",
+    prevPrice: '10.00',
+    currency: '$',
   },
   {
+    id: 9,
+    image: flower9,
     name: "Chinese Evergreen",
-    cost: "$39.00",
-    id: 9
+    price: "39.00",
+    prevPrice: '229.00',
+    currency: '$',
   },
   {
+    id: 10,
+    image: flower4,
     name: "Snake Plant",
-    cost: "$89.00",
-    id: 10
+    price: "89.00",
+    currency: '$',
   },
   {
+    id: 11,
+    image: flower5,
     name: "Bamboo Palm",
-    cost: "$79.00",
-    id: 11
+    price: "79.00",
+    currency: '$',
   },
   {
+    id: 12,
+    image: flower9,
     name: "Cactus",
-    cost: "$49.00",
-    id: 12
+    price: "49.00",
+    currency: '$',
   },
   {
+    id: 13,
+    image: flower6,
     name: "Cast Iron Plant",
-    cost: "$169.00",
-    id: 13
+    price: "169.00",
+    currency: '$',
   },
   {
+    id: 14,
+    image: flower2,
     name: "Dumb Cane",
-    cost: "$59.00",
-    id: 14
+    price: "59.00",
+    currency: '$',
   },
   {
+    id: 15,
+    image: flower1,
     name: "Dwarf Umbrella Tree",
-    cost: "$89.00",
-    id: 15
+    price: "89.00",
+    currency: '$',
   },
   {
+    id: 16,
+    image: flower3,
     name: "English Ivy",
-    cost: "$69.00",
-    id: 16
+    price: "69.00",
+    currency: '$',
   },
   {
+    id: 17,
+    image: flower7,
     name: "Flamingo Lily",
-    cost: "$119.00",
-    id: 17
+    price: "119.00",
+    currency: '$',
   },
   {
+    id: 18,
+    image: flower4,
     name: "Fiddle-leaf Fig",
-    cost: "$189.00",
-    id: 18
+    price: "189.00",
+    currency: '$',
   },
   {
+    id: 19,
+    image: flower5,
     name: "Gardenia",
-    cost: "$99.00",
-    id: 19
+    price: "99.00",
+    currency: '$',
   },
   {
+    id: 20,
+    image: flower2,
     name: "Hibiscus",
-    cost: "$79.00",
-    id: 20
+    price: "79.00",
+    currency: '$',
   },
   {
+    id: 21,
+    image: flower9,
     name: "Jade Plant",
-    cost: "$59.00",
-    id: 21
+    price: "59.00",
+    currency: '$',
   },
   {
+    id: 22,
+    image: flower8,
     name: "Kentia Palm",
-    cost: "$129.00",
-    id: 22
+    price: "129.00",
+    currency: '$',
   },
   {
+    id: 23,
+    image: flower7,
     name: "Lavender",
-    cost: "$69.00",
-    id: 23
+    price: "69.00",
+    currency: '$',
   },
   {
+    id: 24,
+    image: flower5,
     name: "Lucky Bamboo",
-    cost: "$49.00",
-    id: 24
+    price: "49.00",
+    currency: '$',
   },
   {
+    id: 25,
+    image: flower6,
     name: "Madagascar Dragon Tree",
-    cost: "$159.00",
-    id: 25
+    price: "159.00",
+    currency: '$',
   },
   {
+    id: 26,
+    image: flower4,
     name: "Maidenhair Fern",
-    cost: "$89.00",
-    id: 26
+    price: "89.00",
+    currency: '$',
   },
   {
+    id: 27,
+    image: flower2,
     name: "Money Tree",
-    cost: "$149.00",
-    id: 27
+    price: "149.00",
+    currency: '$',
   },
   {
+    id: 28,
+    image: flower3,
     name: "Norfolk Island Pine",
-    cost: "$79.00",
-    id: 28
+    price: "79.00",
+    currency: '$',
   },
   {
+    id: 29,
+    image: flower9,
     name: "Orchid",
-    cost: "$99.00",
-    id: 29
+    price: "99.00",
+    currency: '$',
   },
   {
+    id: 30,
+    image: flower1,
     name: "Palm Lily",
-    cost: "$109.00",
-    id: 30
+    price: "109.00",
+    currency: '$',
   },
   {
+    id: 31,
+    image: flower8,
     name: "Pansy",
-    cost: "$39.00",
-    id: 31
+    price: "39.00",
+    currency: '$',
   },
   {
+    id: 32,
+    image: flower3,
     name: "Peace Lily",
-    cost: "$69.00",
-    id: 32
+    price: "69.00",
+    currency: '$',
   },
   {
+    id: 33,
+    image: flower5,
     name: "Peperomia",
-    cost: "$59.00",
-    id: 33
+    price: "59.00",
+    currency: '$',
   },
   {
+    id: 34,
+    image: flower4,
     name: "Pothos",
-    cost: "$49.00",
-    id: 34
+    price: "49.00",
+    currency: '$',
   },
   {
+    id: 35,
+    image: flower1,
     name: "Prayer Plant",
-    cost: "$69.00",
-    id: 35
+    price: "69.00",
+    currency: '$',
   },
   {
+    id: 36,
+    image: flower6,
     name: "Rose",
-    cost: "$89.00",
-    id: 36
+    price: "89.00",
+    currency: '$',
   },
   {
+    id: 37,
+    image: flower4,
     name: "Spider Plant",
-    cost: "$59.00",
-    id: 37
+    price: "59.00",
+    currency: '$',
   },
   {
+    id: 38,
+    image: flower2,
     name: "Succulent",
-    cost: "$39.00",
-    id: 38
+    price: "39.00",
+    currency: '$',
   },
   {
+    id: 39,
+    image: flower6,
     name: "Sunflower",
-    cost: "$49.00",
-    id: 39
+    price: "49.00",
+    currency: '$',
   },
   {
+    id: 40,
+    image: flower3,
     name: "Tulip",
-    cost: "$39.00",
-    id: 40
+    price: "39.00",
+    currency: '$',
   },
   {
+    id: 41,
+    image: nirnroot,
     name: "Nirnroot",
-    cost: "$5000000.00",
-    id: 41
+    price: "5000000.00",
+    currency: '$',
   },
 ]

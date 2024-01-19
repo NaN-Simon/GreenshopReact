@@ -33,7 +33,7 @@ const typography = {
     "fontSize": "16px",
     "fontStyle": "normal",
     "fontWeight": "400",
-    "lineHeight": "26px"
+    "lineHeight": "16px"
   },
   h5: {
     "color": palette.primary,

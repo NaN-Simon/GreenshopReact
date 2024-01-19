@@ -51,7 +51,7 @@ const StyledUl = styled.ul`
   gap: 33px;
   padding: 0;
   list-style-type: none;
-  background: ${theme.palette.testBox}
+  background: ${theme.palette.backgroundPrimary}
 `
 
 interface IPagination {
