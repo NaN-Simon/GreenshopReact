@@ -13,6 +13,7 @@ width: 100%;
 height: 450px;
 background: ${theme.palette.backgroundSecondary};
 `
+
 const StyledBannerText = styled.div`
   max-width: 557px;
   display: flex;
@@ -55,16 +56,16 @@ const StyledHeaderDescription = styled.h6`
   line-height: ${theme.typography.h6.lineHeight};
 `
 
-const Banner = () => {
+const Banner2 = () => {
   const headerH6 = 'Welcome to GreenShop'
-  const description = 'We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!'
+  const description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus est consectetur nobis?'
 
   return (
     <StyledBannerSection data-name='banner'>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '44px' }}>
         <StyledBannerText>
           <StyledHeaderH6>{headerH6}</StyledHeaderH6>
-          <StyledHeaderH1>Let’s Make a Better <span style={{ color: theme.palette.info }}>Planet</span></StyledHeaderH1>
+          <StyledHeaderH1>Hello<span style={{ color: theme.palette.info }}>World</span></StyledHeaderH1>
           <StyledHeaderDescription>{description}</StyledHeaderDescription>
         </StyledBannerText>
         <Button style={{ width: '140px', fontWeight: '700' }}>
@@ -81,4 +82,4 @@ const Banner = () => {
   )
 }
 
-export default Banner
+export default Banner2

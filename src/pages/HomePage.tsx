@@ -4,7 +4,7 @@ import theme from '../theme/theme';
 import Banner from '../components/banner/Banner'
 import Categories from '../components/navigation/Categories';
 import CustomTab from '../components/tab/CustomTab';
-import Dropdown from '../components/UI/dropdown/Dropdown';
+import CustomSelect from '../components/UI/celect/CustomSelect';
 import RangeSlider from '../components/UI/range-slider/RangeSlider';
 import { categories } from '../mock-data/categories'
 import { size } from '../mock-data/size'
@@ -14,6 +14,7 @@ import Pagination from '../components/pagination/Pagination';
 import ArticleBanner from '../components/banner/ArticleBanner';
 import AsideBanner from '../components/banner/AsideBanner';
 import BlogPage from './BlogPage';
+import Carousel from '../components/UI/carousel/Carousel';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -63,7 +64,8 @@ const StyledArticleBannerGroup = styled.div`
 const HomePage = () => {
   return (
     <StyledHomePage>
-      <Banner />
+      {/* <Banner /> */}
+      <Carousel/>
       <StyledMain data-name='main'>
         <div>
           <StyledCategoriesFilterGroup>
@@ -76,7 +78,7 @@ const HomePage = () => {
         <StyledContent data-name='content'>
           <StyledCardFilterGroup data-name='filters'>
             <CustomTab />
-            <Dropdown />
+            <CustomSelect />
           </StyledCardFilterGroup>
           {/* Сами карточки с товарами передаются в Pagination */}
           <Pagination itemsPerPage={9} items={cards} />

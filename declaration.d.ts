@@ -15,3 +15,4 @@ declare module '*.svg' {
   export default value;
  }
  declare module 'react-router-hash-link';
+ declare module 'slick-carousel';
