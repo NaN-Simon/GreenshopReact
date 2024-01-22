@@ -1,11 +1,22 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { ICard } from '../../types/card'
+import { motion } from "framer-motion";
+
 import theme from '../../theme/theme'
 
 import { ReactComponent as CartSVG } from '../../assets/svg/cart.svg'
 import { ReactComponent as HeartSVG } from '../../assets/svg/heart.svg'
 import { ReactComponent as FindSVG } from '../../assets/svg/find.svg'
+
+import { ICard } from '../../types/card'
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1
+  }
+};
 
 const StyledImage = styled.div`
   position: relative;
@@ -30,9 +41,9 @@ const StyledBookmark = styled.div`
   line-height: ${theme.typography.h4.lineHeight};
 `
 const StyledImg = styled.img`
-width: 250px;
-height: 250px;
-background: inherit
+  width: 250px;
+  height: 250px;
+  background: inherit
 `
 const StyledWidgetsItems = styled.div`
   display: flex;
@@ -71,10 +82,10 @@ const StyledPrevPrice = styled.div`
   text-decoration: line-through;
 `
 const StyledWidgets = styled.div`
- display: none;
- position: relative;
+  display: none;
+  position: relative;
 `
-const StyledLi = styled.li`
+const StyledLi = styled(motion.li)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -83,6 +94,7 @@ const StyledLi = styled.li`
   border-top: 1px solid transparent;
   background: ${theme.palette.backgroundSecondary};
   transition: all 0.5s;
+  cursor: pointer;
   &:hover{
     & ${StyledWidgets}{
       display:block;
@@ -96,7 +108,14 @@ const Card: FC<ICard> = ({ id, image, name, currency, price, prevPrice }) => {
   const percentDiscount = isShowDiscount ? (Math.floor(100 - ((+price * 100) / +prevPrice))) : 0
 
   return (
-    <StyledLi data-name='card' key={id}>
+    <StyledLi
+      data-name='card'
+      variants={item}
+      key={id}
+      onClick={() => {
+        alert([id, image, name, currency, price, prevPrice].toString())
+      }}
+    >
 
       <StyledImage data-name='card-image'>
         {isShowDiscount && (

@@ -1,14 +1,45 @@
 import React, { FC, useEffect, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import styled from 'styled-components'
+import { motion } from "framer-motion";
+
 import Card from '../card/Card'
 import theme from '../../theme/theme';
-import { ICard } from '../../types/card';
 
+import { ICard } from '../../types/card';
+import { IPagination } from '../../types/pagination';
+
+const container = {
+  hidden: { opacity: 1, scale: 0 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: {
+      delayChildren: 0.3,
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const StyledPagination = styled.div`
+  width: 100%;
+`
+const StyledUl = styled(motion.ul)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 33px;
+  padding: 0;
+  list-style-type: none;
+  background: ${theme.palette.backgroundPrimary}
+`
 const StyledReactPaginate = styled(ReactPaginate)`
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+  padding: 20px 0;
   list-style-type: none;
   li a {
     padding: 5px 12px;
@@ -42,39 +73,9 @@ const StyledReactPaginate = styled(ReactPaginate)`
   }
 `
 
-const StyledUl = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 33px;
-  padding: 0;
-  list-style-type: none;
-  background: ${theme.palette.backgroundPrimary}
-`
-
-interface IPagination {
-  itemsPerPage?: number,
-  items: ICard[]
-}
-
-const ContentList = ({ list }: { list: ICard[] }) => {
-  return (
-    <StyledUl>
-      {list?.map((item) => (
-        <Card
-          key={item.id}
-          {...item}
-        />
-      ))}
-    </StyledUl>
-  );
-}
-
 const Pagination: FC<IPagination> = ({ itemsPerPage = 9, items }) => {
   // We start with an empty list of items.
-  const [currentItems, setCurrentItems] = useState<ICard[]>([]);
+  const [currentItems, setCurrentItems] = useState<ICard[]>(items);
   const [pageCount, setPageCount] = useState(0);
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
@@ -94,30 +95,49 @@ const Pagination: FC<IPagination> = ({ itemsPerPage = 9, items }) => {
     /* console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`); */
     setItemOffset(newOffset);
   };
+
+  const paginationProps = {
+    nextLabel: ">",
+    onPageChange: handlePageClick,
+    pageRangeDisplayed: 3,
+    marginPagesDisplayed: 2,
+    pageCount: pageCount,
+    previousLabel: "<",
+    pageClassName: "page-item",
+    pageLinkClassName: "page-link",
+    previousClassName: "page-item",
+    previousLinkClassName: "page-link",
+    nextClassName: "page-item",
+    nextLinkClassName: "page-link",
+    breakLabel: "...",
+    breakClassName: "page-item",
+    breakLinkClassName: "page-link",
+    containerClassName: "pagination",
+    activeClassName: "active",
+    renderOnZeroPageCount: null,
+  };
+
   return (
-    <>
-      <ContentList list={currentItems} />
+    <StyledPagination data-name='pagination'>
+
+      <StyledUl
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {currentItems.map((cardItem) => (
+          <Card
+            key={cardItem.id}
+            {...cardItem}
+          />
+        ))}
+      </StyledUl>
+
       <StyledReactPaginate
-        nextLabel=">"
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={2}
-        pageCount={pageCount}
-        previousLabel="<"
-        pageClassName="page-item"
-        pageLinkClassName="page-link"
-        previousClassName="page-item"
-        previousLinkClassName="page-link"
-        nextClassName="page-item"
-        nextLinkClassName="page-link"
-        breakLabel="..."
-        breakClassName="page-item"
-        breakLinkClassName="page-link"
-        containerClassName="pagination"
-        activeClassName="active"
-        renderOnZeroPageCount={null}
+        {...paginationProps}
       />
-    </>
+
+    </StyledPagination>
   )
 }
 

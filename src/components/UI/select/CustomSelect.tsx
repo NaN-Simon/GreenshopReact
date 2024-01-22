@@ -8,7 +8,6 @@ const options = [
 ];
 
 const CustomSelect = () => {
-  // const [selectedOption, setSelectedOption] = useState<{value: string; label: string}>({ value: '', label: '' });
   const [selectedOption, setSelectedOption] = useState<{ value: string; label: string; } | null>(null);
 
   return (

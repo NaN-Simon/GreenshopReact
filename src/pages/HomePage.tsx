@@ -1,20 +1,22 @@
 import React from 'react'
 import styled from 'styled-components'
 import theme from '../theme/theme';
-import Banner from '../components/banner/Banner'
+
+import BlogPage from './BlogPage';
+
 import Categories from '../components/navigation/Categories';
 import CustomTab from '../components/tab/CustomTab';
-import CustomSelect from '../components/UI/celect/CustomSelect';
+import CustomSelect from '../components/UI/select/CustomSelect';
 import RangeSlider from '../components/UI/range-slider/RangeSlider';
+import Carousel from '../components/UI/carousel/Carousel';
+import Pagination from '../components/pagination/Pagination';
+import ArticleBanner from '../components/banner/ArticleBanner';
+import AsideBanner from '../components/banner/AsideBanner';
+
 import { categories } from '../mock-data/categories'
 import { size } from '../mock-data/size'
 import { cards } from '../mock-data/cards'
 import { initialPrice } from '../mock-data/price-range'
-import Pagination from '../components/pagination/Pagination';
-import ArticleBanner from '../components/banner/ArticleBanner';
-import AsideBanner from '../components/banner/AsideBanner';
-import BlogPage from './BlogPage';
-import Carousel from '../components/UI/carousel/Carousel';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -64,7 +66,6 @@ const StyledArticleBannerGroup = styled.div`
 const HomePage = () => {
   return (
     <StyledHomePage>
-      {/* <Banner /> */}
       <Carousel/>
       <StyledMain data-name='main'>
         <div>
