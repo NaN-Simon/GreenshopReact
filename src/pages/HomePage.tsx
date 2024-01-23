@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components'
 import theme from '../theme/theme';
 
 import BlogPage from './BlogPage';
+
+import { fetchUsers } from '../api/users';
+import { AppDispatch, RootState } from '../store/store';
 
 import Categories from '../components/navigation/Categories';
 import CustomTab from '../components/tab/CustomTab';
@@ -15,7 +19,6 @@ import AsideBanner from '../components/banner/AsideBanner';
 
 import { categories } from '../mock-data/categories'
 import { size } from '../mock-data/size'
-import { cards } from '../mock-data/cards'
 import { initialPrice } from '../mock-data/price-range'
 
 const StyledHomePage = styled.div`
@@ -63,7 +66,15 @@ const StyledArticleBannerGroup = styled.div`
   margin-bottom: 138px;
 `
 
+
 const HomePage = () => {
+  const { error, status, isLoading, users, products} = useSelector((state: RootState) => state.product)
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(()=>{
+    dispatch(fetchUsers())
+  },[dispatch])
+
   return (
     <StyledHomePage>
       <Carousel/>
@@ -82,7 +93,9 @@ const HomePage = () => {
             <CustomSelect />
           </StyledCardFilterGroup>
           {/* Сами карточки с товарами передаются в Pagination */}
-          <Pagination itemsPerPage={9} items={cards} />
+          {error && error}
+          {isLoading && <span>Loading...</span>}
+          {!isLoading && <Pagination itemsPerPage={9} items={products} />}
         </StyledContent>
       </StyledMain>
       <StyledArticleBannerGroup>
