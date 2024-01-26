@@ -67,12 +67,12 @@ const Banner = () => {
           <StyledHeaderH1>Let’s Make a Better <span style={{ color: theme.palette.info }}>Planet</span></StyledHeaderH1>
           <StyledHeaderDescription>{description}</StyledHeaderDescription>
         </StyledBannerText>
-        <Button style={{ width: '140px', fontWeight: '700' }}>
+        <Button link='#' style={{ width: '140px', fontWeight: '700' }}>
           SHOP NOW
         </Button>
       </div>
       <StyledBannerPicture data-name='banner-picture'>
-        <div style={{ width: '100%' }}>
+        <div style={{ width: '100%' }} onClick={()=>{console.log('asdasdas')}}>
           <img style={{ width: '100%', position: 'absolute', left: '10px', bottom: '13px' }} src={flower4} alt="flower4" />
           <img style={{ width: '26%', position: 'absolute', left: '66px', bottom: '0px' }} src={flower4} alt="flower4" />
         </div>

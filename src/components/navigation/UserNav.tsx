@@ -70,7 +70,7 @@ const UserNav = () => {
         <FindSVG onClick={handleOnClickFind} style={{ cursor: 'pointer' }} />
       </StyledFind>
       <CartSVG fill='#3D3D3D'/>
-      <Button>
+      <Button link='#'>
         <LoginSVG />
         <span>Login</span>
       </Button>

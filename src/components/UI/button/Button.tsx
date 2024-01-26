@@ -5,6 +5,7 @@ import theme from '../../../theme/theme';
 
 interface IButton {
   children: ReactNode;
+  link: string;
   style?: CSSProperties;
 }
 
@@ -12,7 +13,6 @@ const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 4px;
   width: 100px;
   height: 35px;
   border-radius: 6px;
@@ -31,11 +31,23 @@ const StyledButton = styled.button`
     opacity: 0.75;
   }
 `
+const StyledLink = styled(Link)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+    `
 
-const Button = ({ children, style, ...datum }: PropsWithChildren<IButton>) => {
+const Button = ({ children, link, style, ...datum }: PropsWithChildren<IButton>) => {
   return (
-    <StyledButton style={{...style}} {...datum}>
-      {children}
+    <StyledButton style={{ ...style }} {...datum}>
+      <StyledLink to={link}>
+        {children}
+      </StyledLink>
     </StyledButton>
   )
 }

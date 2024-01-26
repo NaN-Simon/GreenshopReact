@@ -20,6 +20,7 @@ import ArticleBanner from '../components/banner/ArticleBanner';
 import AsideBanner from '../components/banner/AsideBanner';
 
 import { initialPrice } from '../mock-data/price-range'
+import { bannerInfo } from '../mock-data/banner-info'
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -51,17 +52,6 @@ const StyledCardFilterGroup = styled.div`
   align-items: center;
   background: ${theme.palette.testBox};
 `
-const StyledArticleBannerGroup = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 28px;
-  width: 100%;
-  background: ${theme.palette.testBox};
-  margin-bottom: 138px;
-`
-
 
 const HomePage = () => {
   const { error, status, isLoading, goods } = useSelector((state: RootState) => state.goodsReducer)
@@ -86,6 +76,7 @@ const HomePage = () => {
   return (
     <StyledHomePage >
       <Carousel />
+
       <StyledMain data-name='main'>
         <div>
           <StyledCategoriesFilterGroup>
@@ -106,10 +97,7 @@ const HomePage = () => {
           {!isLoading && <Pagination itemsPerPage={9} items={goods} />}
         </StyledContent>
       </StyledMain>
-      <StyledArticleBannerGroup>
-        <ArticleBanner />
-        <ArticleBanner />
-      </StyledArticleBannerGroup>
+      <ArticleBanner data={bannerInfo} />
       <BlogPage />
     </StyledHomePage>
   )

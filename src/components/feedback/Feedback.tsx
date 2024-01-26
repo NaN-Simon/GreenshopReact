@@ -45,7 +45,7 @@ const Feedback = () => {
           name='feedback'
           placeholder='enter your email address...'
         />
-        <Button style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, height: '40px' }} >
+        <Button link='#' style={{ borderTopLeftRadius: 0, borderBottomLeftRadius: 0, height: '40px' }} >
           Join
         </Button>
       </StyledInputForm>

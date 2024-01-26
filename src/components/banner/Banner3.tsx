@@ -69,7 +69,7 @@ const Banner3 = () => {
         <StyledHeaderH6>Welcome to GreenShop</StyledHeaderH6>
         <StyledHeaderH1>Join to</StyledHeaderH1>
         <StyledHeaderH1><span style={{ color: theme.palette.info }}>TEAMTREES</span></StyledHeaderH1>
-        <Button style={{ width: '140px', fontWeight: '700', marginTop: '30px' }}>
+        <Button link='#' style={{ width: '140px', fontWeight: '700', marginTop: '30px' }}>
           JOIN NOW
         </Button>
       </div>

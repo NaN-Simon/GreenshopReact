@@ -68,7 +68,7 @@ const Banner2 = () => {
           <StyledHeaderH1>Hello<span style={{ color: theme.palette.info }}>World</span></StyledHeaderH1>
           <StyledHeaderDescription>{description}</StyledHeaderDescription>
         </StyledBannerText>
-        <Button style={{ width: '140px', fontWeight: '700' }}>
+        <Button link='#' style={{ width: '140px', fontWeight: '700' }}>
           SHOP NOW
         </Button>
       </div>
