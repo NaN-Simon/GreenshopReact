@@ -15,7 +15,7 @@ export const cards = [
     image: flower1,
     name: "Barberton Daisy",
     category: "House Plants",
-    size: "medium",
+    size: "Medium",
     price: "119.00",
     currency: '$',
     tags: ["daisy", "house plants"]
@@ -25,7 +25,7 @@ export const cards = [
     image: flower2,
     name: "Angel Wing Begonia",
     category: "Potter Plants",
-    size: "small",
+    size: "Small",
     price: "169.00",
     currency: '$',
     tags: ["begonia", "potter plants"]
@@ -35,7 +35,7 @@ export const cards = [
     image: flower3,
     name: "African Violet",
     category: "Seeds",
-    size: "large",
+    size: "Large",
     price: "199.00",
     currency: '$',
     prevPrice: '229.00',
@@ -46,17 +46,17 @@ export const cards = [
     image: flower4,
     name: "Beach Spider Lily",
     category: "Small Plants",
-    size: "medium",
+    size: "Medium",
     price: "229.00",
     currency: '$',
-    tags: ["spider lily", "small plants"]
+    tags: ["spider lily", "Small plants"]
   },
   {
     id: 5,
     image: flower5,
     name: "Blushing Bromeliad",
     category: "Big Plants",
-    size: "large",
+    size: "Large",
     price: "129.00",
     currency: '$',
     tags: ["bromeliad", "big plants"]
@@ -66,7 +66,7 @@ export const cards = [
     image: flower6,
     name: "Aluminum Plant",
     category: "Succulents",
-    size: "small",
+    size: "Small",
     price: "139.00",
     currency: '$',
     tags: ["aluminum plant", "succulents"]
@@ -76,17 +76,17 @@ export const cards = [
     image: flower7,
     name: "Bird's Nest Fern",
     category: "Terrariums",
-    size: "medium",
+    size: "Medium",
     price: "99.00",
     currency: '$',
     tags: ["fern", "terrariums"]
   },
   {
     id: 8,
-    image: "flower8",
+    image: flower8,
     name: "Broadleaf Lady Palm",
     category: "Gardening",
-    size: "large",
+    size: "Large",
     price: "59.00",
     prevPrice: "10.00",
     currency: "$",
@@ -94,10 +94,10 @@ export const cards = [
   },
   {
     id: 9,
-    image: "flower9",
+    image: flower9,
     name: "Chinese Evergreen",
     category: "Accessories",
-    size: "small",
+    size: "Small",
     price: "39.00",
     prevPrice: "229.00",
     currency: "$",
@@ -105,62 +105,62 @@ export const cards = [
   },
   {
     id: 10,
-    image: "flower4",
+    image: flower4,
     name: "Snake Plant",
     category: "House Plants",
-    size: "medium",
+    size: "Medium",
     price: "89.00",
     currency: "$",
     tags: ["indoor", "air purifying"]
   },
   {
     id: 11,
-    image: "flower5",
+    image: flower5,
     name: "Bamboo Palm",
     price: "79.00",
     currency: "$",
     category: "House Plants",
-    size: "small",
+    size: "Small",
     tags: ["indoor", "tropical"]
   },
   {
     id: 12,
-    image: "flower9",
+    image: flower9,
     name: "Cactus",
     price: "49.00",
     currency: "$",
     category: "Potter Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["succulent", "desert"]
   },
   {
     id: 13,
-    image: "flower6",
+    image: flower6,
     name: "Cast Iron Plant",
     price: "169.00",
     currency: "$",
     category: "Seeds",
-    size: "large",
+    size: "Large",
     tags: ["indoor", "low light"]
   },
   {
     id: 14,
-    image: "flower2",
+    image: flower2,
     name: "Dumb Cane",
     price: "59.00",
     currency: "$",
     category: "Small Plants",
-    size: "small",
+    size: "Small",
     tags: ["indoor", "toxic"]
   },
   {
     id: 15,
-    image: "flower1",
+    image: flower1,
     name: "Dwarf Umbrella Tree",
     price: "89.00",
     currency: "$",
     category: "Big Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["indoor", "tropical"]
   },
   {
@@ -170,7 +170,7 @@ export const cards = [
     price: "69.00",
     currency: '$',
     category: "Succulents",
-    size: "large",
+    size: "Large",
     tags: ["evergreen", "trailing"]
   },
   {
@@ -180,7 +180,7 @@ export const cards = [
     price: "119.00",
     currency: '$',
     category: "Terrariums",
-    size: "small",
+    size: "Small",
     tags: ["tropical", "indoor"]
   },
   {
@@ -190,7 +190,7 @@ export const cards = [
     price: "189.00",
     currency: '$',
     category: "Gardening",
-    size: "medium",
+    size: "Medium",
     tags: ["ornamental", "indoor"]
   },
   {
@@ -200,7 +200,7 @@ export const cards = [
     price: "99.00",
     currency: '$',
     category: "Accessories",
-    size: "large",
+    size: "Large",
     tags: ["fragrant", "blooming"]
   },
   {
@@ -210,7 +210,7 @@ export const cards = [
     price: "79.00",
     currency: '$',
     category: "House Plants",
-    size: "small",
+    size: "Small",
     tags: ["colorful", "outdoor"]
   },
   {
@@ -220,7 +220,7 @@ export const cards = [
     price: "59.00",
     currency: '$',
     category: "Potter Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["succulent", "indoor"]
   },
   {
@@ -230,7 +230,7 @@ export const cards = [
     price: "129.00",
     currency: '$',
     category: "Seeds",
-    size: "large",
+    size: "Large",
     tags: ["palm", "tropical"]
   },
   {
@@ -240,7 +240,7 @@ export const cards = [
     price: "69.00",
     currency: '$',
     category: "Small Plants",
-    size: "small",
+    size: "Small",
     tags: ["fragrant", "medicinal"]
   },
   {
@@ -250,97 +250,97 @@ export const cards = [
     price: "49.00",
     currency: '$',
     category: "Big Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["bamboo", "lucky"]
   },
   {
     id: 25,
-    image: "flower6",
+    image: flower6,
     name: "Madagascar Dragon Tree",
     price: "159.00",
     currency: "$",
     category: "Succulents",
-    size: "large",
+    size: "Large",
     tags: ["indoor", "easy care"]
   },
   {
     id: 26,
-    image: "flower4",
+    image: flower4,
     name: "Maidenhair Fern",
     price: "89.00",
     currency: "$",
     category: "Terrariums",
-    size: "small",
+    size: "Small",
     tags: ["shade-loving", "humidity-loving"]
   },
   {
     id: 27,
-    image: "flower2",
+    image: flower2,
     name: "Money Tree",
     price: "149.00",
     currency: "$",
     category: "Gardening",
-    size: "medium",
+    size: "Medium",
     tags: ["indoor", "good luck"]
   },
   {
     id: 28,
-    image: "flower3",
+    image: flower3,
     name: "Norfolk Island Pine",
     price: "79.00",
     currency: "$",
     category: "Accessories",
-    size: "large",
+    size: "Large",
     tags: ["evergreen", "decorative"]
   },
   {
     id: 29,
-    image: "flower9",
+    image: flower9,
     name: "Orchid",
     price: "99.00",
     currency: "$",
     category: "House Plants",
-    size: "small",
+    size: "Small",
     tags: ["blooming", "fragrant"]
   },
   {
     id: 30,
-    image: "flower1",
+    image: flower1,
     name: "Palm Lily",
     price: "109.00",
     currency: "$",
     category: "Potter Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["tropical", "bold foliage"]
   },
   {
     id: 31,
-    image: "flower8",
+    image: flower8,
     name: "Pansy",
     price: "39.00",
     currency: "$",
     category: "House Plants",
-    size: "small",
+    size: "Small",
     tags: ["colorful", "annual"]
   },
   {
     id: 32,
-    image: "flower3",
+    image: flower3,
     name: "Peace Lily",
     price: "69.00",
     currency: "$",
     category: "Potter Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["air purifying", "low light"]
   },
   {
     id: 33,
-    image: "flower5",
+    image: flower5,
     name: "Peperomia",
     price: "59.00",
     currency: "$",
     category: "Seeds",
-    size: "large",
+    size: "Large",
     tags: ["succulent", "easy care"]
   },
   {
@@ -350,7 +350,7 @@ export const cards = [
     price: "49.00",
     currency: '$',
     category: "Small Plants",
-    size: "small",
+    size: "Small",
     tags: ["indoor", "easy maintenance"]
   },
   {
@@ -360,7 +360,7 @@ export const cards = [
     price: "69.00",
     currency: '$',
     category: "Big Plants",
-    size: "medium",
+    size: "Medium",
     tags: ["pet-friendly", "bright indirect light"]
   },
   {
@@ -370,7 +370,7 @@ export const cards = [
     price: "89.00",
     currency: '$',
     category: "Succulents",
-    size: "large",
+    size: "Large",
     tags: ["sun-loving", "drought-tolerant"]
   },
   {
@@ -380,7 +380,7 @@ export const cards = [
     price: "59.00",
     currency: '$',
     category: "Terrariums",
-    size: "small",
+    size: "Small",
     tags: ["air-purifying", "low-light tolerant"]
   },
   {
@@ -390,7 +390,7 @@ export const cards = [
     price: "39.00",
     currency: '$',
     category: "Gardening",
-    size: "medium",
+    size: "Medium",
     tags: ["succulents", "low-maintenance"]
   },
   {
@@ -400,7 +400,7 @@ export const cards = [
     price: "49.00",
     currency: '$',
     category: "Accessories",
-    size: "large",
+    size: "Large",
     tags: ["sunflowers", "decorative"]
   },
   {
@@ -410,7 +410,7 @@ export const cards = [
     price: "39.00",
     currency: '$',
     category: "House Plants",
-    size: "small",
+    size: "Small",
     tags: ["bright blooms", "spring flowers"]
   },
   {
@@ -420,7 +420,7 @@ export const cards = [
     price: "5000000.00",
     currency: '$',
     category: "Big Plants",
-    size: "big",
+    size: "Large",
     tags: ["rare", "magical"]
   },
 ]

@@ -7,6 +7,8 @@ import BlogPage from './BlogPage';
 
 import { fetchUsers } from '../api/users';
 import { AppDispatch, RootState } from '../store/store';
+import { test, filterProductsByCategory, filterProductsBySize } from '../store/reducers/goodsSlice'
+import { selectCategories, selectSizes } from '../store/selectors/selectGoods';
 
 import Categories from '../components/navigation/Categories';
 import CustomTab from '../components/tab/CustomTab';
@@ -17,8 +19,6 @@ import Pagination from '../components/pagination/Pagination';
 import ArticleBanner from '../components/banner/ArticleBanner';
 import AsideBanner from '../components/banner/AsideBanner';
 
-import { categories } from '../mock-data/categories'
-import { size } from '../mock-data/size'
 import { initialPrice } from '../mock-data/price-range'
 
 const StyledHomePage = styled.div`
@@ -36,25 +36,21 @@ const StyledMain = styled.main`
   margin-top: 46px;
   margin-bottom: 94px;
 `
-
 const StyledCategoriesFilterGroup = styled.div`
   width: auto;
 `
-
 const StyledContent = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
   width: 100%;
 `
-
 const StyledCardFilterGroup = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: ${theme.palette.testBox};
 `
-
 const StyledArticleBannerGroup = styled.div`
   display: flex;
   justify-content: space-between;
@@ -68,22 +64,34 @@ const StyledArticleBannerGroup = styled.div`
 
 
 const HomePage = () => {
-  const { error, status, isLoading, users, products} = useSelector((state: RootState) => state.product)
+  const { error, status, isLoading, goods } = useSelector((state: RootState) => state.goodsReducer)
   const dispatch = useDispatch<AppDispatch>()
 
-  useEffect(()=>{
+  const goodsCategories = useSelector(selectCategories);
+  const goodsSizes = useSelector(selectSizes);
+
+  useEffect(() => {
     dispatch(fetchUsers())
-  },[dispatch])
+  }, [dispatch])
+
+  const categoriesHandler = (key: string) => {
+    dispatch(filterProductsByCategory(key))
+  }
+
+  const sizeHandler = (key: string) => {
+    dispatch(filterProductsBySize(key))
+    console.log(key);
+  }
 
   return (
-    <StyledHomePage>
-      <Carousel/>
+    <StyledHomePage >
+      <Carousel />
       <StyledMain data-name='main'>
         <div>
           <StyledCategoriesFilterGroup>
-            <Categories header='Categories' list={categories} />
+            {!isLoading && <Categories header='Categories' list={goodsCategories} handler={categoriesHandler} />}
             <RangeSlider initialPrice={initialPrice} header='Price range' />
-            <Categories header='Size' list={size} />
+            {!isLoading && <Categories header='Size' list={goodsSizes} handler={sizeHandler} />}
           </StyledCategoriesFilterGroup>
           <AsideBanner />
         </div>
@@ -95,14 +103,14 @@ const HomePage = () => {
           {/* Сами карточки с товарами передаются в Pagination */}
           {error && error}
           {isLoading && <span>Loading...</span>}
-          {!isLoading && <Pagination itemsPerPage={9} items={products} />}
+          {!isLoading && <Pagination itemsPerPage={9} items={goods} />}
         </StyledContent>
       </StyledMain>
       <StyledArticleBannerGroup>
         <ArticleBanner />
         <ArticleBanner />
       </StyledArticleBannerGroup>
-      <BlogPage/>
+      <BlogPage />
     </StyledHomePage>
   )
 }

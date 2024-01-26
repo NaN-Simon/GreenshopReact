@@ -4,11 +4,8 @@ import theme from '../../theme/theme';
 
 interface ICategories {
   header?: string,
-  list: {
-    id: number,
-    name: string,
-    count: number
-  }[]
+  list: Record<string, number>,
+  handler: (key: string) => void,
 }
 
 const StyledNav = styled.nav`
@@ -17,7 +14,6 @@ const StyledNav = styled.nav`
   background: ${theme.palette.backgroundSecondary};
   padding: 9px 18px;
 `
-
 const StyledHeader = styled.h3`
   color: ${theme.typography.h3.color};
   font-family: ${theme.typography.h3.fontFamily};
@@ -26,7 +22,6 @@ const StyledHeader = styled.h3`
   font-size: ${theme.typography.h3.fontSize};
   line-height: ${theme.typography.h3.lineHeight};
 `
-
 const StyledUl = styled.ul`
   display: flex;
   flex-direction: column;
@@ -34,7 +29,6 @@ const StyledUl = styled.ul`
   list-style-type: none;
   padding: 12px;
 `
-
 const StyledLi = styled.li<{ $info?: boolean; }>`
   display: flex;
   justify-content: space-between;
@@ -51,20 +45,26 @@ const StyledLi = styled.li<{ $info?: boolean; }>`
   }
 `
 
-const Categories: FC<ICategories> = ({ list, header }) => {
-  const currentItem = list[0].id
+const Categories: FC<ICategories> = ({ list, header, handler }) => {
+  const arrayOfKeysValues = Object.entries(list);
+  const currentKey = Object.keys(list)[0] // first object's key
+
   return (
     <StyledNav data-name='categories' >
       <StyledHeader>
         {header}
       </StyledHeader>
       <StyledUl>
-        {list.map((item: { id: number, name: string, count: number }) => (
-          <StyledLi $info={currentItem === item.id} key={item.name}>
-            <div>{item.name}</div>
-            <div>({item.count})</div>
+        {arrayOfKeysValues.map((item) =>
+          <StyledLi
+            key={item[0]}
+            onClick={() => { handler(item[0]) }}  // key
+            $info={currentKey === item[0]} // value
+          >
+            <div>{item[0]}</div>
+            <div>{item[1]}</div>
           </StyledLi>
-        ))}
+        )}
       </StyledUl>
     </StyledNav>
   )

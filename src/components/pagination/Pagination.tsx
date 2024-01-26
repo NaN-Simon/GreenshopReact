@@ -74,6 +74,7 @@ const StyledReactPaginate = styled(ReactPaginate)`
 `
 
 const Pagination: FC<IPagination> = ({ itemsPerPage = 9, items }) => {
+  /* console.log(items) */
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState<ICard[]>(items);
   const [pageCount, setPageCount] = useState(0);
@@ -87,7 +88,7 @@ const Pagination: FC<IPagination> = ({ itemsPerPage = 9, items }) => {
     /* console.log(`Loading items from ${itemOffset} to ${endOffset}`); */
     setCurrentItems(items.slice(itemOffset, endOffset));
     setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+  }, [itemOffset, itemsPerPage, items]);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event: { selected: number }) => {
