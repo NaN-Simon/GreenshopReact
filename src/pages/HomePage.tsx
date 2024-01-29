@@ -8,7 +8,7 @@ import BlogPage from './BlogPage';
 import { fetchUsers } from '../api/users';
 import { AppDispatch, RootState } from '../store/store';
 import { test, filterProductsByCategory, filterProductsBySize } from '../store/reducers/goodsSlice'
-import { selectCategories, selectSizes } from '../store/selectors/selectGoods';
+// import { selectCategories, selectSizes } from '../store/selectors/selectGoods';
 
 import Categories from '../components/navigation/Categories';
 import CustomTab from '../components/tab/CustomTab';
@@ -54,11 +54,13 @@ const StyledCardFilterGroup = styled.div`
 `
 
 const HomePage = () => {
-  const { error, status, isLoading, goods } = useSelector((state: RootState) => state.goodsReducer)
+  const { error, status, isLoading, goods, goodsCategories, goodsSizes } = useSelector((state: RootState) => state.goodsReducer)
   const dispatch = useDispatch<AppDispatch>()
 
-  const goodsCategories = useSelector(selectCategories);
-  const goodsSizes = useSelector(selectSizes);
+  // const goodsCategories = useSelector(selectCategories);
+  // const goodsSizes = useSelector(selectSizes);
+  // console.log(goodsCategories);
+
 
   useEffect(() => {
     dispatch(fetchUsers())

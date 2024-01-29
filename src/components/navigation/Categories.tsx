@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 import theme from '../../theme/theme';
 
@@ -47,7 +47,7 @@ const StyledLi = styled.li<{ $info?: boolean; }>`
 
 const Categories: FC<ICategories> = ({ list, header, handler }) => {
   const arrayOfKeysValues = Object.entries(list);
-  const currentKey = Object.keys(list)[0] // first object's key
+  const [currentKey, setCurrentKEy] = useState(Object.keys(list)[0]) // first object's key
 
   return (
     <StyledNav data-name='categories' >
@@ -58,7 +58,10 @@ const Categories: FC<ICategories> = ({ list, header, handler }) => {
         {arrayOfKeysValues.map((item) =>
           <StyledLi
             key={item[0]}
-            onClick={() => { handler(item[0]) }}  // key
+            onClick={() => {
+              handler(item[0])
+              setCurrentKEy(item[0])
+            }}  // key
             $info={currentKey === item[0]} // value
           >
             <div>{item[0]}</div>
