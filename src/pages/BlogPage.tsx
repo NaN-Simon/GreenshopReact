@@ -10,28 +10,28 @@ import { blogCardsData } from '../mock-data/blog-cards';
 import { IBlogCard } from '../types/blogCard';
 
 const StyledBlogPageWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `
 const StyledHeader = styled.h2`
-    color: ${theme.typography.h2.color};
-    font-family: ${theme.typography.h2.fontFamily};
-    font-style: ${theme.typography.h2.fontStyle};
-    font-weight: ${theme.typography.h2.fontWeight};
-    font-size: ${theme.typography.h2.fontSize};
-    line-height: ${theme.typography.h2.lineHeight};
-    margin-bottom: 15px;
+  color: ${theme.typography.h2.color};
+  font-family: ${theme.typography.h2.fontFamily};
+  font-style: ${theme.typography.h2.fontStyle};
+  font-weight: ${theme.typography.h2.fontWeight};
+  font-size: ${theme.typography.h2.fontSize};
+  line-height: ${theme.typography.h2.lineHeight};
+  margin-bottom: 15px;
     `
 const StyledSubHeader = styled.h6`
-    color: ${theme.typography.h6.color};
-    font-family: ${theme.typography.h6.fontFamily};
-    font-style: ${theme.typography.h6.fontStyle};
-    font-weight: ${theme.typography.h6.fontWeight};
-    font-size: ${theme.typography.h6.fontSize};
-    line-height: ${theme.typography.h6.lineHeight};
-    margin-bottom: 35px;
+  color: ${theme.typography.h6.color};
+  font-family: ${theme.typography.h6.fontFamily};
+  font-style: ${theme.typography.h6.fontStyle};
+  font-weight: ${theme.typography.h6.fontWeight};
+  font-size: ${theme.typography.h6.fontSize};
+  line-height: ${theme.typography.h6.lineHeight};
+  margin-bottom: 35px;
 `
 const StyledUl = styled.ul`
   display: flex;
@@ -43,7 +43,6 @@ const StyledUl = styled.ul`
   width: 100%;
   padding: 0;
   list-style-type: none;
-  background: ${theme.palette.testBox}
 `
 
 const BlogPage = () => {

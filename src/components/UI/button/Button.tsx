@@ -32,9 +32,9 @@ const StyledButton = styled.button`
   }
 `
 const StyledLink = styled(Link)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inherit;
+  justify-content: inherit;
+  align-items: inherit;
   gap: 4px;
   width: 100%;
   height: 100%;

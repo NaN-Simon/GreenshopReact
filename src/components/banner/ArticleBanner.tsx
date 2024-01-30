@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import theme from '../../theme/theme';
 import Button from '../UI/button/Button';
 import { ReactComponent as ArrowSVG } from '../../assets/svg/arrow.svg'
-import { Link } from 'react-router-dom';
 
 interface IArticleBanner {
   data: {

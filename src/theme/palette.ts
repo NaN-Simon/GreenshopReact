@@ -1,5 +1,5 @@
 const palette = {
-  primary: '#3D3D3D;',
+  primary: '#3D3D3D',
   secondary: '#727272',
   info: '#46A358',
   backgroundPrimary: '#FFFFFF',

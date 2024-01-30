@@ -49,7 +49,7 @@ const typography = {
     "fontSize": "14px",
     "fontStyle": "normal",
     "fontWeight": "400",
-    "lineHeight": "24px"
+    "lineHeight": "20px"
   },
 };
 
