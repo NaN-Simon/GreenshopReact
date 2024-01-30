@@ -138,12 +138,12 @@ const Card: FC<ICard> = ({ id, image, name, currency, price, prevPrice }) => {
         <div style={{ display: 'flex', gap: '16px' }}>
           <StyledPrice>
             <span>{currency}</span>
-            <span>{price}</span>
+            <span>{price.toFixed(2)}</span>
           </StyledPrice>
           {prevPrice && (
             <StyledPrevPrice>
               <span>{currency}</span>
-              <span>{prevPrice}</span>
+              <span>{prevPrice.toFixed(2)}</span>
             </StyledPrevPrice>
           )}
         </div>

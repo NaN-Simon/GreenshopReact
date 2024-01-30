@@ -1,8 +1,12 @@
-import React, { useState } from 'react'
+import React, { FC, useState } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import styled from 'styled-components'
 import theme from '../../theme/theme';
 import 'react-tabs/style/react-tabs.css';
+
+interface ICustomTab {
+  handler: (tab: number) => void,
+}
 
 const StyledTabs = styled(Tabs)`
 `
@@ -32,12 +36,15 @@ const StyledTab = styled(Tab)`
   }
 `
 
-const CustomTab = () => {
+const CustomTab:FC<ICustomTab> = ({handler}) => {
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <StyledTabs
       selectedIndex={tabIndex}
-      onSelect={(index) => setTabIndex(index)}>
+      onSelect={(index) => {
+        setTabIndex(index)
+        handler(index)}
+      }>
       <StyledTabList>
         <StyledTab>All Plants</StyledTab>
         <StyledTab>New Arrivals</StyledTab>

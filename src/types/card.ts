@@ -4,8 +4,9 @@ export interface ICard {
   name: string
   category: string
   size: string
-  price: string
+  price: number
   currency: string
-  prevPrice?: string
+  prevPrice?: number
   tags?: string[]
+  isNew?: boolean
 }

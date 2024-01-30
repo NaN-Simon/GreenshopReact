@@ -7,7 +7,17 @@ import BlogPage from './BlogPage';
 
 import { fetchUsers } from '../api/users';
 import { AppDispatch, RootState } from '../store/store';
-import { test, filterProductsByCategory, filterProductsBySize } from '../store/reducers/goodsSlice'
+import {
+  filterProductsByCategory,
+  filterProductsBySize,
+  filterProductsBySale,
+  filterProductsByNew,
+  filterProductsByAll,
+  sortProductsByNameAZ,
+  sortProductsByPriceFromDownToUp,
+  sortProductsByPriceFromUpToDown,
+  sortProductsByNameZA
+} from '../store/reducers/goodsSlice'
 // import { selectCategories, selectSizes } from '../store/selectors/selectGoods';
 
 import Categories from '../components/navigation/Categories';
@@ -50,7 +60,6 @@ const StyledCardFilterGroup = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: ${theme.palette.testBox};
 `
 
 const HomePage = () => {
@@ -75,6 +84,19 @@ const HomePage = () => {
     console.log(key);
   }
 
+  const tabHandler = (tab: number) => {
+    tab === 0 && dispatch(filterProductsByAll())
+    tab === 1 && dispatch(filterProductsByNew(true))
+    tab === 2 && dispatch(filterProductsBySale())
+  }
+
+  const selectHandler = (select: string) => {
+    select === 'nameAZ' && dispatch(sortProductsByNameAZ())
+    select === 'nameZA' && dispatch(sortProductsByNameZA())
+    select === 'priceFromDownToUp' && dispatch(sortProductsByPriceFromDownToUp())
+    select === 'priceFromUpToDown' && dispatch(sortProductsByPriceFromUpToDown())
+  }
+
   return (
     <StyledHomePage >
       <Carousel />
@@ -90,8 +112,8 @@ const HomePage = () => {
         </div>
         <StyledContent data-name='content'>
           <StyledCardFilterGroup data-name='filters'>
-            <CustomTab />
-            <CustomSelect />
+            <CustomTab handler={tabHandler} />
+            <CustomSelect handler={selectHandler} />
           </StyledCardFilterGroup>
           {/* Сами карточки с товарами передаются в Pagination */}
           {error && error}
