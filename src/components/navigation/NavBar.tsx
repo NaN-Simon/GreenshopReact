@@ -1,65 +1,64 @@
-import React from 'react'
+import React, { FC } from 'react'
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import theme from '../../theme/theme';
 
+interface INavBar {
+  isVertical?: boolean;
+}
+
 const StyledNav = styled.nav`
-/* background: ${theme.palette.testBox} */
+width: 100%;
 `
-const StyledUl = styled.ul`
+const StyledUl = styled.ul<{ $vertical?: boolean; }>`
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  align-items: center;
+  flex-direction: ${props => props.$vertical ? 'column' : 'row'};
+  gap: 0 40px;
   width: 100%;
   white-space: nowrap;
+  @media (max-width: ${theme.breakpoints.devices.md}) {
+    gap: 8px 20px;
+ }
 `
 const StyledLi = styled.li`
   list-style-type: none;
-  /* height: 70px; */
   display: flex;
   align-items: center;
 `
-const StyledLink = styled(Link)`
-  padding: 15px 0;
-  color: ${theme.typography.h3.color};
-  font-family: ${theme.typography.h3.fontFamily};
-  font-style: ${theme.typography.h3.fontStyle};
-  font-weight: ${theme.typography.h3.fontWeight};
-  font-size: ${theme.typography.h3.fontSize};
-  line-height: ${theme.typography.h3.lineHeight};
-  background: transparent;
-  text-decoration: none;
-  transition: 0.5s all;
-  &:hover{
+const sharedLinkStyles = css<{ $vertical?: boolean; }>`
+ padding: ${props => props.$vertical ? '0 50px' : '15px 0'};
+ color: ${theme.typography.h3.color};
+ font-family: ${theme.typography.h3.fontFamily};
+ font-style: ${theme.typography.h3.fontStyle};
+ font-weight: ${theme.typography.h3.fontWeight};
+ font-size: ${theme.typography.h3.fontSize};
+ line-height: ${theme.typography.h3.lineHeight};
+ background: transparent;
+ text-decoration: none;
+ transition: 0.5s all;
+ &:hover{
     opacity: 0.5;
-  }
-`
-const StyledHashLink = styled(HashLink)`
-  padding: 15px 0;
-  color: ${theme.typography.h3.color};
-  font-family: ${theme.typography.h3.fontFamily};
-  font-style: ${theme.typography.h3.fontStyle};
-  font-weight: ${theme.typography.h3.fontWeight};
-  font-size: ${theme.typography.h3.fontSize};
-  line-height: ${theme.typography.h3.lineHeight};
-  background: transparent;
-  text-decoration: none;
-  transition: 0.5s all;
-  &:hover{
-    opacity: 0.5;
-  }
-`
+ }
+`;
+const StyledLink = styled(Link)<{ $vertical?: boolean; }>`
+ ${sharedLinkStyles}
+`;
 
-const NavBar = () => {
+const StyledHashLink = styled(HashLink)<{ $vertical?: boolean; }>`
+ ${sharedLinkStyles}
+`;
+
+const NavBar: FC<INavBar> = ({ isVertical }) => {
   return (
     <StyledNav id='navbar'>
-      <StyledUl>
-        <StyledLi><StyledLink to={'/'}>Home</StyledLink></StyledLi>
-        <StyledLi><StyledLink to={'/shop'}>Shop</StyledLink></StyledLi>
-        <StyledLi><StyledLink to={'https://teamtrees.org/'}>Plant Care</StyledLink></StyledLi>
-        <StyledLi><StyledHashLink smooth to={'/#blog'}>Blogs</StyledHashLink></StyledLi>
-        <StyledLi><StyledLink to={'https://www.figma.com/file/T9fNIlcua3pIuuZuBoQPOQ/%D1%80%D0%B0%D1%81%D1%82%D0%B5%D0%BD%D0%B8%D1%8F-(Copy)?type=design&node-id=2-2&mode=design&t=ggj1Xt5JYZWJdIlY-0'}>Figma</StyledLink></StyledLi>
+      <StyledUl $vertical={isVertical}>
+        <StyledLi><StyledLink $vertical={isVertical} to={'/'}>Home</StyledLink></StyledLi>
+        <StyledLi><StyledLink $vertical={isVertical} to={'/shop'}>Shop</StyledLink></StyledLi>
+        <StyledLi><StyledLink $vertical={isVertical} to={'https://teamtrees.org/'}>Plant Care</StyledLink></StyledLi>
+        <StyledLi><StyledHashLink $vertical={isVertical} smooth to={'/#blog'}>Blogs</StyledHashLink></StyledLi>
       </StyledUl>
     </StyledNav>
   )

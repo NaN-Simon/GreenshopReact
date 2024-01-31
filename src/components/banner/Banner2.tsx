@@ -58,7 +58,7 @@ const StyledHeaderDescription = styled.h6`
 
 const Banner2 = () => {
   const headerH6 = 'Welcome to GreenShop'
-  const description = 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus est consectetur nobis?'
+  const description = 'Из-за того, что макет имеет только одно разрешение, его пришлось немного адаптировать.'
 
   return (
     <StyledBannerSection data-name='banner'>
@@ -68,8 +68,8 @@ const Banner2 = () => {
           <StyledHeaderH1>Hello<span style={{ color: theme.palette.info }}>World</span></StyledHeaderH1>
           <StyledHeaderDescription>{description}</StyledHeaderDescription>
         </StyledBannerText>
-        <Button link='#' style={{ width: '140px', fontWeight: '700' }}>
-          SHOP NOW
+        <Button link='https://www.figma.com/file/T9fNIlcua3pIuuZuBoQPOQ/' style={{ width: '140px', fontWeight: '700' }}>
+          Figma
         </Button>
       </div>
       <StyledBannerPicture data-name='banner-picture'>

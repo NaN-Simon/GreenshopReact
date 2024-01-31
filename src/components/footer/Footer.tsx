@@ -7,6 +7,7 @@ import { footerInfoCards } from '../../mock-data/footer-info-cards'
 import { IInfoCard } from '../../types/infoCard';
 import FooterContact from './FooterContact';
 import FooterLinks from './FooterLinks';
+import Divider from '../UI/divider/Divider';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -15,32 +16,56 @@ const StyledFooter = styled.footer`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  background: ${theme.palette.testBox};
-  `
-const StyledUl = styled.ul`
+`
+
+const StyledDescriptionAndFeedback = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  background: ${theme.palette.backgroundSecondary};
+`
+const StyledDescription = styled.ul`
   display: flex;
   flex-direction: row;
-  justify-content: start;
-  flex-wrap: wrap;
+  justify-content: center;
   width: 100%;
+  max-width: 780px;
   list-style-type: none;
+  @media (max-width: ${theme.breakpoints.devices.md}) {
+    flex-wrap: wrap;
+ }
 `
 
 const Footer = () => {
   return (
-    <StyledFooter>
-      <StyledUl>
-          {footerInfoCards.map((card: IInfoCard) => (
-            <InfoCard key={card.id} {...card} />
+    <StyledFooter data-name='footer'>
+      {/* 1 line */}
+      <StyledDescriptionAndFeedback>
+        <StyledDescription>
+          {footerInfoCards.map((card: IInfoCard, index) => (
+            <div key={card.id} style={{ display: 'flex' }}>
+              <InfoCard  {...card} />
+              {index + 1 !== footerInfoCards.length && (
+                <Divider
+                  style={{ height: '100%', background: '#46a3581a' }}
+                />
+              )}
+            </div>
           ))}
+        </StyledDescription>
         <Feedback />
-      </StyledUl>
-      <div style={{width: '100%'}}>
+      </StyledDescriptionAndFeedback>
+
+      {/* 2 line */}
+      <div style={{ width: '100%' }}>
         <FooterContact />
       </div>
 
-        <FooterLinks/>
+      {/* 3 line */}
+      <FooterLinks />
 
+      {/* 4 line */}
       <span>© 2021 GreenShop. All Rights Reserved.</span>
     </StyledFooter>
   )

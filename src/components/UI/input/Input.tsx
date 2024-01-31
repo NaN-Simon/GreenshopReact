@@ -12,7 +12,7 @@ type IInput = {
 } & React.RefAttributes<HTMLInputElement>;
 
 const StyledInput = styled.input`
-  width: 270px;
+  width: 100%;
   height: 40px;
   padding-left: 11px;
   border: none;

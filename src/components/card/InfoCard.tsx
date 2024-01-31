@@ -7,20 +7,42 @@ const StyledInfoCard = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   width: 260px;
   height: 250px;
   padding: 30px;
-  background: #C3C2C2;
+  background: ${theme.palette.backgroundSecondary};
+  @media (max-width: ${theme.breakpoints.devices.sm}) {
+    width: 240px;
+ }
 `
-
-const InfoCard: FC<IInfoCard> = ({ id, image, title, description }) => {
+const StyledImg = styled.img`
+  width: auto;
+  height: 78px;
+  background: inherit
+`
+const StyledTitle = styled.h3`
+  color: ${theme.typography.h3.color};
+  font-family: ${theme.typography.h3.fontFamily};
+  font-style: ${theme.typography.h3.fontStyle};
+  font-weight: 700;
+  font-size: 20px;
+  line-height: ${theme.typography.h3.lineHeight};
+`
+const StyledDescription = styled.h6`
+  color: ${theme.typography.h6.color};
+  font-family: ${theme.typography.h6.fontFamily};
+  font-style: ${theme.typography.h6.fontStyle};
+  font-weight: ${theme.typography.h6.fontWeight};
+  font-size: ${theme.typography.h6.fontSize};
+  line-height: ${theme.typography.h6.lineHeight};
+`
+const InfoCard: FC<IInfoCard> = ({ image, title, description }) => {
   return (
     <StyledInfoCard>
-      <div>{id}</div>
-      <div>{image}</div>
-      <div>{title}</div>
-      <div>{description}</div>
+      <StyledImg src={image} alt={title} />
+      <StyledTitle>{title}</StyledTitle>
+      <StyledDescription>{description}</StyledDescription>
     </StyledInfoCard>
   )
 }

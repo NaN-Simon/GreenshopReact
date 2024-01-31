@@ -9,10 +9,9 @@ interface ICategories {
 }
 
 const StyledNav = styled.nav`
-  width: 310px;
-  flex-shrink: 0;
-  background: ${theme.palette.backgroundSecondary};
+  width: 100%;
   padding: 9px 18px;
+  background: ${theme.palette.backgroundSecondary};
 `
 const StyledHeader = styled.h3`
   color: ${theme.typography.h3.color};
