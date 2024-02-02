@@ -20,6 +20,8 @@ name project: GREENSHOP
 
 ## Plugins:
 
+[framer-motion](https://github.com/framer/motion#readme)
+
 [rc-tooltip](https://github.com/react-component/tooltip)
 
 [rc-slider](https://github.com/react-component/slider)
@@ -31,3 +33,5 @@ name project: GREENSHOP
 [react-slick, slick-carousel](https://github.com/akiran/react-slick)
 
 [react-select](https://github.com/JedWatson/react-select/tree/master)
+
+[reactjs-popup](https://github.com/yjose/reactjs-popup)

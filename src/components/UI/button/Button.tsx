@@ -1,18 +1,20 @@
-import React, { PropsWithChildren, ReactNode, CSSProperties } from 'react'
+import React, { PropsWithChildren, ReactNode, CSSProperties, forwardRef } from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import theme from '../../../theme/theme';
 
 interface IButton {
   children: ReactNode;
-  link: string;
+  link?: string;
   style?: CSSProperties;
+  className?: string
 }
 
 const StyledButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 4px;
   width: 100px;
   height: 35px;
   border-radius: 6px;
@@ -42,14 +44,28 @@ const StyledLink = styled(Link)`
   text-decoration: none;
     `
 
-const Button = ({ children, link, style, ...datum }: PropsWithChildren<IButton>) => {
+const Button = forwardRef<HTMLButtonElement, PropsWithChildren<IButton>>((props: PropsWithChildren<IButton>, ref) => {
+
+  const { children, link, style, className, ...datum } = props
+
+  const ChildrenWithLink = () => {
+    return (
+        <StyledLink to={link!}>
+          {children}
+        </StyledLink>
+    )
+  }
+
   return (
-    <StyledButton style={{ ...style }} {...datum}>
-      <StyledLink to={link}>
-        {children}
-      </StyledLink>
+    <StyledButton
+      style={{ ...style }}
+      className={className}
+      ref={ref}
+      {...datum}>
+      {link && <ChildrenWithLink/>}
+      {!link && children}
     </StyledButton>
   )
-}
+})
 
 export default Button

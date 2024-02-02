@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 import MenuSmallScreen from '../../module/MenuSmallScreen'
 
@@ -115,11 +117,15 @@ const UserNav = () => {
 
       <CartSVG fill='#3D3D3D' />
 
-      <Button link='#'>
-        <LoginSVG />
-        <span>Login</span>
-      </Button>
-      
+      <Popup trigger={(
+        <Button className="button">
+          <LoginSVG />
+          <span>Login</span>
+        </Button>
+      )} modal>
+        <span> Modal content </span>
+      </Popup>
+
     </StyledNav>
   )
 }
