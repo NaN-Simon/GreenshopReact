@@ -7,7 +7,7 @@ import Categories from '../components/navigation/Categories'
 import { initialPrice } from '../mock-data/price-range'
 import { filterProductsByCategory, filterProductsBySize } from '../store/reducers/goodsSlice'
 import { RootState, AppDispatch } from '../store/store'
-
+import { bannerAside } from '../mock-data/banner-info';
 interface ICategoryFilter {
   style?: CSSProperties;
 }
@@ -36,7 +36,7 @@ const CategoryFilter:FC<ICategoryFilter> = ({style}) => {
         <RangeSlider initialPrice={initialPrice} header='Price range' />
         {!isLoading && <Categories header='Size' list={goodsSizes} handler={sizeHandler} />}
       </StyledCategoriesFilterGroup>
-      <AsideBanner />
+      <AsideBanner bannerData={bannerAside} />
     </div>
   )
 }
