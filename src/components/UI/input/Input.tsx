@@ -9,6 +9,7 @@ type IInput = {
   name: string;
   placeholder?: string;
   style?: CSSProperties;
+  autoFocus?: boolean;
 } & React.RefAttributes<HTMLInputElement>;
 
 const StyledInput = styled.input`
@@ -28,7 +29,7 @@ const StyledInput = styled.input`
   line-height: ${theme.typography.h6.lineHeight};
  `
 const Input: FC<IInput> = forwardRef((props, ref) => {
-  const { value, setValue, type, isHidden, name, placeholder, style = {}, ...datum } = props
+  const { value, setValue, type, isHidden, name, placeholder, style = {}, autoFocus, ...datum } = props
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setValue(event.target.value);
@@ -44,6 +45,7 @@ const Input: FC<IInput> = forwardRef((props, ref) => {
         placeholder={placeholder}
         onChange={onInputChange}
         style={{ ...style }}
+        autoFocus={autoFocus}
         {...datum}
       />}
     </>

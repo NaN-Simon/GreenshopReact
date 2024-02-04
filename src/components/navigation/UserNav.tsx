@@ -14,6 +14,8 @@ import { ReactComponent as LoginSVG } from '../../assets/svg/login.svg'
 import { ReactComponent as ListSVG } from '../../assets/svg/list.svg'
 
 import theme from '../../theme/theme'
+import Auth from '../modal/Auth';
+import { PopupActions } from 'reactjs-popup/dist/types';
 
 const StyledNav = styled.nav`
   display: flex;
@@ -35,29 +37,36 @@ const StyledListSVGWrapper = styled.div`
     display: none;
  }
 `
+const StyledPopup = styled(Popup)`
+  &-content{
+    width: auto;
+    padding: 0;
+    margin: 0;
+    border: none;
+  }
+ `
+
 
 const UserNav = () => {
-  const [isHidden, setIsHidden] = useState(true)
-  const [inputValue, setInputValue] = useState('')
-  const [displayBurgerMenu, setDisplayBurgerMenu] = useState(false)
-  const ref = useRef<HTMLInputElement | null>(null)
-  const refBurgerMenu = useRef<HTMLDivElement>(null);
-  const refBurgerButton = useRef<HTMLDivElement>(null);
-
   /* Find input */
+  const refInputFind = useRef<HTMLInputElement | null>(null)
+
+  const [isHiddenInputFind, setIsHiddenInputFind] = useState(true)
+  const [inputValue, setInputValue] = useState('')
+
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault()
     console.log(inputValue)
   }
 
   const handleOnClickFind = (event: React.MouseEvent) => {
-    isHidden === true && setIsHidden(false)
+    isHiddenInputFind === true && setIsHiddenInputFind(false)
     inputValue !== '' && handleSubmit(event)
   }
 
-  const handleClickOutside = (event: any) => {
-    if (ref.current && !ref.current.contains(event.target)) {
-      setIsHidden(true)
+  const handleClickOutside = (event: MouseEvent) => {
+    if (refInputFind.current && !refInputFind.current.contains(event.target as Node)) {
+      setIsHiddenInputFind(true)
     }
   }
 
@@ -69,10 +78,15 @@ const UserNav = () => {
   }, [])
 
   /* SmallScreenMenu */
-  const handleClickOutsideBurgerMenu = (event: any) => {
+  const refBurgerMenu = useRef<HTMLDivElement>(null);
+  const refBurgerButton = useRef<HTMLDivElement>(null);
+
+  const [displayBurgerMenu, setDisplayBurgerMenu] = useState(false)
+
+  const handleClickOutsideBurgerMenu = (event: MouseEvent) => {
     if (refBurgerMenu.current &&
-      !refBurgerMenu.current.contains(event.target) &&
-      !refBurgerButton.current?.contains(event.target)) {
+      !refBurgerMenu.current.contains(event.target as Node) &&
+      !refBurgerButton.current?.contains(event.target as Node)) {
       setDisplayBurgerMenu(false);
     }
   }
@@ -84,17 +98,25 @@ const UserNav = () => {
     }
   }, []);
 
+  /* Popup on Button Login */
+  const popupRef = React.createRef<PopupActions>();
+
+  const closePopup = () => {
+    popupRef.current?.close()
+  }
+
+
   return (
     <StyledNav>
       {displayBurgerMenu && <div ref={refBurgerMenu}><MenuSmallScreen /></div>}
 
       <StyledFind onSubmit={handleSubmit}>
         <Input
-          ref={ref}
+          ref={refInputFind}
           value={inputValue}
           setValue={setInputValue}
           type="text"
-          isHidden={isHidden}
+          isHidden={isHiddenInputFind}
           style={{
             width: '185px',
             height: '30px',
@@ -117,14 +139,18 @@ const UserNav = () => {
 
       <CartSVG fill='#3D3D3D' />
 
-      <Popup trigger={(
-        <Button className="button">
-          <LoginSVG />
-          <span>Login</span>
-        </Button>
-      )} modal>
-        <span> Modal content </span>
-      </Popup>
+      <StyledPopup
+        ref={popupRef}
+        modal
+        trigger={(
+          <Button className="button">
+            <LoginSVG />
+            <span>Login</span>
+          </Button>
+        )}
+      >
+        <Auth closeHandler={closePopup} />
+      </StyledPopup>
 
     </StyledNav>
   )

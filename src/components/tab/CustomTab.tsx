@@ -17,6 +17,7 @@ const StyledTabList = styled(TabList)`
 `
 const StyledTab = styled(Tab)`
   padding: 0 5px 3px 5px;
+  border-bottom: 2px solid transparent;
   border-radius: 0;
   list-style: none;
   outline: none;

@@ -2,6 +2,7 @@ import React, { FC, useState } from 'react'
 import Select, { StylesConfig } from 'react-select';
 import { styled } from 'styled-components'
 import theme from '../../../theme/theme';
+
 interface ICustomSelect {
   handler: (select: string) => void,
 }

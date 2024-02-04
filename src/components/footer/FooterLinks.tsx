@@ -74,19 +74,19 @@ const FooterLinks = () => {
         </StyledFooterHeader>
         <StyledFooterSocialLinkGroup>
           <StyledFooterSocialLink>
-            <a href="https://www.facebook.com/"><FacebookSVG style={{ marginTop: '3px' }} /></a>
+            <a href="https://www.facebook.com/"><FacebookSVG fill={theme.palette.info} style={{ marginTop: '3px' }} /></a>
           </StyledFooterSocialLink>
           <StyledFooterSocialLink>
-            <a href="https://www.instagram.com/"><InstagramSVG style={{ marginTop: '3px' }} /></a>
+            <a href="https://www.instagram.com/"><InstagramSVG fill={theme.palette.info} style={{ marginTop: '3px' }} /></a>
           </StyledFooterSocialLink>
           <StyledFooterSocialLink>
-            <a href="https://www.x.com/"><TwitterSVG style={{ marginTop: '3px' }} /></a>
+            <a href="https://www.x.com/"><TwitterSVG fill={theme.palette.info} style={{ marginTop: '3px' }} /></a>
           </StyledFooterSocialLink>
           <StyledFooterSocialLink>
-            <a href="https://www.linkedin.com/"><LinkedinSVG style={{ marginTop: '3px' }} /></a>
+            <a href="https://www.linkedin.com/"><LinkedinSVG fill={theme.palette.info} style={{ marginTop: '3px' }} /></a>
           </StyledFooterSocialLink>
           <StyledFooterSocialLink>
-            <a href="https://www.youtube.com/"><YoutubeSVG style={{ marginTop: '3px' }} /></a>
+            <a href="https://www.youtube.com/"><YoutubeSVG fill={theme.palette.info} style={{ marginTop: '3px' }} /></a>
           </StyledFooterSocialLink>
         </StyledFooterSocialLinkGroup>
         <StyledFooterHeader>
