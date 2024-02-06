@@ -47,7 +47,17 @@ const StyledLink = styled.a`
   &:hover{
     opacity: 0.7
   }
-  `
+`
+const StyledCopyright = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  @media (max-width: ${theme.breakpoints.devices.sm}) {
+    flex-direction: column;
+  }
+`
 
 const Footer = () => {
   return (
@@ -76,16 +86,10 @@ const Footer = () => {
       <FooterLinks />
 
       {/* 4 line */}
-      <div style={{
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        gap: '10px',
-        padding: '10px',
-      }}>
+      <StyledCopyright>
         <span>© 2021 GreenShop. All Rights Reserved.</span>
         <StyledLink href="https://nan-simon.github.io/resume/">made by NaN-Simon</StyledLink>
-      </div>
+      </StyledCopyright>
     </StyledFooter>
   )
 }

@@ -32,6 +32,15 @@ const StyledHeaderH1 = styled.h1`
   font-size: ${theme.typography.h1.fontSize};
   line-height: ${theme.typography.h1.lineHeight};
   text-transform: uppercase;
+  @media (min-width: ${theme.breakpoints.devices.xs}) {
+    font-size: ${theme.typography.h3.fontSize};
+  }
+  @media (min-width: ${theme.breakpoints.devices.sm}) {
+    font-size: ${theme.typography.h2.fontSize};
+  }
+  @media (min-width: ${theme.breakpoints.devices.md}) {
+    font-size: ${theme.typography.h1.fontSize};
+  }
   `
 const StyledTable = styled.table`
   border-collapse: collapse;

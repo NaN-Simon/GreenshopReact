@@ -45,6 +45,15 @@ const StyledHeaderH1 = styled.h1`
   font-size: ${theme.typography.h1.fontSize};
   line-height: ${theme.typography.h1.lineHeight};
   text-transform: uppercase;
+  @media (min-width: ${theme.breakpoints.devices.xs}) {
+    font-size: ${theme.typography.h3.fontSize};
+  }
+  @media (min-width: ${theme.breakpoints.devices.sm}) {
+    font-size: ${theme.typography.h2.fontSize};
+  }
+  @media (min-width: ${theme.breakpoints.devices.md}) {
+    font-size: ${theme.typography.h1.fontSize};
+  }
   `
 const StyledHeaderDescription = styled.h6`
   color: ${theme.typography.h6.color};
@@ -61,7 +70,7 @@ const Banner = () => {
 
   return (
     <StyledBannerSection data-name='banner'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '44px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '44px', padding: '10px' }}>
         <StyledBannerText>
           <StyledHeaderH6>{headerH6}</StyledHeaderH6>
           <StyledHeaderH1>Let’s Make a Better <span style={{ color: theme.palette.info }}>Planet</span></StyledHeaderH1>

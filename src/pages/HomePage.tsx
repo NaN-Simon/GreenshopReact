@@ -84,7 +84,7 @@ const HomePage = () => {
   }
 
   return (
-    <StyledHomePage >
+    <StyledHomePage data-name='home-page' >
       <Carousel />
       <StyledMain data-name='main'>
         {!isScreenLessThanMd && <CategoryFilter style={{ width: '310px' }} />}
