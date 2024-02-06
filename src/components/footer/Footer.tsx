@@ -36,6 +36,18 @@ const StyledDescription = styled.ul`
     flex-wrap: wrap;
  }
 `
+const StyledLink = styled.a`
+  color: ${theme.palette.primary};
+  font-family: ${theme.typography.h6.fontFamily};
+  font-style: ${theme.typography.h6.fontStyle};
+  font-weight: ${theme.typography.h6.fontWeight};
+  font-size: ${theme.typography.h6.fontSize};
+  line-height: ${theme.typography.h6.lineHeight};
+  transition: all 0.5s;
+  &:hover{
+    opacity: 0.7
+  }
+  `
 
 const Footer = () => {
   return (
@@ -64,7 +76,16 @@ const Footer = () => {
       <FooterLinks />
 
       {/* 4 line */}
-      <span>© 2021 GreenShop. All Rights Reserved.</span>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: '10px',
+        padding: '10px',
+      }}>
+        <span>© 2021 GreenShop. All Rights Reserved.</span>
+        <StyledLink href="https://nan-simon.github.io/resume/">made by NaN-Simon</StyledLink>
+      </div>
     </StyledFooter>
   )
 }
