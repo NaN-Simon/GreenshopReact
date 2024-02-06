@@ -28,7 +28,7 @@ const StyledLi = styled.li`
   display: flex;
   align-items: center;
 `
-const sharedLinkStyles = css<{ $vertical?: boolean; }>`
+const sharedStyledLink = css<{ $vertical?: boolean; }>`
  padding: ${props => props.$vertical ? '0 50px' : '15px 0'};
  color: ${theme.typography.h3.color};
  font-family: ${theme.typography.h3.fontFamily};
@@ -44,11 +44,11 @@ const sharedLinkStyles = css<{ $vertical?: boolean; }>`
  }
 `;
 const StyledLink = styled(Link)<{ $vertical?: boolean; }>`
- ${sharedLinkStyles}
+ ${sharedStyledLink}
 `;
 
 const StyledHashLink = styled(HashLink)<{ $vertical?: boolean; }>`
- ${sharedLinkStyles}
+ ${sharedStyledLink}
 `;
 
 const NavBar: FC<INavBar> = ({ isVertical }) => {

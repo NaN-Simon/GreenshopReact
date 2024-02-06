@@ -58,9 +58,7 @@ const Footer = () => {
       </StyledDescriptionAndFeedback>
 
       {/* 2 line */}
-      <div style={{ width: '100%' }}>
-        <FooterContact />
-      </div>
+      <FooterContact />
 
       {/* 3 line */}
       <FooterLinks />
