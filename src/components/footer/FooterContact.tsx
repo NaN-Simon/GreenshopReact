@@ -29,7 +29,6 @@ const StyledFooterContact = styled.ul`
   @media (min-width: ${theme.breakpoints.devices.md}) {
     grid-template-columns: 1fr 1fr 1fr 1.6fr;
     grid-template-rows: none;
-    max-width: 1200px;
   }
 `
 const StyledFooterContactElement = styled.li<{ $padding?: string; }>`
@@ -38,7 +37,7 @@ const StyledFooterContactElement = styled.li<{ $padding?: string; }>`
   gap: 9px;
   max-width: 260px;
   padding: ${props => props.$padding ? props.$padding : '0'};
-  @media (max-width: ${theme.breakpoints.devices.sm}) {
+  @media (max-width: ${theme.breakpoints.devices.md}) {
     padding: 0;
   }
 `
@@ -65,7 +64,7 @@ const StyledHashLink = styled(HashLink)`
 
 const FooterContact = () => {
   return (
-    <StyledFooterContact data-name='contact-banner'>
+    <StyledFooterContact data-name='footer-contact'>
 
       <StyledFooterContactElement $padding='0 0 0 23px'>
         <StyledHashLink to={'/'}>

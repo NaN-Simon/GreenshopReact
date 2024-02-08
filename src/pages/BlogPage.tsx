@@ -43,6 +43,9 @@ const StyledUl = styled.ul`
   width: 100%;
   padding: 0;
   list-style-type: none;
+  @media (min-width: ${theme.breakpoints.devices.lg}) {
+    flex-wrap: nowrap;
+  }
 `
 
 const BlogPage = () => {

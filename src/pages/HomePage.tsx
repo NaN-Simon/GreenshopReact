@@ -29,6 +29,7 @@ import {
 import useWindowSize from '../hooks/useWindowSize';
 
 import { bannerInfo } from '../mock-data/banner-info'
+import theme from '../theme/theme';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -37,6 +38,9 @@ const StyledHomePage = styled.div`
   align-items: center;
   margin-top: 12px;
   margin-bottom: 100px;
+  @media (min-width: ${theme.breakpoints.devices.md}) {
+    max-width: 1200px;
+  }
 `
 const StyledMain = styled.main`
   display: flex;

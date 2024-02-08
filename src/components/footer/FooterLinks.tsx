@@ -27,7 +27,6 @@ const StyledFooterLinks = styled.div`
   @media (min-width: ${theme.breakpoints.devices.md}) {
     grid-template-columns: 1fr 1fr 1fr 1.6fr;
     grid-template-rows: none;
-    max-width: 1200px;
   }
 `
 const StyledFooterLinkGroup = styled.ul`

@@ -70,7 +70,7 @@ const Banner = () => {
 
   return (
     <StyledBannerSection data-name='banner'>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '44px', padding: '10px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '44px', padding: '20px' }}>
         <StyledBannerText>
           <StyledHeaderH6>{headerH6}</StyledHeaderH6>
           <StyledHeaderH1>Let’s Make a Better <span style={{ color: theme.palette.info }}>Planet</span></StyledHeaderH1>

@@ -16,6 +16,9 @@ const StyledFooter = styled.footer`
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  @media (min-width: ${theme.breakpoints.devices.md}) {
+    max-width: 1200px;
+  }
 `
 
 const StyledDescriptionAndFeedback = styled.div`

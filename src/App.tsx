@@ -8,6 +8,10 @@ import theme from './theme/theme';
 import Footer from './components/footer/Footer';
 
 const AppStyled = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   margin-left: auto;
   margin-right: auto;

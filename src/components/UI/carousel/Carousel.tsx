@@ -1,10 +1,19 @@
 import React, { CSSProperties } from 'react'
+import styled from 'styled-components';
 import Slider from "react-slick";
+
 import Banner from '../../banner/Banner';
 import Banner2 from '../../banner/Banner2';
 import Banner3 from '../../banner/Banner3';
-import styled from 'styled-components';
+
 import theme from '../../../theme/theme';
+
+import useWindowSize from '../../../hooks/useWindowSize';
+
+/* для медиа-запроса theme.breakpoints.devices.xs
+* размер width идет из кастомного хука, т.к width
+* родительского компонента плагина Slider равна
+* максимальной возможной width браузера */
 
 interface ICarousel {
   className?: string,
@@ -17,7 +26,7 @@ const SamplePrevArrow = (props: ICarousel) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: "none"}}
+      style={{ ...style, display: "none" }}
       onClick={onClick}
     />
   );
@@ -27,7 +36,7 @@ const SampleNextArrow = (props: ICarousel) => {
   return (
     <div
       className={className}
-      style={{ ...style, display: "none"}}
+      style={{ ...style, display: "none" }}
       onClick={onClick}
     />
   );
@@ -43,10 +52,27 @@ const settings = {
   nextArrow: <SampleNextArrow />,
 };
 
-const StyledWrapper = styled.div`
-  width: 100%;
+
+
+const StyledWrapper = styled.div<{ $size: number; }>`
+  @media (min-width: ${theme.breakpoints.devices.xs}) {
+    width: ${props => props.$size ? `${props.$size - 50}px` : '100%'};
+    max-width: ${theme.breakpoints.devices.sm};
+  }
+  @media (min-width: ${theme.breakpoints.devices.sm}) {
+    width: ${theme.breakpoints.devices.sm};
+  }
+
+  @media (min-width: ${theme.breakpoints.devices.md}) {
+    width: ${theme.breakpoints.devices.md};
+  }
+
+  @media (min-width: ${theme.breakpoints.devices.lg}) {
+    width: ${theme.breakpoints.devices.lg};
+  }
+
   @media (min-width: ${theme.breakpoints.devices.xl}) {
-  width: 1200px;
+    width: ${theme.breakpoints.devices.xl};
   }
 `
 const StyledItem = styled.div`
@@ -54,8 +80,10 @@ const StyledItem = styled.div`
 `
 
 const Carousel = () => {
+  const { size } = useWindowSize();
+
   return (
-    <StyledWrapper data-name='carousel'>
+    <StyledWrapper $size={size} data-name='carousel'>
       <Slider {...settings}>
         <StyledItem data-name='carousel-item-1'>
           <Banner />
