@@ -1,7 +1,9 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
+
 import theme from '../../theme/theme';
-import { IInfoCard } from '../../types/infoCard';
+
+import { IFooterInfoCardBlock } from '../../types/footer';
 
 const StyledInfoCard = styled.li`
   display: flex;
@@ -37,7 +39,7 @@ const StyledDescription = styled.h6`
   font-size: ${theme.typography.h6.fontSize};
   line-height: ${theme.typography.h6.lineHeight};
 `
-const InfoCard: FC<IInfoCard> = ({ image, title, description }) => {
+const FooterInfoCard: FC<IFooterInfoCardBlock> = ({ image, title, description }) => {
   return (
     <StyledInfoCard>
       <StyledImg src={image} alt={title} />
@@ -47,4 +49,4 @@ const InfoCard: FC<IInfoCard> = ({ image, title, description }) => {
   )
 }
 
-export default InfoCard
+export default FooterInfoCard

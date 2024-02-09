@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled, { css } from 'styled-components'
-import theme from '../../theme/theme';
-import { footerContact } from '../../mock-data/footer-contact';
+import { HashLink } from 'react-router-hash-link';
 import Logo from '../logo/Logo'
+
+import theme from '../../theme/theme';
+
 import { ReactComponent as CallingSVG } from '../../assets/svg/calling.svg';
 import { ReactComponent as MessageSVG } from '../../assets/svg/message.svg';
 import { ReactComponent as LocationSVG } from '../../assets/svg/location.svg';
-import { HashLink } from 'react-router-hash-link';
+
+import { IFooterContact } from '../../types/footer';
 
 const StyledFooterContact = styled.ul`
   display: grid;
@@ -62,7 +65,7 @@ const StyledHashLink = styled(HashLink)`
  ${sharedStyledLink}
 `;
 
-const FooterContact = () => {
+const FooterContact:FC<IFooterContact> = ({location, email, phoneNumber}) => {
   return (
     <StyledFooterContact data-name='footer-contact'>
 
@@ -74,20 +77,20 @@ const FooterContact = () => {
 
       <StyledFooterContactElement>
         <LocationSVG width={20} height={20} />
-        {footerContact.location}
+        {location}
       </StyledFooterContactElement>
 
       <StyledFooterContactElement>
         <MessageSVG width={20} height={20} />
-        <StyledLink href={'mailto:' + footerContact.email}>
-          {footerContact.email}
+        <StyledLink href={'mailto:' + email}>
+          {email}
         </StyledLink>
       </StyledFooterContactElement>
 
       <StyledFooterContactElement>
         <CallingSVG width={20} height={20} />
-        <StyledLink href={'tel:' + footerContact.phoneNumber}>
-          {footerContact.phoneNumber}
+        <StyledLink href={'tel:' + phoneNumber}>
+          {phoneNumber}
         </StyledLink>
       </StyledFooterContactElement>
 

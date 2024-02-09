@@ -1,15 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchUsers } from '../../api/users'
-import { ICard } from '../../types/card'
+// import { useSelector } from 'react-redux'
 
-import { cards } from '../../mock-data/cards'
-import { useSelector } from 'react-redux'
+import { fetchUsers } from '../../api/users'
+
+import { cards } from '../../mock-data/main/cards'
+
+import { ICard } from '../../types/card'
 // import { selectCategories } from '../selectors/selectGoods'
 
 export interface IGoodsState {
   goods: ICard[]
   goodsCategories: Record<string, number>
   goodsSizes: Record<string, number>
+  goodsPriceRange: [number, number]
   users: any
   status: string
   isLoading: boolean
@@ -21,6 +24,7 @@ const initialState: IGoodsState = {
   users: [],
   goodsCategories: {},
   goodsSizes: {},
+  goodsPriceRange: [40, 1230],
   status: '',
   isLoading: false,
   error: null,
@@ -62,7 +66,7 @@ export const goodsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, (state, action) => {
+      .addCase(fetchUsers.pending, (state, /* action */) => {
         state.isLoading = true
         state.status = 'loading'
         state.error = ''
@@ -114,9 +118,3 @@ export const {
 } = goodsSlice.actions
 
 export default goodsSlice.reducer
-
-// https://redux-toolkit.js.org/tutorials/quick-start
-// https://redux-toolkit.js.org/api/createAsyncThunk#examples
-// https://redux-toolkit.js.org/tutorials/rtk-query
-// https://redux-toolkit.js.org/api/createslice
-// https://redux-toolkit.js.org/usage/migrating-rtk-2

@@ -1,13 +1,13 @@
-import flower1 from '../assets/image/flowers/flower1.png'
-import flower2 from '../assets/image/flowers/flower2.png'
-import flower3 from '../assets/image/flowers/flower3.png'
-import flower4 from '../assets/image/flowers/flower4.png'
-import flower5 from '../assets/image/flowers/flower5.png'
-import flower6 from '../assets/image/flowers/flower6.png'
-import flower7 from '../assets/image/flowers/flower7.png'
-import flower8 from '../assets/image/flowers/flower8.png'
-import flower9 from '../assets/image/flowers/flower9.png'
-import nirnroot from '../assets/image/flowers/nirnroot.png'
+import flower1 from '../../assets/image/flowers/flower1.png'
+import flower2 from '../../assets/image/flowers/flower2.png'
+import flower3 from '../../assets/image/flowers/flower3.png'
+import flower4 from '../../assets/image/flowers/flower4.png'
+import flower5 from '../../assets/image/flowers/flower5.png'
+import flower6 from '../../assets/image/flowers/flower6.png'
+import flower7 from '../../assets/image/flowers/flower7.png'
+import flower8 from '../../assets/image/flowers/flower8.png'
+import flower9 from '../../assets/image/flowers/flower9.png'
+import nirnroot from '../../assets/image/flowers/nirnroot.png'
 
 export const cards = [
   {

@@ -1,1 +1,0 @@
-export const initialPrice = [39, 1230]

@@ -1,10 +1,14 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import { IBlogCard } from '../../types/blogCard'
-import theme from '../../theme/theme'
+
 import Button from '../UI/button/Button'
-import { ReactComponent as Arrow2SVG } from '../../assets/svg/arrow2.svg'
 import Divider from '../UI/divider/Divider'
+
+import theme from '../../theme/theme'
+
+import { ReactComponent as Arrow2SVG } from '../../assets/svg/arrow2.svg'
+
+import { IBlogCardBlock } from '../../types/blogCard'
 
 const StyledLi = styled.li`
   display: flex;
@@ -70,7 +74,7 @@ const StyledContent = styled.div`
   }
 `
 
-const BlogCard: FC<IBlogCard> = (props) => {
+const BlogCard: FC<IBlogCardBlock> = (props) => {
   const { id, image, time, readTime, title, purpose, description, url } = props
   return (
     <StyledLi key={id}>
@@ -87,7 +91,7 @@ const BlogCard: FC<IBlogCard> = (props) => {
         <Button style={{ justifyContent: 'flex-start', background: 'none', color: theme.palette.primary }} link={url}>
           <StyledButton>Read More</StyledButton>
           <StyledArrowWrapper>
-            <Arrow2SVG style={{ paddingTop: '4px', }} />
+            <Arrow2SVG style={{ paddingTop: '4px' }} />
           </StyledArrowWrapper>
         </Button>
       </StyledContent>

@@ -1,11 +1,11 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 
 import theme from '../../theme/theme';
 import FooterSocial from './FooterSocial';
 import FooterPay from './FooterPay';
 
-import { footerLinks } from '../../mock-data/footer-links';
+import { IFooterLink } from '../../types/footer';
 
 const StyledFooterLinks = styled.div`
   display: grid;
@@ -56,11 +56,11 @@ const StyledFooterLink = styled.a`
   }
   `
 
-const FooterLinks = () => {
+const FooterLinks: FC<{ footerLink: IFooterLink }> = ({ footerLink }) => {
   return (
     <StyledFooterLinks data-name='footer-links' >
 
-      {footerLinks.map((linkGroup) => (
+      {footerLink.map((linkGroup) => (
         <StyledFooterLinkGroup key={linkGroup.header}>
 
           <StyledFooterHeader>

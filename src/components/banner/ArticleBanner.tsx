@@ -3,16 +3,7 @@ import styled from 'styled-components'
 import theme from '../../theme/theme';
 import Button from '../UI/button/Button';
 import { ReactComponent as ArrowSVG } from '../../assets/svg/arrow.svg'
-
-interface IArticleBanner {
-  data: {
-    id: number,
-    header: string,
-    title: string,
-    image: string,
-    link: string,
-  }[]
-}
+import { IBannerInfo } from '../../types/banner';
 
 const StyledArticleBanner = styled.div`
   display: flex;
@@ -81,7 +72,7 @@ const StyledHeaderDescription = styled.h6`
   text-align: end;
 `
 
-const ArticleBanner: FC<IArticleBanner> = ({ data }) => {
+const ArticleBanner: FC<{data: IBannerInfo}> = ({ data }) => {
   return (
     <StyledArticleBanner data-name='article-banner'>
       {data.map((item) => (

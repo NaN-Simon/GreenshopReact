@@ -2,8 +2,6 @@ import React, { CSSProperties, FC, ReactNode } from 'react'
 import styled from 'styled-components';
 import theme from '../../theme/theme';
 
-// TODO пересоздать компонент, баг регистра
-
 interface IHyphenText {
   children: ReactNode;
   style?: CSSProperties;

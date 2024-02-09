@@ -24,11 +24,8 @@ import {
   sortProductsByNameZA
 } from '../store/reducers/goodsSlice'
 
-// import { selectCategories, selectSizes } from '../store/selectors/selectGoods';
-
 import useWindowSize from '../hooks/useWindowSize';
 
-import { bannerInfo } from '../mock-data/banner-info'
 import theme from '../theme/theme';
 
 const StyledHomePage = styled.div`
@@ -58,17 +55,22 @@ const StyledContent = styled.div`
 `
 const StyledCardFilterGroup = styled.div`
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: ${theme.breakpoints.devices.md}) {
+    flex-direction: column;
+  }
 `
 
 const HomePage = () => {
   /* component CategoryFilter size handler */
-  const {isScreenLessThanMd} = useWindowSize();
+  const { isScreenLessThanMd } = useWindowSize();
 
   /* data fetching */
   const { error, isLoading, goods } = useSelector((state: RootState) => state.goodsReducer)
   const dispatch = useDispatch<AppDispatch>()
+  const { bannerInfo } = useSelector((state: RootState) => state.bannerReducer)
 
   useEffect(() => {
     dispatch(fetchUsers())
@@ -103,7 +105,7 @@ const HomePage = () => {
           {!isLoading && <Pagination itemsPerPage={9} items={goods} />}
         </StyledContent>
       </StyledMain>
-      <ArticleBanner data={bannerInfo} />
+      {bannerInfo !== null && <ArticleBanner data={bannerInfo} />}
       <BlogPage />
     </StyledHomePage>
   )

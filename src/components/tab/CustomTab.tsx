@@ -13,7 +13,10 @@ const StyledTabs = styled(Tabs)`
 const StyledTabList = styled(TabList)`
   display: flex;
   align-items: center;
-  gap: 37px
+  gap: 37px;
+  @media (max-width: ${theme.breakpoints.devices.md}) {
+    gap: 5px
+  }
 `
 const StyledTab = styled(Tab)`
   padding: 0 5px 3px 5px;

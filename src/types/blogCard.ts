@@ -1,4 +1,5 @@
-export interface IBlogCard {
+export type IBlogCard = IBlogCardBlock[]
+export interface IBlogCardBlock {
   id: number,
   image: string,
   time: string,

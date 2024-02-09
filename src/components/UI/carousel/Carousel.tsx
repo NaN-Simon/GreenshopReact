@@ -61,18 +61,22 @@ const StyledWrapper = styled.div<{ $size: number; }>`
   }
   @media (min-width: ${theme.breakpoints.devices.sm}) {
     width: ${theme.breakpoints.devices.sm};
+    max-width: none;
   }
 
   @media (min-width: ${theme.breakpoints.devices.md}) {
     width: ${theme.breakpoints.devices.md};
+    max-width: none;
   }
 
   @media (min-width: ${theme.breakpoints.devices.lg}) {
     width: ${theme.breakpoints.devices.lg};
+    max-width: none;
   }
 
   @media (min-width: ${theme.breakpoints.devices.xl}) {
     width: ${theme.breakpoints.devices.xl};
+    max-width: none;
   }
 `
 const StyledItem = styled.div`

@@ -1,13 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import theme from '../../theme/theme';
-import InfoCard from '../card/InfoCard'
-import Feedback from '../feedback/Feedback'
-import { footerInfoCards } from '../../mock-data/footer-info-cards'
-import { IInfoCard } from '../../types/infoCard';
-import FooterContact from './FooterContact';
-import FooterLinks from './FooterLinks';
+import { useSelector } from 'react-redux';
+
 import Divider from '../UI/divider/Divider';
+import Feedback from '../feedback/Feedback';
+import FooterContact from './FooterContact';
+import FooterInfoCard from './FooterInfoCard';
+import FooterLinks from './FooterLinks';
+
+import theme from '../../theme/theme';
+
+import { RootState } from '../../store/store';
+
+import { IFooterInfoCardBlock } from '../../types/footer';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -63,15 +68,22 @@ const StyledCopyright = styled.div`
 `
 
 const Footer = () => {
+  /* data fetching */
+  const { error, isLoading, footerInfoCard, footerContact, footerLink } = useSelector((state: RootState) => state.footerReducer)
+
   return (
     <StyledFooter data-name='footer'>
+
+      {error && error}
+      {isLoading && <span>Loading...</span>}
+
       {/* 1 line */}
       <StyledDescriptionAndFeedback>
         <StyledDescription>
-          {footerInfoCards.map((card: IInfoCard, index) => (
+          {footerInfoCard !== null && footerInfoCard.map((card: IFooterInfoCardBlock, index) => (
             <div key={card.id} style={{ display: 'flex' }}>
-              <InfoCard  {...card} />
-              {index + 1 !== footerInfoCards.length && (
+              <FooterInfoCard  {...card} />
+              {index + 1 !== footerInfoCard.length && (
                 <Divider
                   style={{ height: '100%', background: '#46a3581a' }}
                 />
@@ -83,10 +95,10 @@ const Footer = () => {
       </StyledDescriptionAndFeedback>
 
       {/* 2 line */}
-      <FooterContact />
+      {footerContact !== null && <FooterContact {...footerContact} />}
 
       {/* 3 line */}
-      <FooterLinks />
+      {footerLink !== null && <FooterLinks footerLink={footerLink} />}
 
       {/* 4 line */}
       <StyledCopyright>

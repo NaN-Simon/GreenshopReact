@@ -1,7 +1,7 @@
-import blog01 from '../assets/image/flowers/blog01.png'
-import blog02 from '../assets/image/flowers/blog02.png'
-import blog03 from '../assets/image/flowers/blog03.png'
-import blog04 from '../assets/image/flowers/blog04.png'
+import blog01 from '../../assets/image/flowers/blog01.png'
+import blog02 from '../../assets/image/flowers/blog02.png'
+import blog03 from '../../assets/image/flowers/blog03.png'
+import blog04 from '../../assets/image/flowers/blog04.png'
 
 export const blogCardsData = [
   {

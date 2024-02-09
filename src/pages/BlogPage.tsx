@@ -6,8 +6,9 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../theme/theme';
 import BlogCard from '../components/card/BlogCard';
-import { blogCardsData } from '../mock-data/blog-cards';
-import { IBlogCard } from '../types/blogCard';
+import { IBlogCardBlock } from '../types/blogCard';
+import { useSelector } from 'react-redux';
+import { RootState } from '../store/store';
 
 const StyledBlogPageWrapper = styled.div`
   display: flex;
@@ -49,7 +50,10 @@ const StyledUl = styled.ul`
 `
 
 const BlogPage = () => {
-  const BlogList = ({ list }: { list: IBlogCard[] }) => {
+  /* data fetching */
+  const { error, isLoading, blogCard } = useSelector((state: RootState) => state.blogReducer)
+
+  const BlogList = ({ list }: { list: IBlogCardBlock[] }) => {
     return (
       <StyledUl>
         {list?.map((item) => (
@@ -70,7 +74,9 @@ const BlogPage = () => {
       <StyledSubHeader>
         We are an online plant shop offering a wide range of cheap and trendy plants.
       </StyledSubHeader>
-      <BlogList list={blogCardsData} />
+      {error && error}
+      {isLoading && <span>Loading...</span>}
+      {blogCard !== null && <BlogList list={blogCard} />}
     </StyledBlogPageWrapper>
   )
 }

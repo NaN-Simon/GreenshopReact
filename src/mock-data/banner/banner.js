@@ -1,6 +1,6 @@
-import flower3 from '../assets/image/flowers/flower3.png';
-import flower5 from '../assets/image/flowers/flower5.png';
-import banner1 from '../assets/image/flowers/banner.png';
+import flower3 from '../../assets/image/flowers/flower3.png';
+import flower5 from '../../assets/image/flowers/flower5.png';
+import banner1 from '../../assets/image/flowers/banner.png';
 
 export const bannerInfo =
   [
