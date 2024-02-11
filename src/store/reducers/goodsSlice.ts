@@ -12,6 +12,8 @@ export interface IGoodsState {
   goods: ICard[]
   goodsCategories: Record<string, number>
   goodsSizes: Record<string, number>
+  goodsMinPrice: number
+  goodsMaxPrice: number
   goodsPriceRange: [number, number]
   users: any
   status: string
@@ -24,7 +26,9 @@ const initialState: IGoodsState = {
   users: [],
   goodsCategories: {},
   goodsSizes: {},
-  goodsPriceRange: [40, 1230],
+  goodsMinPrice: 0,
+  goodsMaxPrice: 0,
+  goodsPriceRange: [0, 1],
   status: '',
   isLoading: false,
   error: null,
@@ -51,6 +55,12 @@ export const goodsSlice = createSlice({
     filterProductsByAll: (state) => {
       state.goods = cards
     },
+    filterRangeByPrice: (state, action) => {
+      state.goods = cards.filter(
+        (list: ICard) =>
+          list.price >= action.payload[0] && list.price <= action.payload[1]
+      )
+    },
     sortProductsByNameAZ: (state) => {
       state.goods = [...cards].sort((a, b) => (a.name > b.name ? 1 : -1))
     },
@@ -66,15 +76,12 @@ export const goodsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, (state, /* action */) => {
+      .addCase(fetchUsers.pending, (state /* action */) => {
         state.isLoading = true
         state.status = 'loading'
         state.error = ''
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
-        state.isLoading = false
-        state.status = 'resolved'
-        state.error = ''
         /* для симуляции async запроса, после получения data от fake-api присваивается mock-data */
         state.users = action.payload
 
@@ -95,6 +102,23 @@ export const goodsSlice = createSlice({
           },
           {}
         )
+        const minPrice = cards.reduce(
+          (minPrice: number, card: ICard) => Math.min(minPrice, card.price),
+          Number.MAX_VALUE
+        )
+        const maxPrice = cards.reduce(
+          (maxPrice: number, card: ICard) => Math.max(maxPrice, card.price),
+          Number.MIN_VALUE
+        )
+
+        state.goodsMinPrice = minPrice
+        state.goodsMaxPrice = maxPrice
+
+        state.goodsPriceRange = [state.goodsMinPrice, state.goodsMaxPrice]
+
+        state.isLoading = false
+        state.status = 'resolved'
+        state.error = ''
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false
@@ -111,6 +135,7 @@ export const {
   filterProductsByNew,
   filterProductsBySale,
   filterProductsByAll,
+  filterRangeByPrice,
   sortProductsByNameAZ,
   sortProductsByNameZA,
   sortProductsByPriceFromDownToUp,

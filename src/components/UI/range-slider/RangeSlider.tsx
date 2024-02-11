@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import Tooltip from "rc-tooltip";
@@ -8,8 +8,13 @@ import theme from '../../../theme/theme';
 import Button from '../button/Button';
 
 interface IRangeSlider {
+  min: number
+  max: number
+  value: number | number[]
+  setValue: React.Dispatch<React.SetStateAction<number | number[]>>;
   header?: string,
   initialPrice: number | number[]
+  buttonSubmit: () => void,
 }
 
 const StyledRangeSlider = styled.div`
@@ -59,8 +64,8 @@ const rangeSliderCustomStyles = {
   }
 }
 
-const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
-  const [value, setValue] = useState<number | number[]>(initialPrice)
+const RangeSlider: FC<IRangeSlider> = ({ min, max, value, setValue, header, initialPrice, buttonSubmit }) => {
+
   return (
     <StyledRangeSlider data-name='range-slider'>
       <StyledHeader data-name='range-slider-header'>
@@ -69,8 +74,8 @@ const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
       <StyledWrapper data-name='range-slider-wrapper'>
         <Slider
           range
-          min={39}
-          max={2000}
+          min={min}
+          max={max}
           defaultValue={initialPrice}
           allowCross={false}
           onChange={setValue}
@@ -91,7 +96,7 @@ const RangeSlider: FC<IRangeSlider> = ({ header, initialPrice }) => {
         <StyledPrice data-name='range-slider-price'>
           Price: <span> ${Array.isArray(value) && value.join(" - $")} </span>
         </StyledPrice>
-        <Button link='#' style={{ width: '90px', fontWeight: '700' }}>
+        <Button onClick={buttonSubmit} link='#' style={{ width: '90px', fontWeight: '700' }}>
           Filter
         </Button>
       </StyledWrapper>

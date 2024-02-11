@@ -7,7 +7,8 @@ interface IButton {
   children: ReactNode;
   link?: string;
   style?: CSSProperties;
-  className?: string
+  className?: string;
+  onClick?: () => void;
 }
 
 const StyledButton = styled.button`
@@ -46,7 +47,7 @@ const StyledLink = styled(Link)`
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<IButton>>((props: PropsWithChildren<IButton>, ref) => {
 
-  const { children, link, style, className, ...datum } = props
+  const { children, link, style, className, onClick, ...datum } = props
 
   const ChildrenWithLink = () => {
     return (
@@ -61,6 +62,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<IButton>>((props:
       style={{ ...style }}
       className={className}
       ref={ref}
+      onClick={onClick}
       {...datum}>
       {link && <ChildrenWithLink/>}
       {!link && children}
