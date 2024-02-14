@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 // import { useSelector } from 'react-redux'
 
-import { fetchUsers } from '../../api/users'
+import { fetchPhotos } from '../../api/photos'
 
 import { cards } from '../../mock-data/main/cards'
 
@@ -15,7 +15,7 @@ export interface IGoodsState {
   goodsMinPrice: number
   goodsMaxPrice: number
   goodsPriceRange: [number, number]
-  users: any
+  photos: any
   status: string
   isLoading: boolean
   error: string | null
@@ -23,7 +23,7 @@ export interface IGoodsState {
 
 const initialState: IGoodsState = {
   goods: [],
-  users: [],
+  photos: [],
   goodsCategories: {},
   goodsSizes: {},
   goodsMinPrice: 0,
@@ -76,14 +76,14 @@ export const goodsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, (state /* action */) => {
+      .addCase(fetchPhotos.pending, (state /* action */) => {
         state.isLoading = true
         state.status = 'loading'
         state.error = ''
       })
-      .addCase(fetchUsers.fulfilled, (state, action) => {
+      .addCase(fetchPhotos.fulfilled, (state, action) => {
         /* для симуляции async запроса, после получения data от fake-api присваивается mock-data */
-        state.users = action.payload
+        state.photos = action.payload
 
         state.goods = cards
 
@@ -120,7 +120,7 @@ export const goodsSlice = createSlice({
         state.status = 'resolved'
         state.error = ''
       })
-      .addCase(fetchUsers.rejected, (state, action) => {
+      .addCase(fetchPhotos.rejected, (state, action) => {
         state.isLoading = false
         state.status = 'error'
         state.error = String(action.payload)

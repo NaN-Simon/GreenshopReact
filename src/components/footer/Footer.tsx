@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Divider from '../UI/divider/Divider';
 import Feedback from '../feedback/Feedback';
@@ -10,9 +10,10 @@ import FooterLinks from './FooterLinks';
 
 import theme from '../../theme/theme';
 
-import { RootState } from '../../store/store';
+import { AppDispatch, RootState } from '../../store/store';
 
 import { IFooterInfoCardBlock } from '../../types/footer';
+import { fetchUsers } from '../../api/users';
 
 const StyledFooter = styled.footer`
   display: flex;
@@ -70,6 +71,11 @@ const StyledCopyright = styled.div`
 const Footer = () => {
   /* data fetching */
   const { error, isLoading, footerInfoCard, footerContact, footerLink } = useSelector((state: RootState) => state.footerReducer)
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [dispatch])
 
   return (
     <StyledFooter data-name='footer'>

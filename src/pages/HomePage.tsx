@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../store/store';
+
 import styled from 'styled-components'
 
 import BlogPage from './BlogPage';
@@ -12,8 +14,7 @@ import ArticleBanner from '../components/banner/ArticleBanner';
 import CustomSelect from '../components/UI/select/CustomSelect';
 import Carousel from '../components/UI/carousel/Carousel';
 
-import { fetchUsers } from '../api/users';
-import { AppDispatch, RootState } from '../store/store';
+import { fetchPhotos } from '../api/photos';
 import {
   filterProductsBySale,
   filterProductsByNew,
@@ -73,7 +74,7 @@ const HomePage = () => {
   const { bannerInfo } = useSelector((state: RootState) => state.bannerReducer)
 
   useEffect(() => {
-    dispatch(fetchUsers())
+    dispatch(fetchPhotos())
   }, [dispatch])
 
   const tabHandler = (tab: number) => {
@@ -96,7 +97,9 @@ const HomePage = () => {
         {!isScreenLessThanMd && <CategoryFilter style={{ width: '310px' }} />}
         <StyledContent data-name='content'>
           <StyledCardFilterGroup data-name='filters'>
-            <CustomTab handler={tabHandler} />
+            <CustomTab
+              arrayOfTabs={['All Plants', 'New Arrivals', 'Sale']}
+              handler={tabHandler} />
             <CustomSelect handler={selectHandler} />
           </StyledCardFilterGroup>
           {/* Сами карточки с товарами передаются в Pagination */}

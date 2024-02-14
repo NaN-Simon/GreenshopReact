@@ -5,6 +5,9 @@ import theme from '../../theme/theme';
 import 'react-tabs/style/react-tabs.css';
 
 interface ICustomTab {
+  arrayOfTabs: string[],
+  // arrayOfTabsPanel?: Array<string | (() => Element)>,
+  arrayOfTabsPanel?: any,
   handler: (tab: number) => void,
 }
 
@@ -40,27 +43,28 @@ const StyledTab = styled(Tab)`
   }
 `
 
-const CustomTab:FC<ICustomTab> = ({handler}) => {
+const CustomTab: FC<ICustomTab> = ({ handler, arrayOfTabs, arrayOfTabsPanel }) => {
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <StyledTabs
       selectedIndex={tabIndex}
       onSelect={(index) => {
         setTabIndex(index)
-        handler(index)}
+        handler(index)
+      }
       }>
       <StyledTabList>
-        <StyledTab>All Plants</StyledTab>
-        <StyledTab>New Arrivals</StyledTab>
-        <StyledTab>Sale</StyledTab>
+        {arrayOfTabs.map(item => (
+          <StyledTab key={item}>{item}</StyledTab>
+        ))}
       </StyledTabList>
-
-      <TabPanel>
-      </TabPanel>
-      <TabPanel>
-      </TabPanel>
-      <TabPanel>
-      </TabPanel>
+      {arrayOfTabs.map((item, index) => (
+        <TabPanel
+          key={item + 'panel'}>
+          {arrayOfTabsPanel && typeof arrayOfTabsPanel[index] === 'string' && arrayOfTabsPanel[index]}
+          {arrayOfTabsPanel && typeof arrayOfTabsPanel[index] === 'function' && arrayOfTabsPanel[index]()}
+        </TabPanel>
+      ))}
     </StyledTabs>
   )
 }

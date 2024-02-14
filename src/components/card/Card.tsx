@@ -9,6 +9,7 @@ import { ReactComponent as HeartSVG } from '../../assets/svg/heart.svg'
 import { ReactComponent as FindSVG } from '../../assets/svg/find.svg'
 
 import { ICard } from '../../types/card'
+import { Link, useNavigate } from 'react-router-dom';
 
 const item = {
   hidden: { y: 20, opacity: 0 },
@@ -106,6 +107,22 @@ const StyledLi = styled(motion.li)`
 const Card: FC<ICard> = ({ id, image, name, currency, price, prevPrice }) => {
   const isShowDiscount = prevPrice && prevPrice >= price
   const percentDiscount = isShowDiscount ? (Math.floor(100 - ((+price * 100) / +prevPrice))) : 0
+  const navigate = useNavigate();
+
+  const basketHandler = (event: React.MouseEvent) => {
+    event.stopPropagation()
+    alert('basketHandler')
+  }
+
+  const likeHandler = (event: React.MouseEvent) => {
+    event.stopPropagation()
+    alert('likeHandler')
+  }
+
+  const findHandler = (event: React.MouseEvent) => {
+    event.stopPropagation()
+    alert('findHandler')
+  }
 
   return (
     <StyledLi
@@ -113,7 +130,7 @@ const Card: FC<ICard> = ({ id, image, name, currency, price, prevPrice }) => {
       variants={item}
       key={id}
       onClick={() => {
-        alert([id, image, name, currency, price, prevPrice].toString())
+        navigate(`/product/${id}`);
       }}
     >
 
@@ -127,9 +144,9 @@ const Card: FC<ICard> = ({ id, image, name, currency, price, prevPrice }) => {
 
       <StyledWidgets data-name='card-widgets'>
         <StyledWidgetsItems>
-          <StyledWidgetsItem><CartSVG fill={theme.palette.info} /></StyledWidgetsItem>
-          <StyledWidgetsItem><HeartSVG /></StyledWidgetsItem>
-          <StyledWidgetsItem><FindSVG /></StyledWidgetsItem>
+          <StyledWidgetsItem onClick={basketHandler}><CartSVG fill={theme.palette.info} /></StyledWidgetsItem>
+          <StyledWidgetsItem onClick={likeHandler}><HeartSVG /></StyledWidgetsItem>
+          <StyledWidgetsItem onClick={findHandler}><FindSVG /></StyledWidgetsItem>
         </StyledWidgetsItems>
       </StyledWidgets>
 

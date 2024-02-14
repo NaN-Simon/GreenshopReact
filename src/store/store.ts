@@ -11,7 +11,9 @@ export const store = configureStore({
     footerReducer: footerSlice,
     blogReducer: blogSlice,
   },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware(),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

@@ -1,11 +1,13 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Router } from 'react-router-dom';
 import styled from 'styled-components'
 import Header from './components/header/Header';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import theme from './theme/theme';
 import Footer from './components/footer/Footer';
+import ProductId from './pages/product/[productid]';
+import ScrollToTop from './hooks/ScrollToTop';
 
 const AppStyled = styled.div`
   display: flex;
@@ -38,10 +40,13 @@ function App() {
   return (
     <AppStyled>
       <Header />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/shop" element={<ShopPage/>} />
-      </Routes>
+      <ScrollToTop>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/shop" element={<ShopPage />} />
+          <Route path="/product/:id" element={<ProductId />} />
+        </Routes>
+      </ScrollToTop>
       <Footer/>
     </AppStyled>
   );

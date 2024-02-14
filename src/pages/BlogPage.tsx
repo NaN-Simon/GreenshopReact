@@ -2,13 +2,14 @@
 * Блог вынес в отдельную страницу т.к имеет свою ссылку в навигации.
 */
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import theme from '../theme/theme';
 import BlogCard from '../components/card/BlogCard';
 import { IBlogCardBlock } from '../types/blogCard';
-import { useSelector } from 'react-redux';
-import { RootState } from '../store/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppDispatch, RootState } from '../store/store';
+import { fetchUsers } from '../api/users';
 
 const StyledBlogPageWrapper = styled.div`
   display: flex;
@@ -52,6 +53,11 @@ const StyledUl = styled.ul`
 const BlogPage = () => {
   /* data fetching */
   const { error, isLoading, blogCard } = useSelector((state: RootState) => state.blogReducer)
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(() => {
+    dispatch(fetchUsers())
+  }, [dispatch])
 
   const BlogList = ({ list }: { list: IBlogCardBlock[] }) => {
     return (
