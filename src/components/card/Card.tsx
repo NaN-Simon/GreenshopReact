@@ -145,7 +145,7 @@ const Card: FC<ICard> = ({ id, image, name, currency, price, prevPrice }) => {
       <StyledWidgets data-name='card-widgets'>
         <StyledWidgetsItems>
           <StyledWidgetsItem onClick={basketHandler}><CartSVG fill={theme.palette.info} /></StyledWidgetsItem>
-          <StyledWidgetsItem onClick={likeHandler}><HeartSVG /></StyledWidgetsItem>
+          <StyledWidgetsItem onClick={likeHandler}><HeartSVG fill={theme.palette.primary} /></StyledWidgetsItem>
           <StyledWidgetsItem onClick={findHandler}><FindSVG /></StyledWidgetsItem>
         </StyledWidgetsItems>
       </StyledWidgets>

@@ -8,7 +8,9 @@ interface IButton {
   link?: string;
   style?: CSSProperties;
   className?: string;
-  onClick?: () => void;
+  // onClick?: () => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>
+  // onClick?: (React.MouseEventHandler<T> | undefined) => void;
 }
 
 const StyledButton = styled.button`

@@ -18,7 +18,9 @@ export const cards = [
     size: "Medium",
     price: 119,
     currency: '$',
-    tags: ["daisy", "house plants"]
+    tags: ["daisy", "house plants"],
+    rate: 4,
+    countReview: 15
   },
   {
     id: 2,
@@ -28,7 +30,9 @@ export const cards = [
     size: "Medium",
     price: 169,
     currency: '$',
-    tags: ["begonia", "potter plants"]
+    tags: ["begonia", "potter plants"],
+    rate: 3,
+    countReview: 10
   },
   {
     id: 3,
@@ -40,7 +44,9 @@ export const cards = [
     currency: '$',
     prevPrice: 229,
     tags: ["violet", "seeds"],
-    isNew: true
+    isNew: true,
+    rate: 5,
+    countReview: 25
   },
   {
     id: 4,
@@ -50,7 +56,9 @@ export const cards = [
     size: "Medium",
     price: 229,
     currency: '$',
-    tags: ["spider lily", "Small plants"]
+    tags: ["spider lily", "Small plants"],
+    rate: 2,
+    countReview: 8
   },
   {
     id: 5,
@@ -61,7 +69,9 @@ export const cards = [
     price: 129,
     currency: '$',
     tags: ["bromeliad", "big plants"],
-    isNew: true
+    isNew: true,
+    rate: 0,
+    countReview: 20
   },
   {
     id: 6,
@@ -71,7 +81,9 @@ export const cards = [
     size: "Small",
     price: 139,
     currency: '$',
-    tags: ["aluminum plant", "succulents"]
+    tags: ["aluminum plant", "succulents"],
+    rate: 3,
+    countReview: 12
   },
   {
     id: 7,
@@ -81,7 +93,9 @@ export const cards = [
     size: "Medium",
     price: 99,
     currency: '$',
-    tags: ["fern", "terrariums"]
+    tags: ["fern", "terrariums"],
+    rate: 4,
+    countReview: 18
   },
   {
     id: 8,
@@ -91,7 +105,9 @@ export const cards = [
     size: "Large",
     price: 59,
     currency: "$",
-    tags: ["indoor", "palm"]
+    tags: ["indoor", "palm"],
+    rate: 5,
+    countReview: 30
   },
   {
     id: 9,
@@ -103,7 +119,9 @@ export const cards = [
     prevPrice: 229,
     currency: "$",
     tags: ["indoor", "foliage"],
-    isNew: true
+    isNew: true,
+    rate: 4,
+    countReview: 28
   },
   {
     id: 10,
@@ -113,7 +131,9 @@ export const cards = [
     size: "Medium",
     price: 89,
     currency: "$",
-    tags: ["indoor", "air purifying"]
+    tags: ["indoor", "air purifying"],
+    rate: 3,
+    countReview: 15
   },
   {
     id: 11,
@@ -123,7 +143,9 @@ export const cards = [
     currency: "$",
     category: "House Plants",
     size: "Small",
-    tags: ["indoor", "tropical"]
+    tags: ["indoor", "tropical"],
+    rate: 4,
+    countReview: 10
   },
   {
     id: 12,
@@ -133,7 +155,9 @@ export const cards = [
     currency: "$",
     category: "Potter Plants",
     size: "Medium",
-    tags: ["succulent", "desert"]
+    tags: ["succulent", "desert"],
+    rate: 5,
+    countReview: 15
   },
   {
     id: 13,
@@ -144,7 +168,9 @@ export const cards = [
     category: "Seeds",
     size: "Large",
     prevPrice: 2389,
-    tags: ["indoor", "low light"]
+    tags: ["indoor", "low light"],
+    rate: 3,
+    countReview: 20
   },
   {
     id: 14,
@@ -154,7 +180,9 @@ export const cards = [
     currency: "$",
     category: "Small Plants",
     size: "Small",
-    tags: ["indoor", "toxic"]
+    tags: ["indoor", "toxic"],
+    rate: 4,
+    countReview: 12
   },
   {
     id: 15,
@@ -164,7 +192,9 @@ export const cards = [
     currency: "$",
     category: "Big Plants",
     size: "Medium",
-    tags: ["indoor", "tropical"]
+    tags: ["indoor", "tropical"],
+    rate: 5,
+    countReview: 25
   },
   {
     id: 16,
@@ -174,7 +204,9 @@ export const cards = [
     currency: '$',
     category: "Succulents",
     size: "Large",
-    tags: ["evergreen", "trailing"]
+    tags: ["evergreen", "trailing"],
+    rate: 4,
+    countReview: 18
   },
   {
     id: 17,
@@ -184,7 +216,9 @@ export const cards = [
     currency: '$',
     category: "Terrariums",
     size: "Small",
-    tags: ["tropical", "indoor"]
+    tags: ["tropical", "indoor"],
+    rate: 5,
+    countReview: 30
   },
   {
     id: 18,
@@ -194,7 +228,9 @@ export const cards = [
     currency: '$',
     category: "Gardening",
     size: "Medium",
-    tags: ["ornamental", "indoor"]
+    tags: ["ornamental", "indoor"],
+    rate: 3,
+    countReview: 10
   },
   {
     id: 19,
@@ -204,7 +240,9 @@ export const cards = [
     currency: '$',
     category: "Accessories",
     size: "Large",
-    tags: ["fragrant", "blooming"]
+    tags: ["fragrant", "blooming"],
+    rate: 4,
+    countReview: 15
   },
   {
     id: 20,
@@ -214,7 +252,9 @@ export const cards = [
     currency: '$',
     category: "House Plants",
     size: "Small",
-    tags: ["colorful", "outdoor"]
+    tags: ["colorful", "outdoor"],
+    rate: 5,
+    countReview: 20
   },
   {
     id: 21,
@@ -224,7 +264,9 @@ export const cards = [
     currency: '$',
     category: "Potter Plants",
     size: "Medium",
-    tags: ["succulent", "indoor"]
+    tags: ["succulent", "indoor"],
+    rate: 4,
+    countReview: 12
   },
   {
     id: 22,
@@ -234,7 +276,9 @@ export const cards = [
     currency: '$',
     category: "Seeds",
     size: "Large",
-    tags: ["palm", "tropical"]
+    tags: ["palm", "tropical"],
+    rate: 3,
+    countReview: 8
   },
   {
     id: 23,
@@ -244,7 +288,9 @@ export const cards = [
     currency: '$',
     category: "Small Plants",
     size: "Small",
-    tags: ["fragrant", "medicinal"]
+    tags: ["fragrant", "medicinal"],
+    rate: 5,
+    countReview: 25
   },
   {
     id: 24,
@@ -255,7 +301,9 @@ export const cards = [
     category: "Big Plants",
     size: "Medium",
     prevPrice: 69,
-    tags: ["bamboo", "lucky"]
+    tags: ["bamboo", "lucky"],
+    rate: 4,
+    countReview: 16
   },
   {
     id: 25,
@@ -265,7 +313,9 @@ export const cards = [
     currency: "$",
     category: "Succulents",
     size: "Large",
-    tags: ["indoor", "easy care"]
+    tags: ["indoor", "easy care"],
+    rate: 5,
+    countReview: 28
   },
   {
     id: 26,
@@ -275,6 +325,8 @@ export const cards = [
     currency: "$",
     category: "Terrariums",
     size: "Small",
+    rate: 4,
+    countReview: 10,
     tags: ["shade-loving", "humidity-loving"]
   },
   {
@@ -285,6 +337,8 @@ export const cards = [
     currency: "$",
     category: "Gardening",
     size: "Medium",
+    rate: 3,
+    countReview: 15,
     tags: ["indoor", "good luck"]
   },
   {
@@ -295,6 +349,8 @@ export const cards = [
     currency: "$",
     category: "Accessories",
     size: "Large",
+    rate: 5,
+    countReview: 20,
     tags: ["evergreen", "decorative"]
   },
   {
@@ -305,6 +361,8 @@ export const cards = [
     currency: "$",
     category: "House Plants",
     size: "Small",
+    rate: 4,
+    countReview: 12,
     tags: ["blooming", "fragrant"]
   },
   {
@@ -315,6 +373,8 @@ export const cards = [
     currency: "$",
     category: "Potter Plants",
     size: "Medium",
+    rate: 5,
+    countReview: 30,
     tags: ["tropical", "bold foliage"],
     isNew: true
   },
@@ -326,6 +386,8 @@ export const cards = [
     currency: "$",
     category: "House Plants",
     size: "Small",
+    rate: 4,
+    countReview: 8,
     tags: ["colorful", "annual"]
   },
   {
@@ -336,6 +398,8 @@ export const cards = [
     currency: "$",
     category: "Potter Plants",
     size: "Medium",
+    rate: 4,
+    countReview: 15,
     tags: ["air purifying", "low light"]
   },
   {
@@ -346,6 +410,8 @@ export const cards = [
     currency: "$",
     category: "Seeds",
     size: "Large",
+    rate: 4,
+    countReview: 12,
     tags: ["succulent", "easy care"]
   },
   {
@@ -356,6 +422,8 @@ export const cards = [
     currency: '$',
     category: "Small Plants",
     size: "Small",
+    rate: 5,
+    countReview: 25,
     tags: ["indoor", "easy maintenance"]
   },
   {
@@ -366,6 +434,8 @@ export const cards = [
     currency: '$',
     category: "Big Plants",
     size: "Medium",
+    rate: 4,
+    countReview: 18,
     tags: ["pet-friendly", "bright indirect light"]
   },
   {
@@ -376,6 +446,8 @@ export const cards = [
     currency: '$',
     category: "Succulents",
     size: "Large",
+    rate: 4,
+    countReview: 17,
     tags: ["sun-loving", "drought-tolerant"]
   },
   {
@@ -386,6 +458,8 @@ export const cards = [
     currency: '$',
     category: "Terrariums",
     size: "Small",
+    rate: 3,
+    countReview: 14,
     tags: ["air-purifying", "low-light tolerant"]
   },
   {
@@ -396,6 +470,8 @@ export const cards = [
     currency: '$',
     category: "Gardening",
     size: "Medium",
+    rate: 5,
+    countReview: 30,
     tags: ["succulents", "low-maintenance"]
   },
   {
@@ -406,7 +482,9 @@ export const cards = [
     currency: '$',
     category: "Accessories",
     size: "Large",
-    tags: ["sunflowers", "decorative"]
+    tags: ["sunflowers", "decorative"],
+    rate: 4,
+    countReview: 10
   },
   {
     id: 40,
@@ -416,7 +494,9 @@ export const cards = [
     currency: '$',
     category: "House Plants",
     size: "Small",
-    tags: ["bright blooms", "spring flowers"]
+    tags: ["bright blooms", "spring flowers"],
+    rate: 3,
+    countReview: 15
   },
   {
     id: 41,
@@ -427,6 +507,8 @@ export const cards = [
     category: "Big Plants",
     size: "Large",
     tags: ["rare", "magical"],
-    isNew: true
-  },
+    isNew: true,
+    rate: 5,
+    countReview: 20
+  }
 ]

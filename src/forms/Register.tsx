@@ -26,7 +26,7 @@ const StyledInput = styled(Input)`
   height: 40px;
   background: none;
   color: ${theme.palette.secondary};
-  border: 1px solid #eaeaea;
+  border: 1px solid ${theme.palette.borderInactive};
   box-shadow: none;
   transition: border 0.5s;
   &:focus{

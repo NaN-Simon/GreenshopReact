@@ -24,7 +24,7 @@ const StyledHyphenTextWrapper = styled.div`
   width: 100%;
 `
 const StyledLine = styled.div`
-  background: #eaeaea;
+  background: ${theme.palette.borderInactive};
   height: 1px;
   width: 100%;
   margin: 0 10px;

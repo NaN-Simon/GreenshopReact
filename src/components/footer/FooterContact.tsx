@@ -81,7 +81,7 @@ const FooterContact:FC<IFooterContact> = ({location, email, phoneNumber}) => {
       </StyledFooterContactElement>
 
       <StyledFooterContactElement>
-        <MessageSVG width={20} height={20} />
+        <MessageSVG stroke='#46A358' width={20} height={20} />
         <StyledLink href={'mailto:' + email}>
           {email}
         </StyledLink>
