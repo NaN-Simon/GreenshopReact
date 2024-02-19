@@ -17,8 +17,9 @@ const StyledDetails = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 450px;
-  /* background: ${theme.palette.testBox} */
+  @media (max-width: ${theme.breakpoints.devices.sm}) {
+    padding: 30px;
+  }
 `
 const StyledName = styled.h2`
   color: ${theme.typography.h2.color};
@@ -41,6 +42,10 @@ const StyledGroupButton = styled.div`
   flex-direction: row;
   gap: 10px;
   padding-bottom: 15px;
+  @media (max-width: ${theme.breakpoints.devices.sm}) {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 `
 const StyledButton = styled(Button)`
   min-width: 130px;

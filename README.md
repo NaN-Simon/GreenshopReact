@@ -35,3 +35,5 @@ name project: GREENSHOP
 [react-select](https://github.com/JedWatson/react-select/tree/master)
 
 [reactjs-popup](https://github.com/yjose/reactjs-popup)
+
+[react-image-gallery](https://github.com/xiaolin/react-image-gallery)

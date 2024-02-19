@@ -1,0 +1,22 @@
+.image-gallery{
+  width: 100%;
+}
+.image-gallery-swipe {
+  width: 100%;
+}
+
+.image-gallery-fullscreen-button {
+  top: 0 !important;
+  bottom: auto !important;
+}
+
+.image-gallery-thumbnail {
+  border: none !important;
+  cursor: pointer;
+  background: #fbfbfb !important;
+}
+
+.image-gallery-icon:focus{
+  outline: none !important;
+
+}

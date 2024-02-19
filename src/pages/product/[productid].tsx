@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import Button from '../../components/UI/button/Button'
-import AlbumCarousel from '../../components/UI/carousel/AlbumCarousel'
+import AlbumCarousel from '../../components/UI/carousel/AlbumCarousel/AlbumCarousel'
 import RelatedCarousel from '../../components/UI/carousel/RelatedCarousel'
 import Details from '../../components/card/details/Details'
 import CustomTab from '../../components/tab/CustomTab'
@@ -42,6 +42,17 @@ const StyledButton = styled(Button)`
   &:hover{
     opacity: 0.5;
  }
+`
+const StyledAlbumDetails = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  width: 100%;
+  @media (max-width: ${theme.breakpoints.devices.sm}) {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+  }
 `
 
 const ProductId = () => {
@@ -90,8 +101,13 @@ const ProductId = () => {
     console.log('addressHandler');
   }
 
-  /*  */
+  /* album */
   const product = goods.filter((item: ICard) => item.id === Number(id))[0];
+  const mockImages = new Array(5).fill({
+    original: product?.image,
+    thumbnail: product?.image,
+  }, 0)
+
   const is404 = product === undefined
 
   /* tab */
@@ -99,12 +115,17 @@ const ProductId = () => {
     console.log(some);
   }
 
+  if (isLoading) {
+    return (
+      <h1>Loading...</h1>
+    )
+  }
+  
   if (is404) {
     return (
       <h1>404 Oops</h1>
     )
   }
-
 
   return (
     <StyledShopPage data-name='shop-page'>
@@ -113,10 +134,10 @@ const ProductId = () => {
         <span>product/</span>
         <span>{id}</span>
       </StyledButton>
-      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '50px', width: '100%' }}>
-        <AlbumCarousel />
+      <StyledAlbumDetails data-name='album-details'>
+        <AlbumCarousel images={mockImages} />
         <Details {...product} />
-      </div>
+      </StyledAlbumDetails>
       <CustomTab
         handler={tabHandler}
         arrayOfTabs={['Product Description', `Reviews (${productPhotos.length})`]}
