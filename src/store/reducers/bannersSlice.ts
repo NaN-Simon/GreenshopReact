@@ -2,13 +2,14 @@ import { createSlice } from '@reduxjs/toolkit'
 
 import { fetchUsers } from '../../api/users'
 
-import { bannerAside, bannerInfo } from '../../mock-data/banner/banner'
+import { bannerAside, bannerInfo, bannerMain } from '../../mock-data/banner/banner'
 
-import { IBannerAside, IBannerInfo } from '../../types/banner'
+import { IBannerAside, IBannerInfo, IBannerMain } from '../../types/banner'
 
 export interface IFooterState {
   bannerInfo: IBannerInfo | null
   bannerAside: IBannerAside | null
+  bannerMain: IBannerMain | null
   users: any
   status: string
   isLoading: boolean
@@ -18,6 +19,7 @@ export interface IFooterState {
 const initialState: IFooterState = {
   bannerInfo: null,
   bannerAside: null,
+  bannerMain: null,
   users: [],
   status: '',
   isLoading: false,
@@ -43,6 +45,7 @@ export const bannersSlice = createSlice({
         state.users = action.payload
         state.bannerInfo = bannerInfo
         state.bannerAside = bannerAside
+        state.bannerMain = bannerMain
       })
       .addCase(fetchUsers.rejected, (state, action) => {
         state.isLoading = false

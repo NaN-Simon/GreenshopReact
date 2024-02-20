@@ -35,7 +35,7 @@ const AlbumCarousel: FC<IAlbumCarousel> = ({ images }) => {
         showPlayButton={false}
         thumbnailPosition='left'
         items={images}
-        renderLeftNav={(onClick, disabled): any => (
+        renderLeftNav={(onClick, disabled) => (
           <button
             type="button"
             className="image-gallery-icon image-gallery-left-nav"
@@ -47,7 +47,7 @@ const AlbumCarousel: FC<IAlbumCarousel> = ({ images }) => {
             <ArrowBackSVG />
           </button>
         )}
-        renderRightNav={(onClick, disabled): any => (
+        renderRightNav={(onClick, disabled) => (
           <button
             type="button"
             className="image-gallery-icon image-gallery-right-nav"

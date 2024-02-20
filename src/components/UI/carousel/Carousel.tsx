@@ -1,14 +1,13 @@
-import React, { CSSProperties } from 'react'
+import React, { CSSProperties, FC } from 'react'
 import styled from 'styled-components';
 import Slider from "react-slick";
 
 import Banner from '../../banner/Banner';
-import Banner2 from '../../banner/Banner2';
-import Banner3 from '../../banner/Banner3';
 
 import theme from '../../../theme/theme';
 
 import useWindowSize from '../../../hooks/useWindowSize';
+import { IBannerMain } from '../../../types/banner';
 
 /* для медиа-запроса theme.breakpoints.devices.xs
 * размер width идет из кастомного хука, т.к width
@@ -83,21 +82,17 @@ const StyledItem = styled.div`
   background-color: ${theme.palette.backgroundPrimary};
 `
 
-const Carousel = () => {
+const Carousel: FC<{data: IBannerMain}> = ({ data }) => {
   const { size } = useWindowSize();
 
   return (
     <StyledWrapper $size={size} data-name='carousel'>
       <Slider {...settings}>
-        <StyledItem data-name='carousel-item-1'>
-          <Banner />
-        </StyledItem>
-        <StyledItem data-name='carousel-item-2'>
-          <Banner2 />
-        </StyledItem>
-        <StyledItem data-name='carousel-item-3'>
-          <Banner3 />
-        </StyledItem>
+        {data.map((item) => (
+          <StyledItem key={item.id} data-name='carousel-item'>
+            <Banner {...item} />
+          </StyledItem>
+        ))}
       </Slider>
     </StyledWrapper>
   )

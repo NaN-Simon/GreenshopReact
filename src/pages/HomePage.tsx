@@ -71,7 +71,7 @@ const HomePage = () => {
   /* data fetching */
   const { error, isLoading, goods } = useSelector((state: RootState) => state.goodsReducer)
   const dispatch = useDispatch<AppDispatch>()
-  const { bannerInfo } = useSelector((state: RootState) => state.bannerReducer)
+  const { bannerInfo, bannerMain } = useSelector((state: RootState) => state.bannerReducer)
 
   useEffect(() => {
     dispatch(fetchPhotos())
@@ -92,7 +92,7 @@ const HomePage = () => {
 
   return (
     <StyledHomePage data-name='home-page' >
-      <Carousel />
+      {bannerMain !== null && <Carousel data={bannerMain} />}
       <StyledMain data-name='main'>
         {!isScreenLessThanMd && <CategoryFilter style={{ width: '310px' }} />}
         <StyledContent data-name='content'>

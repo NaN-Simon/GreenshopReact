@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { FC } from 'react'
 import styled from 'styled-components'
 import Button from '../UI/button/Button';
 import theme from '../../theme/theme';
 import flower4 from '../../assets/image/flowers/flower4.png';
+
+interface IBanner {
+  id: number,
+  header: string,
+  title: string,
+  description: string,
+  buttonName: string,
+  link: string,
+  image: string,
+}
 
 const StyledBannerSection = styled.section`
 display: flex;
@@ -54,6 +64,9 @@ const StyledHeaderH1 = styled.h1`
   @media (min-width: ${theme.breakpoints.devices.md}) {
     font-size: ${theme.typography.h1.fontSize};
   }
+  span {
+    color: ${theme.palette.info}; // This will color the last word green
+  }
   `
 const StyledHeaderDescription = styled.h6`
   color: ${theme.typography.h6.color};
@@ -64,27 +77,38 @@ const StyledHeaderDescription = styled.h6`
   line-height: ${theme.typography.h6.lineHeight};
 `
 
-const Banner = () => {
-  const headerH6 = 'Welcome to GreenShop'
-  const description = 'We are an online plant shop offering a wide range of cheap and trendy plants. Use our plants to create an unique Urban Jungle. Order your favorite plants!'
+const Banner: FC<IBanner> = (props) => {
+  const { header, title, description, buttonName, link, image } = props
+
+  const highlightLastWord = (title: string) => {
+    const words = title.split(' ');
+    const lastWord = words.pop();
+    return (
+      <>
+        {words.join(' ')} <span>{lastWord}</span>
+      </>
+    );
+  };
 
   return (
     <StyledBannerSection data-name='banner'>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '44px', padding: '20px' }}>
         <StyledBannerText>
-          <StyledHeaderH6>{headerH6}</StyledHeaderH6>
-          <StyledHeaderH1>Let’s Make a Better <span style={{ color: theme.palette.info }}>Planet</span></StyledHeaderH1>
+          <StyledHeaderH6>{header}</StyledHeaderH6>
+          <StyledHeaderH1>{highlightLastWord(title)}</StyledHeaderH1>
           <StyledHeaderDescription>{description}</StyledHeaderDescription>
         </StyledBannerText>
-        <Button link='#' style={{ width: '140px', fontWeight: '700' }}>
-          SHOP NOW
+        <Button link={link} style={{ width: '140px', fontWeight: '700' }}>
+          {buttonName}
         </Button>
       </div>
       <StyledBannerPicture data-name='banner-picture'>
-        <div style={{ width: '100%' }} onClick={()=>{console.log('asdasdas')}}>
-          <img style={{ width: '100%', position: 'absolute', left: '10px', bottom: '13px' }} src={flower4} alt="flower4" />
-          <img style={{ width: '26%', position: 'absolute', left: '66px', bottom: '0px' }} src={flower4} alt="flower4" />
-        </div>
+        <img
+          style={{ width: '100%' }}
+          src={image} alt={title}
+          onClick={() => {
+            console.log('BannerPicture')
+          }} />
       </StyledBannerPicture>
     </StyledBannerSection>
   )
