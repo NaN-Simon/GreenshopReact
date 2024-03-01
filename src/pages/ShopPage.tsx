@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import theme from '../theme/theme'
-import RelatedCarousel from '../components/UI/carousel/RelatedCarousel'
 import Button from '../components/UI/button/Button'
 
 const StyledShopPage = styled.div`
@@ -44,7 +43,6 @@ const ShopPage = () => {
       <StyledButton onClick={addressHandler}>
         <span style={{ fontWeight: 700 }}>Home</span> / Shop / Shopping Cart
       </StyledButton>
-      <RelatedCarousel />
     </StyledShopPage>
   )
 }

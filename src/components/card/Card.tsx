@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
+import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 
 import theme from '../../theme/theme'
@@ -9,7 +10,6 @@ import { ReactComponent as HeartSVG } from '../../assets/svg/heart.svg'
 import { ReactComponent as FindSVG } from '../../assets/svg/find.svg'
 
 import { ICard } from '../../types/card'
-import { Link, useNavigate } from 'react-router-dom';
 
 const item = {
   hidden: { y: 20, opacity: 0 },
@@ -42,8 +42,8 @@ const StyledBookmark = styled.div`
   line-height: ${theme.typography.h4.lineHeight};
 `
 const StyledImg = styled.img`
-  width: 250px;
-  height: 250px;
+  width: 100%;
+  height: auto;
   background: inherit
 `
 const StyledWidgetsItems = styled.div`
@@ -91,7 +91,7 @@ const StyledLi = styled(motion.li)`
   flex-direction: column;
   justify-content: space-between;
   width: 258px;
-  height: 349px;
+  height: 350px;
   border-top: 1px solid transparent;
   background: ${theme.palette.backgroundSecondary};
   transition: all 0.5s;

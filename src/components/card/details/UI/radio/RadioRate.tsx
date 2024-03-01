@@ -30,7 +30,6 @@ const RadioRate = ({ rate }: { rate: number }) => {
 
   const handleRadioChange = (value: number) => {
     setSelectedValue(value);
-    console.log(value);
   };
 
   return (

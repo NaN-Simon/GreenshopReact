@@ -6,6 +6,7 @@ import theme from '../../theme/theme';
 
 interface INavBar {
   isVertical?: boolean;
+  activePage?: string;
 }
 
 const StyledNav = styled.nav`
@@ -23,10 +24,12 @@ const StyledUl = styled.ul<{ $vertical?: boolean; }>`
     gap: 8px 20px;
  }
 `
-const StyledLi = styled.li`
+const StyledLi = styled.li<{ $isActive?: boolean; }>`
   list-style-type: none;
   display: flex;
   align-items: center;
+  border-bottom: 4px solid ${theme.palette.info};
+  border-bottom: 4px solid ${props => props.$isActive ? theme.palette.info : 'transparent'};
 `
 const sharedStyledLink = css<{ $vertical?: boolean; }>`
  padding: ${props => props.$vertical ? '0 50px' : '15px 0'};
@@ -43,22 +46,22 @@ const sharedStyledLink = css<{ $vertical?: boolean; }>`
     opacity: 0.5;
  }
 `;
-const StyledLink = styled(Link)<{ $vertical?: boolean; }>`
+const StyledLink = styled(Link) <{ $vertical?: boolean; }>`
  ${sharedStyledLink}
 `;
 
-const StyledHashLink = styled(HashLink)<{ $vertical?: boolean; }>`
+const StyledHashLink = styled(HashLink) <{ $vertical?: boolean; }>`
  ${sharedStyledLink}
 `;
 
-const NavBar: FC<INavBar> = ({ isVertical }) => {
+const NavBar: FC<INavBar> = ({ isVertical, activePage }) => {
   return (
     <StyledNav id='navbar'>
       <StyledUl $vertical={isVertical}>
-        <StyledLi><StyledLink $vertical={isVertical} to={'/'}>Home</StyledLink></StyledLi>
-        <StyledLi><StyledLink $vertical={isVertical} to={'/shop'}>Shop</StyledLink></StyledLi>
+        <StyledLi $isActive={activePage === '/'}><StyledLink $vertical={isVertical} to={'/'}>Home</StyledLink></StyledLi>
+        <StyledLi $isActive={activePage === '/shop'}><StyledLink $vertical={isVertical} to={'/shop'}>Shop</StyledLink></StyledLi>
         <StyledLi><StyledLink $vertical={isVertical} to={'https://teamtrees.org/'}>Plant Care</StyledLink></StyledLi>
-        <StyledLi><StyledHashLink $vertical={isVertical} smooth to={'/#blog'}>Blogs</StyledHashLink></StyledLi>
+        <StyledLi $isActive={activePage === '#blog'}><StyledHashLink $vertical={isVertical} smooth to={'/#blog'}>Blogs</StyledHashLink></StyledLi>
       </StyledUl>
     </StyledNav>
   )

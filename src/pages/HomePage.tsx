@@ -12,7 +12,7 @@ import CustomTab from '../components/tab/CustomTab';
 import Pagination from '../components/pagination/Pagination';
 import ArticleBanner from '../components/banner/ArticleBanner';
 import CustomSelect from '../components/UI/select/CustomSelect';
-import Carousel from '../components/UI/carousel/Carousel';
+import SliderCarousel from '../components/UI/carousel/SliderCarousel';
 
 import { fetchPhotos } from '../api/photos';
 import {
@@ -28,6 +28,7 @@ import {
 import useWindowSize from '../hooks/useWindowSize';
 
 import theme from '../theme/theme';
+import Banner from '../components/banner/Banner';
 
 const StyledHomePage = styled.div`
   display: flex;
@@ -63,6 +64,9 @@ const StyledCardFilterGroup = styled.div`
     flex-direction: column;
   }
 `
+const StyledItem = styled.div`
+  background-color: ${theme.palette.backgroundPrimary};
+`
 
 const HomePage = () => {
   /* component CategoryFilter size handler */
@@ -92,7 +96,17 @@ const HomePage = () => {
 
   return (
     <StyledHomePage data-name='home-page' >
-      {bannerMain !== null && <Carousel data={bannerMain} />}
+
+      {bannerMain !== null && (
+        <SliderCarousel>
+          {bannerMain.map((item) => (
+            <StyledItem key={item.id} data-name='carousel-item'>
+              <Banner {...item} />
+            </StyledItem>
+          ))}
+        </SliderCarousel>
+      )}
+
       <StyledMain data-name='main'>
         {!isScreenLessThanMd && <CategoryFilter style={{ width: '310px' }} />}
         <StyledContent data-name='content'>
@@ -108,8 +122,11 @@ const HomePage = () => {
           {!isLoading && <Pagination itemsPerPage={9} items={goods} />}
         </StyledContent>
       </StyledMain>
+
       {bannerInfo !== null && <ArticleBanner data={bannerInfo} />}
+
       <BlogPage />
+
     </StyledHomePage>
   )
 }

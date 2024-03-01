@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+
+import ProductDescription from '../../module/product/ProductDescription'
+
 import Button from '../../components/UI/button/Button'
 import AlbumCarousel from '../../components/UI/carousel/AlbumCarousel/AlbumCarousel'
-import RelatedCarousel from '../../components/UI/carousel/RelatedCarousel'
 import Details from '../../components/card/details/Details'
 import CustomTab from '../../components/tab/CustomTab'
+import SliderCarousel from '../../components/UI/carousel/SliderCarousel'
+import Card from '../../components/card/Card'
+
 import theme from '../../theme/theme'
-import ProductDescription from '../../module/product/ProductDescription'
-import { useDispatch, useSelector } from 'react-redux'
+
 import { fetchPhotos } from '../../api/photos'
+
 import { RootState, AppDispatch } from '../../store/store'
-import { IPhotos } from '../../api/types'
+
 import { ICard } from '../../types/card'
+import Review from '../../components/card/Review'
 
 const StyledShopPage = styled.div`
   display: flex;
@@ -60,7 +67,7 @@ const ProductId = () => {
   const { error, isLoading, photos, goods } = useSelector((state: RootState) => state.goodsReducer)
   const dispatch = useDispatch<AppDispatch>()
   const [productPhotos, setProductPhotos] = useState(photos)
-
+  const navigate = useNavigate();
   /* product */
   useEffect(() => {
     dispatch(fetchPhotos())
@@ -72,25 +79,7 @@ const ProductId = () => {
 
   const productReviews = () => {
     return (
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        flexWrap: 'wrap',
-        gap: '5px',
-        paddingTop: '16px'
-      }}
-      >
-        {error && error}
-        {isLoading && 'Loading...'}
-        {productPhotos.map((item: IPhotos) =>
-          <img
-            key={item.id}
-            src={item.thumbnailUrl}
-            alt={item.title}
-            style={{ width: '150px', height: '150px' }}
-          />
-        )}
-      </div>
+      <Review array={productPhotos} />
     );
   }
 
@@ -98,11 +87,14 @@ const ProductId = () => {
   /* address */
   const { id } = useParams()
   const addressHandler = () => {
-    console.log('addressHandler');
+    navigate(`/`);
   }
 
   /* album */
+  /* текущий продукт */
   const product = goods.filter((item: ICard) => item.id === Number(id))[0];
+
+  /* текущие фото продукта */
   const mockImages = new Array(5).fill({
     original: product?.image,
     thumbnail: product?.image,
@@ -115,34 +107,42 @@ const ProductId = () => {
     console.log(some);
   }
 
-  if (isLoading) {
-    return (
-      <h1>Loading...</h1>
-    )
-  }
-  
-  if (is404) {
-    return (
-      <h1>404 Oops</h1>
-    )
-  }
+  if (isLoading) return (<h1>Loading...</h1>)
+  if (error) return (<h1>{error}</h1>)
+  if (is404) return (<h1>404 Oops</h1>)
+
 
   return (
     <StyledShopPage data-name='shop-page'>
+
       <StyledButton onClick={addressHandler}>
         <span style={{ fontWeight: 700 }}>Home/</span>
         <span>product/</span>
         <span>{id}</span>
       </StyledButton>
+
       <StyledAlbumDetails data-name='album-details'>
         <AlbumCarousel images={mockImages} />
         <Details {...product} />
       </StyledAlbumDetails>
+
       <CustomTab
+        style={{ width: '100%', paddingBottom: '50px' }}
         handler={tabHandler}
-        arrayOfTabs={['Product Description', `Reviews (${productPhotos.length})`]}
+        arrayOfTabs={['Product Description', `Reviews (${product.countReview})`]}
         arrayOfTabsPanel={[ProductDescription, productReviews]} />
-      <RelatedCarousel />
+
+      <SliderCarousel slidesToShow={5} slidesToScroll={5}>
+        {goods.map((item, index) => {
+          return (
+            (index < 15) && <Card
+              key={item.id}
+              {...item}
+            />
+          )
+        })}
+      </SliderCarousel>
+
     </StyledShopPage>
   )
 }

@@ -1,26 +1,32 @@
-import React, { CSSProperties, FC } from 'react'
+import React, { CSSProperties, FC, ReactNode } from 'react'
 import styled from 'styled-components';
 import Slider from "react-slick";
-
-import Banner from '../../banner/Banner';
 
 import theme from '../../../theme/theme';
 
 import useWindowSize from '../../../hooks/useWindowSize';
-import { IBannerMain } from '../../../types/banner';
 
 /* для медиа-запроса theme.breakpoints.devices.xs
 * размер width идет из кастомного хука, т.к width
 * родительского компонента плагина Slider равна
 * максимальной возможной width браузера */
+interface ISliderCarousel {
+  children: ReactNode;
+  slidesToShow?: number
+  slidesToScroll?: number,
+  dots?: boolean,
+  infinite?: boolean,
+  autoplay?: boolean,
+  speed?: number
+}
 
-interface ICarousel {
+interface ICarouselArrow {
   className?: string,
   style?: CSSProperties,
   onClick?: () => void
 }
 
-const SamplePrevArrow = (props: ICarousel) => {
+const SamplePrevArrow = (props: ICarouselArrow) => {
   const { className, style, onClick } = props;
   return (
     <div
@@ -30,7 +36,7 @@ const SamplePrevArrow = (props: ICarousel) => {
     />
   );
 }
-const SampleNextArrow = (props: ICarousel) => {
+const SampleNextArrow = (props: ICarouselArrow) => {
   const { className, style, onClick } = props;
   return (
     <div
@@ -40,18 +46,6 @@ const SampleNextArrow = (props: ICarousel) => {
     />
   );
 }
-
-const settings = {
-  dots: true,
-  infinite: true,
-  speed: 500,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  prevArrow: <SamplePrevArrow />,
-  nextArrow: <SampleNextArrow />,
-};
-
-
 
 const StyledWrapper = styled.div<{ $size: number; }>`
   @media (min-width: ${theme.breakpoints.devices.xs}) {
@@ -65,37 +59,49 @@ const StyledWrapper = styled.div<{ $size: number; }>`
 
   @media (min-width: ${theme.breakpoints.devices.md}) {
     width: ${theme.breakpoints.devices.md};
-    max-width: none;
+    max-width: ${theme.breakpoints.devices.md};
   }
 
   @media (min-width: ${theme.breakpoints.devices.lg}) {
     width: ${theme.breakpoints.devices.lg};
-    max-width: none;
+    max-width: 1200px;
   }
 
   @media (min-width: ${theme.breakpoints.devices.xl}) {
     width: ${theme.breakpoints.devices.xl};
-    max-width: none;
+    max-width: 1200px;
   }
 `
-const StyledItem = styled.div`
-  background-color: ${theme.palette.backgroundPrimary};
-`
 
-const Carousel: FC<{data: IBannerMain}> = ({ data }) => {
+const SliderCarousel: FC<ISliderCarousel> = (props) => {
+  const { children, slidesToShow = 1, slidesToScroll = 1, dots = true, infinite = true, autoplay = false, speed = 1000 } = props
   const { size } = useWindowSize();
 
   return (
     <StyledWrapper $size={size} data-name='carousel'>
-      <Slider {...settings}>
-        {data.map((item) => (
-          <StyledItem key={item.id} data-name='carousel-item'>
-            <Banner {...item} />
-          </StyledItem>
-        ))}
+      <Slider
+        dots={dots}
+        slidesToShow={slidesToShow}
+        slidesToScroll={slidesToScroll}
+        lazyLoad='progressive'
+        swipeToSlide={true}
+        infinite={infinite}
+        autoplay={autoplay}
+        speed={speed}
+        prevArrow={<SamplePrevArrow />}
+        nextArrow={<SampleNextArrow />}
+        // beforeChange={(event) => { console.log(event) }}
+        // afterChange={() => { console.log('afterChange') }}
+        // beforeChange={(current, next) => {
+        //   // const event = { stopPropagation: () => console.log('Stop Propagation called') };
+        //   // event.stopPropagation();
+        //   console.log(event);
+        // }}
+      >
+        {children}
       </Slider>
     </StyledWrapper>
   )
 }
 
-export default Carousel
+export default SliderCarousel

@@ -5,6 +5,7 @@ import UserNav from '../navigation/UserNav'
 import Logo from '../logo/Logo'
 import theme from '../../theme/theme';
 import useWindowSize from '../../hooks/useWindowSize'
+import { useLocation } from 'react-router-dom'
 
 const StyledHeader = styled.header`
   display: grid;
@@ -19,12 +20,14 @@ const StyledHeader = styled.header`
  }
 `
 const Header = () => {
-  const {isScreenLessThanMd} = useWindowSize();
+  const { isScreenLessThanMd } = useWindowSize();
+
+  const props = useLocation();
 
   return (
     <StyledHeader>
       <Logo />
-      {!isScreenLessThanMd && <NavBar />}
+      {!isScreenLessThanMd && <NavBar activePage={props.pathname} />}
       <UserNav />
     </StyledHeader>
   )
