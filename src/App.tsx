@@ -38,7 +38,7 @@ const AppStyled = styled.div`
 
 function App() {
   return (
-    <AppStyled>
+    <AppStyled data-name='app'>
       <Header />
       <ScrollToTop>
         <Routes>

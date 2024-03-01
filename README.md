@@ -4,19 +4,19 @@ name project: GREENSHOP
 
 ## Options
 
-#### Rendering type: Client-Side Rendering (CSR)
+Rendering type: Client-Side Rendering (CSR)
 
 ## First step:
 
-### Install all dependencies: `npm install`
+Install all dependencies: `npm install`
 
 ## Second step:
 
-### For real-time development: `npm run start` and open [http://localhost:3000](http://localhost:3000)
+For real-time development: `npm run start` and open [http://localhost:3000](http://localhost:3000)
 
-### Get app: `npm run dev`
+Get app: `npm run dev`
 
-### Get minimized app: `npm run build`
+Get minimized app: `npm run build`
 
 ## Plugins:
 
@@ -37,3 +37,9 @@ name project: GREENSHOP
 [reactjs-popup](https://github.com/yjose/reactjs-popup)
 
 [react-image-gallery](https://github.com/xiaolin/react-image-gallery)
+
+## Commentaries:
+
+### SliderCarousel.tsx
+
+Для медиа-запроса theme.breakpoints.devices.xs размер width идет из кастомного хука, т.к width родительского компонента плагина Slider равна максимальной возможной width браузера

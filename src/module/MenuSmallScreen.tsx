@@ -15,6 +15,11 @@ const StyledMenuSmallScreen = styled.div`
   box-shadow: 8px 0px 20px 0px rgb(0 0 0 / 40%);
   background: ${theme.palette.backgroundSecondary};
   overflow-y: auto;
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+  &::-webkit-scrollbar {
+    display: none;  /* Safari and Chrome */
+  }
 `
 const MenuSmallScreen = () => {
   return (

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
 import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 
 import MenuSmallScreen from '../../module/MenuSmallScreen'
 
@@ -14,7 +13,11 @@ import { ReactComponent as LoginSVG } from '../../assets/svg/login.svg'
 import { ReactComponent as ListSVG } from '../../assets/svg/list.svg'
 
 import theme from '../../theme/theme'
+
 import Auth from '../modal/Auth';
+
+import 'reactjs-popup/dist/index.css';
+
 import { PopupActions } from 'reactjs-popup/dist/types';
 
 const StyledNav = styled.nav`
@@ -36,6 +39,12 @@ const StyledListSVGWrapper = styled.div`
   @media (min-width: ${theme.breakpoints.devices.md}) {
     display: none;
  }
+`
+const StyledPopupWrapper = styled.div`
+  display: block;
+  @media (max-width: ${theme.breakpoints.devices.sm}) {
+  display: none
+  }
 `
 const StyledPopup = styled(Popup)`
   &-content{
@@ -139,18 +148,21 @@ const UserNav = () => {
 
       <CartSVG fill='#3D3D3D' />
 
-      <StyledPopup
-        ref={popupRef}
-        modal
-        trigger={(
-          <Button className="button">
-            <LoginSVG />
-            <span>Login</span>
-          </Button>
-        )}
-      >
-        <Auth closeHandler={closePopup} />
-      </StyledPopup>
+      <StyledPopupWrapper>
+        <StyledPopup
+          ref={popupRef}
+          modal
+          trigger={(
+            <Button className="button">
+              <LoginSVG />
+              <span>Login</span>
+            </Button>
+          )}
+        >
+          <Auth closeHandler={closePopup} />
+        </StyledPopup>
+
+      </StyledPopupWrapper>
 
     </StyledNav>
   )

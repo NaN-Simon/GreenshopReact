@@ -20,6 +20,7 @@ import { RootState, AppDispatch } from '../../store/store'
 
 import { ICard } from '../../types/card'
 import Review from '../../components/card/Review'
+import useWindowSize from '../../hooks/useWindowSize'
 
 const StyledShopPage = styled.div`
   display: flex;
@@ -66,23 +67,31 @@ const ProductId = () => {
   /* data fetching */
   const { error, isLoading, photos, goods } = useSelector((state: RootState) => state.goodsReducer)
   const dispatch = useDispatch<AppDispatch>()
-  const [productPhotos, setProductPhotos] = useState(photos)
+
   const navigate = useNavigate();
+  const { size } = useWindowSize()
+
+  const [countCardsOfCarousel, setCountCardsOfCarousel] = useState(15)
+  const [displayingCountCardsOfCarousel, setDisplayingCountCardsOfCarousel] = useState(5)
+
+  useEffect(() => {
+    size > 1280 && (setDisplayingCountCardsOfCarousel(5), setCountCardsOfCarousel(15));
+    size <= 1280 && (setDisplayingCountCardsOfCarousel(4), setCountCardsOfCarousel(15));
+    size <= 1050 && (setDisplayingCountCardsOfCarousel(3), setCountCardsOfCarousel(10));
+    size <= 786 && (setDisplayingCountCardsOfCarousel(2), setCountCardsOfCarousel(7));
+    size <= 500 && (setDisplayingCountCardsOfCarousel(1), setCountCardsOfCarousel(2));
+  }, [size])
+
   /* product */
   useEffect(() => {
     dispatch(fetchPhotos())
   }, [dispatch])
 
-  useEffect(() => {
-    setProductPhotos(photos)
-  }, [photos])
-
   const productReviews = () => {
     return (
-      <Review array={productPhotos} />
+      <Review array={photos} />
     );
   }
-
 
   /* address */
   const { id } = useParams()
@@ -132,10 +141,10 @@ const ProductId = () => {
         arrayOfTabs={['Product Description', `Reviews (${product.countReview})`]}
         arrayOfTabsPanel={[ProductDescription, productReviews]} />
 
-      <SliderCarousel slidesToShow={5} slidesToScroll={5}>
+      <SliderCarousel autoplay slidesToShow={displayingCountCardsOfCarousel} slidesToScroll={displayingCountCardsOfCarousel}>
         {goods.map((item, index) => {
           return (
-            (index < 15) && <Card
+            (index < countCardsOfCarousel) && <Card
               key={item.id}
               {...item}
             />

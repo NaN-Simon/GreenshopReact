@@ -6,10 +6,6 @@ import theme from '../../../theme/theme';
 
 import useWindowSize from '../../../hooks/useWindowSize';
 
-/* для медиа-запроса theme.breakpoints.devices.xs
-* размер width идет из кастомного хука, т.к width
-* родительского компонента плагина Slider равна
-* максимальной возможной width браузера */
 interface ISliderCarousel {
   children: ReactNode;
   slidesToShow?: number

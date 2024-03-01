@@ -1,9 +1,9 @@
 import React from 'react'
-import { ReactComponent as LeafSVG } from '../../assets/svg/greenshop.svg';
+import { ReactComponent as LeafSVG } from '../../assets/svg/leaf.svg';
 
 const Logo = () => {
   return (
-    <div>
+    <div data-name='logo'>
       <LeafSVG />
     </div>
   )

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import { styled } from 'styled-components'
 import theme from '../../theme/theme'
 import { getParagraph } from '../../utils/random'
@@ -16,19 +16,19 @@ const ProductDescription = () => {
   return (
     <div>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', paddingTop: '16px' }}>
-        <StyledDescription>{getParagraph(4, 7)}</StyledDescription>
-        <StyledDescription>{getParagraph(4, 7)}</StyledDescription>
+        <StyledDescription>{useMemo(()=>{return getParagraph(4, 7)},[])}</StyledDescription>
+        <StyledDescription>{useMemo(()=>{return getParagraph(4, 7)},[])}</StyledDescription>
         <div>
           <StyledDescription style={{ fontWeight: 700 }}> Living Room: </StyledDescription>
-          <StyledDescription>{getParagraph(3, 5)}</StyledDescription>
+          <StyledDescription>{useMemo(()=>{return getParagraph(3, 5)},[])}</StyledDescription>
         </div>
         <div>
           <StyledDescription style={{ fontWeight: 700 }}> Dining Room: </StyledDescription>
-          <StyledDescription>{getParagraph(3, 5)}</StyledDescription>
+          <StyledDescription>{useMemo(()=>{return getParagraph(3, 5)},[])}</StyledDescription>
         </div>
         <div>
           <StyledDescription style={{ fontWeight: 700 }}> Office: </StyledDescription>
-          <StyledDescription>{getParagraph(2, 4)}</StyledDescription>
+          <StyledDescription>{useMemo(()=>{return getParagraph(2, 4)},[])}</StyledDescription>
         </div>
       </div>
     </div>
