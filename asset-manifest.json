@@ -1,12 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.0afebb2f.css",
-    "main.js": "./static/js/main.2f242404.js",
+    "main.css": "./static/css/main.e1acd7d1.css",
+    "main.js": "./static/js/main.288f71ec.js",
     "static/media/flower4.png": "./static/media/flower4.8f4286d35a51629d2c95.png",
+    "static/media/CeraPro-Medium.ttf": "./static/media/CeraPro-Medium.ee3e268e11a318d8f89f.ttf",
     "static/media/CeraPro-Regular.ttf": "./static/media/CeraPro-Regular.41e4685b30b1ca172404.ttf",
     "static/media/CeraPro-Bold.ttf": "./static/media/CeraPro-Bold.acce31fe54d79d00fd49.ttf",
     "static/media/nirnroot.png": "./static/media/nirnroot.8d541ab972722fb6d410.png",
     "static/media/banner.png": "./static/media/banner.f8b7a0eec53a012c0cc4.png",
+    "static/media/banner1.png": "./static/media/banner1.6bae843f7fbfac064de2.png",
     "static/media/blog01.png": "./static/media/blog01.8cc2dafeadeb3ad86ce3.png",
     "static/media/blog02.png": "./static/media/blog02.52e5ef8d1ed0148c1247.png",
     "static/media/blog03.png": "./static/media/blog03.7daace64505b67dc12c5.png",
@@ -23,16 +25,17 @@
     "static/media/footer1.png": "./static/media/footer1.9b2bc02fb22cf5157d68.png",
     "static/media/footer3.png": "./static/media/footer3.c43b91adee9b313d6733.png",
     "static/media/footer2.png": "./static/media/footer2.c9a9a428cf595f811dd4.png",
-    "static/media/greenshop.svg": "./static/media/greenshop.81834f51819f7162bce1ce070e04fa26.svg",
     "static/media/google.svg": "./static/media/google.4a7e1c7651d5f0748f9b5d49380b686c.svg",
     "static/media/slick.svg": "./static/media/slick.2630a3e3eab21c607e21.svg",
     "static/media/slick.eot": "./static/media/slick.a4e97f5a2a64f0ab1323.eot",
     "static/media/slick.ttf": "./static/media/slick.c94f7671dcc99dce43e2.ttf",
-    "static/media/heart.svg": "./static/media/heart.d89023543d12db977ff0702fdc2d1521.svg",
+    "static/media/heart.svg": "./static/media/heart.d756162592b956780279135ae271c354.svg",
     "static/media/instagram.svg": "./static/media/instagram.eb50a50cbbc67bd1ffd22aafde228e7c.svg",
     "static/media/slick.woff": "./static/media/slick.295183786cd8a1389865.woff",
+    "static/media/leaf.svg": "./static/media/leaf.e945a906de91118df8bfb92922309d4a.svg",
     "static/media/cart.svg": "./static/media/cart.fa9dd78189c9a57bcaf401b099167e15.svg",
     "static/media/youtube.svg": "./static/media/youtube.78e74eb623e533164b0ba8a4fe4198e5.svg",
+    "static/media/star.svg": "./static/media/star.11b272240aa5bbc52fd65b5a29fd8f7b.svg",
     "static/media/twitter.svg": "./static/media/twitter.53642cbd9145180b40be0ae5d6933d58.svg",
     "static/media/find.svg": "./static/media/find.9dc3aa6bab09af202eb1376626f29566.svg",
     "static/media/calling.svg": "./static/media/calling.78782e193eb067c3e5faa5cf975ca029.svg",
@@ -41,16 +44,18 @@
     "static/media/close.svg": "./static/media/close.1f5389d100e8768c26edc5b8a73f6f52.svg",
     "static/media/login.svg": "./static/media/login.a962e6497ebf571c9bf03ec3c3f5a6a7.svg",
     "index.html": "./index.html",
-    "static/media/message.svg": "./static/media/message.d5fc333037e3dc6fb93f0640cab73b14.svg",
+    "static/media/message.svg": "./static/media/message.57218215dd9926ce397b13f3789677fe.svg",
     "static/media/linkedin.svg": "./static/media/linkedin.ccbe7ec299af16f4e110b1d8dcf2a112.svg",
     "static/media/arrow.svg": "./static/media/arrow.9d0614b3fecbabdefa741e30e559f259.svg",
     "static/media/facebook.svg": "./static/media/facebook.d87880e7efdc80906034c07c5bafc7dc.svg",
     "static/media/list.svg": "./static/media/list.571e4ceec3ad46244b6047cdf3df267c.svg",
-    "main.0afebb2f.css.map": "./static/css/main.0afebb2f.css.map",
-    "main.2f242404.js.map": "./static/js/main.2f242404.js.map"
+    "static/media/arrowForward.svg": "./static/media/arrowForward.fa18ae9d984a5d6448c255baff612ad3.svg",
+    "static/media/arrowBack.svg": "./static/media/arrowBack.0537bdf529f1f2b50ed6646cfff1bc87.svg",
+    "main.e1acd7d1.css.map": "./static/css/main.e1acd7d1.css.map",
+    "main.288f71ec.js.map": "./static/js/main.288f71ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.0afebb2f.css",
-    "static/js/main.2f242404.js"
+    "static/css/main.e1acd7d1.css",
+    "static/js/main.288f71ec.js"
   ]
 }
