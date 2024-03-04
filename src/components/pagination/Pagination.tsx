@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import styled from 'styled-components'
 import { motion } from "framer-motion";
@@ -73,69 +73,58 @@ const StyledReactPaginate = styled(ReactPaginate)`
   }
 `
 
-const Pagination: FC<IPagination> = ({ itemsPerPage = 9, items }) => {
-  /* console.log(items) */
-  // We start with an empty list of items.
-  const [currentItems, setCurrentItems] = useState<ICard[]>(items);
-  const [pageCount, setPageCount] = useState(0);
-  // Here we use item offsets; we could also use page offsets
-  // following the API or data you're working with.
+const Pagination: FC<IPagination> = ({ itemsPerPage, items }) => {
   const [itemOffset, setItemOffset] = useState(0);
-
-  useEffect(() => {
-    // Fetch items from another resources.
-    const endOffset = itemOffset + itemsPerPage;
-    /* console.log(`Loading items from ${itemOffset} to ${endOffset}`); */
-    setCurrentItems(items.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(items.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage, items]);
-
-  // Invoke when user click to request another page.
+  const endOffset = itemOffset + itemsPerPage;
+  const currentItems = items.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(items.length / itemsPerPage);
   const handlePageClick = (event: { selected: number }) => {
-    const newOffset = event.selected * itemsPerPage % items.length;
-    /* console.log(`User requested page number ${event.selected}, which is offset ${newOffset}`); */
+    const newOffset = (event.selected * itemsPerPage) % items.length;
     setItemOffset(newOffset);
   };
 
-  const paginationProps = {
-    nextLabel: ">",
-    onPageChange: handlePageClick,
-    pageRangeDisplayed: 3,
-    marginPagesDisplayed: 2,
-    pageCount: pageCount,
-    previousLabel: "<",
-    pageClassName: "page-item",
-    pageLinkClassName: "page-link",
-    previousClassName: "page-item",
-    previousLinkClassName: "page-link",
-    nextClassName: "page-item",
-    nextLinkClassName: "page-link",
-    breakLabel: "...",
-    breakClassName: "page-item",
-    breakLinkClassName: "page-link",
-    containerClassName: "pagination",
-    activeClassName: "active",
-    renderOnZeroPageCount: null,
-  };
-
-  return (
-    <StyledPagination data-name='pagination'>
-
+  const Items = ({ items }: { items: ICard[] }) => {
+    return (
       <StyledUl
         variants={container}
         initial="hidden"
         animate="visible"
       >
-        {currentItems.map((cardItem) => (
+        {items.map((cardItem: ICard) => (
           <Card
             key={cardItem.id}
             {...cardItem}
           />
         ))}
       </StyledUl>
+    );
+  }
+
+  return (
+    <StyledPagination data-name='pagination'>
+
+      <Items items={currentItems} />
 
       <StyledReactPaginate
-        {...paginationProps}
+        key={pageCount}
+        pageCount={pageCount}
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        marginPagesDisplayed={2}
+        nextLabel=">"
+        previousLabel="<"
+        pageClassName="page-item"
+        pageLinkClassName="page-link"
+        previousClassName="page-item"
+        previousLinkClassName="page-link"
+        nextClassName="page-item"
+        nextLinkClassName="page-link"
+        breakLabel="..."
+        breakClassName="page-item"
+        breakLinkClassName="page-link"
+        containerClassName="pagination"
+        activeClassName="active"
+        renderOnZeroPageCount={null}
       />
 
     </StyledPagination>

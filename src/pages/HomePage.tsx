@@ -119,7 +119,7 @@ const HomePage = () => {
           {/* Сами карточки с товарами передаются в Pagination */}
           {error && error}
           {isLoading && <span>Loading...</span>}
-          {!isLoading && <Pagination itemsPerPage={9} items={goods} />}
+          {!isLoading && <Pagination key={goods.length} itemsPerPage={9} items={goods} />}
         </StyledContent>
       </StyledMain>
 
