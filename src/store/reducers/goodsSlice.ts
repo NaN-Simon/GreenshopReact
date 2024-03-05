@@ -39,12 +39,16 @@ export const goodsSlice = createSlice({
   initialState,
   reducers: {
     filterProductsByCategory: (state, action) => {
-      state.goods = cards.filter(
-        (list: ICard) => list.category === action.payload
-      )
+      const all = action.payload === ''
+      state.goods = all
+        ? cards
+        : cards.filter((list: ICard) => list.category === action.payload)
     },
     filterProductsBySize: (state, action) => {
-      state.goods = cards.filter((list: ICard) => list.size === action.payload)
+      const all = action.payload === ''
+      state.goods = all
+        ? cards
+        : cards.filter((list: ICard) => list.size === action.payload)
     },
     filterProductsByNew: (state, action) => {
       state.goods = cards.filter((list: ICard) => list.isNew === action.payload)

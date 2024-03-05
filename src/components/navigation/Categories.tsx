@@ -46,7 +46,20 @@ const StyledLi = styled.li<{ $info?: boolean; }>`
 
 const Categories: FC<ICategories> = ({ list, header, handler }) => {
   const arrayOfKeysValues = Object.entries(list);
-  const [currentKey, setCurrentKEy] = useState(Object.keys(list)[0]) // first object's key
+  const [currentKey, setCurrentKEy] = useState('null') // first object's key
+
+  const toggleHandler = (categoryName: string) => {
+
+    /* alreadySelected
+    * проверка выбрано ли значение повторно
+    * если выбрано повторно фильтр будет сброшен
+    */
+   
+    const alreadySelected = currentKey === categoryName
+    const newValue = alreadySelected ? "" : categoryName
+    handler(newValue)
+    setCurrentKEy(newValue)
+  }
 
   return (
     <StyledNav data-name='categories' >
@@ -54,18 +67,22 @@ const Categories: FC<ICategories> = ({ list, header, handler }) => {
         {header}
       </StyledHeader>
       <StyledUl>
-        {arrayOfKeysValues.map((item) =>
-          <StyledLi
-            key={item[0]}
-            onClick={() => {
-              handler(item[0])
-              setCurrentKEy(item[0])
-            }}  // key
-            $info={currentKey === item[0]} // value
-          >
-            <div>{item[0]}</div>
-            <div>{item[1]}</div>
-          </StyledLi>
+        {arrayOfKeysValues.map((item) => {
+          const categoryName = item[0]
+          const categoryCount = item[1]
+          return (
+            <StyledLi
+              key={categoryName}
+              onClick={() => {
+                toggleHandler(categoryName)
+              }}
+              $info={currentKey === categoryName} // value
+            >
+              <div>{categoryName}</div>
+              <div>{categoryCount}</div>
+            </StyledLi>
+          )
+        }
         )}
       </StyledUl>
     </StyledNav>
