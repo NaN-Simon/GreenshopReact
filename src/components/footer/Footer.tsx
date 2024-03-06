@@ -109,7 +109,7 @@ const Footer = () => {
       {/* 4 line */}
       <StyledCopyright>
         <span>© 2021 GreenShop. All Rights Reserved.</span>
-        <StyledLink href="https://nan-simon.github.io/resume/">made by NaN-Simon</StyledLink>
+        <StyledLink href="https://github.com/NaN-Simon/">made by NaN-Simon</StyledLink>
       </StyledCopyright>
     </StyledFooter>
   )

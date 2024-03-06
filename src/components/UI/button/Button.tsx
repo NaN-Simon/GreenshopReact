@@ -6,6 +6,7 @@ import theme from '../../../theme/theme';
 interface IButton {
   children: ReactNode;
   link?: string;
+  type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type'];
   style?: CSSProperties;
   className?: string;
   // onClick?: () => void;
@@ -49,7 +50,7 @@ const StyledLink = styled(Link)`
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<IButton>>((props: PropsWithChildren<IButton>, ref) => {
 
-  const { children, link, style, className, onClick, ...datum } = props
+  const { children, link, type = 'button', style, className, onClick, ...datum } = props
 
   const ChildrenWithLink = () => {
     return (
@@ -61,6 +62,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<IButton>>((props:
 
   return (
     <StyledButton
+      type={type}
       style={{ ...style }}
       className={className}
       ref={ref}

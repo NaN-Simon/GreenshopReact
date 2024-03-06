@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import theme from '../../theme/theme'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
 import Login from '../../forms/Login'
-import Register from '../../forms/Register'
+import Register from '../../forms/register/Register'
 import Button from '../UI/button/Button'
 
 import Divider from '../UI/divider/Divider'
@@ -24,7 +24,7 @@ const StyledAuth = styled.div`
   position: relative;
   padding: 50px 0px 58px 0px;
   width: 500px;
-  height: 600px;
+  height: 656px;
   border-bottom: 10px solid ${theme.palette.info};
   @media (max-width: ${theme.breakpoints.devices.sm}) {
     width: 100%;
@@ -80,14 +80,14 @@ const StyledButton = styled(Button)`
   border: 1px solid ${theme.palette.borderInactive};;
 `
 
-const Auth:FC<IAuth> = ({closeHandler}) => {
+const Auth: FC<IAuth> = ({ closeHandler }) => {
   const [tabIndex, setTabIndex] = useState(0);
   return (
     <StyledAuth data-name='auth'>
 
-    <StyledCloseSVG onClick={closeHandler}>
-    <CloseSVG/>
-    </StyledCloseSVG>
+      <StyledCloseSVG onClick={closeHandler}>
+        <CloseSVG />
+      </StyledCloseSVG>
 
 
       <StyledTabs data-name='auth-tabs'

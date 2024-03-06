@@ -38,6 +38,12 @@ Get minimized app: `npm run build`
 
 [react-image-gallery](https://github.com/xiaolin/react-image-gallery)
 
+[react-hook-form](https://github.com/react-hook-form/react-hook-form)
+
+[@hookform/resolvers](https://github.com/react-hook-form/resolvers)
+
+[yup](https://www.npmjs.com/package/yup)
+
 ## Commentaries:
 
 ### SliderCarousel.tsx

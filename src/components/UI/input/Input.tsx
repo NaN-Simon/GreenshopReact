@@ -2,8 +2,8 @@ import React, { CSSProperties, FC, forwardRef } from 'react'
 import styled from 'styled-components';
 import theme from '../../../theme/theme'
 type IInput = {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  value?: string;
+  setValue?: React.Dispatch<React.SetStateAction<string>>;
   type: string;
   isHidden?: boolean;
   name: string;
@@ -32,7 +32,7 @@ const Input: FC<IInput> = forwardRef((props, ref) => {
   const { value, setValue, type, isHidden, name, placeholder, style = {}, autoFocus, ...datum } = props
 
   const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value);
+    setValue && setValue(event.target.value);
   };
 
   return (
