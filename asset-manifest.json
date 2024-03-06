@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.e1acd7d1.css",
-    "main.js": "./static/js/main.115cd8f1.js",
+    "main.js": "./static/js/main.f0e1c5bd.js",
     "static/media/flower4.png": "./static/media/flower4.8f4286d35a51629d2c95.png",
     "static/media/CeraPro-Medium.ttf": "./static/media/CeraPro-Medium.ee3e268e11a318d8f89f.ttf",
     "static/media/CeraPro-Regular.ttf": "./static/media/CeraPro-Regular.41e4685b30b1ca172404.ttf",
@@ -45,6 +45,7 @@
     "static/media/login.svg": "./static/media/login.a962e6497ebf571c9bf03ec3c3f5a6a7.svg",
     "index.html": "./index.html",
     "static/media/message.svg": "./static/media/message.57218215dd9926ce397b13f3789677fe.svg",
+    "static/media/info.svg": "./static/media/info.26e0ae939c6a93f8c9606d9b0c94a198.svg",
     "static/media/linkedin.svg": "./static/media/linkedin.ccbe7ec299af16f4e110b1d8dcf2a112.svg",
     "static/media/arrow.svg": "./static/media/arrow.9d0614b3fecbabdefa741e30e559f259.svg",
     "static/media/facebook.svg": "./static/media/facebook.d87880e7efdc80906034c07c5bafc7dc.svg",
@@ -52,10 +53,10 @@
     "static/media/arrowForward.svg": "./static/media/arrowForward.fa18ae9d984a5d6448c255baff612ad3.svg",
     "static/media/arrowBack.svg": "./static/media/arrowBack.0537bdf529f1f2b50ed6646cfff1bc87.svg",
     "main.e1acd7d1.css.map": "./static/css/main.e1acd7d1.css.map",
-    "main.115cd8f1.js.map": "./static/js/main.115cd8f1.js.map"
+    "main.f0e1c5bd.js.map": "./static/js/main.f0e1c5bd.js.map"
   },
   "entrypoints": [
     "static/css/main.e1acd7d1.css",
-    "static/js/main.115cd8f1.js"
+    "static/js/main.f0e1c5bd.js"
   ]
 }
