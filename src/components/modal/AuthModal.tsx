@@ -1,9 +1,11 @@
-import React, { FC, MouseEventHandler, useState } from 'react'
+import React, { FC, useState } from 'react'
 import styled from 'styled-components'
 import theme from '../../theme/theme'
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs'
-import Login from '../../forms/Login'
+
+import Login from '../../forms/login/Login'
 import Register from '../../forms/register/Register'
+
 import Button from '../UI/button/Button'
 
 import Divider from '../UI/divider/Divider'
@@ -13,7 +15,7 @@ import { ReactComponent as GoogleSVG } from '../../assets/svg/google.svg';
 import { ReactComponent as CloseSVG } from '../../assets/svg/close.svg'
 
 interface IAuth {
-  closeHandler: MouseEventHandler<HTMLDivElement>,
+  closeHandler: () => void,
 }
 
 const StyledAuth = styled.div`
@@ -103,10 +105,10 @@ const Auth: FC<IAuth> = ({ closeHandler }) => {
         </StyledTabList>
 
         <TabPanel>
-          <Login />
+          <Login closeModal={closeHandler} />
         </TabPanel>
         <TabPanel>
-          <Register />
+          <Register closeModal={closeHandler} />
         </TabPanel>
       </StyledTabs>
 

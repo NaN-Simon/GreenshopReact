@@ -1,24 +1,22 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux';
 import styled from 'styled-components'
-import Popup from 'reactjs-popup';
 
-import MenuSmallScreen from '../../module/MenuSmallScreen'
+import useClickOutside from '../../../hooks/useClickOutside';
 
-import Button from '../UI/button/Button'
-import Input from '../UI/input/Input'
+import MenuSmallScreen from '../../../module/MenuSmallScreen'
 
-import { ReactComponent as FindSVG } from '../../assets/svg/find.svg'
-import { ReactComponent as CartSVG } from '../../assets/svg/cart.svg'
-import { ReactComponent as LoginSVG } from '../../assets/svg/login.svg'
-import { ReactComponent as ListSVG } from '../../assets/svg/list.svg'
+import LoginButton from './buttons/LoginButton';
 
-import theme from '../../theme/theme'
+import Input from '../../UI/input/Input'
 
-import Auth from '../modal/Auth';
+import { RootState } from '../../../store/store';
 
-import 'reactjs-popup/dist/index.css';
+import { ReactComponent as FindSVG } from '../../../assets/svg/find.svg'
+import { ReactComponent as CartSVG } from '../../../assets/svg/cart.svg'
+import { ReactComponent as ListSVG } from '../../../assets/svg/list.svg'
 
-import { PopupActions } from 'reactjs-popup/dist/types';
+import theme from '../../../theme/theme'
 
 const StyledNav = styled.nav`
   display: flex;
@@ -40,23 +38,9 @@ const StyledListSVGWrapper = styled.div`
     display: none;
  }
 `
-const StyledPopupWrapper = styled.div`
-  display: block;
-  @media (max-width: ${theme.breakpoints.devices.sm}) {
-  display: none
-  }
-`
-const StyledPopup = styled(Popup)`
-  &-content{
-    width: auto;
-    padding: 0;
-    margin: 0;
-    border: none;
-  }
- `
-
 
 const UserNav = () => {
+  const { isAuthorized, authData, status } = useSelector((state: RootState) => state.authReducer)
   /* Find input */
   const refInputFind = useRef<HTMLInputElement | null>(null)
 
@@ -79,12 +63,7 @@ const UserNav = () => {
     }
   }
 
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside, true)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside, true)
-    }
-  }, [])
+  useClickOutside(handleClickOutside)
 
   /* SmallScreenMenu */
   const refBurgerMenu = useRef<HTMLDivElement>(null);
@@ -107,19 +86,12 @@ const UserNav = () => {
     }
   }, []);
 
-  /* Popup on Button Login */
-  const popupRef = React.createRef<PopupActions>();
-
-  const closePopup = () => {
-    popupRef.current?.close()
-  }
-
-
   return (
     <StyledNav>
       {displayBurgerMenu && <div ref={refBurgerMenu}><MenuSmallScreen /></div>}
 
       <StyledFind onSubmit={handleSubmit}>
+
         <Input
           ref={refInputFind}
           value={inputValue}
@@ -134,7 +106,11 @@ const UserNav = () => {
           name="find"
           placeholder="Enter"
         />
-        <FindSVG onClick={handleOnClickFind} style={{ cursor: 'pointer' }} />
+        <FindSVG
+          onClick={handleOnClickFind}
+          style={{ cursor: 'pointer' }}
+        />
+
       </StyledFind>
 
       <StyledListSVGWrapper
@@ -148,21 +124,11 @@ const UserNav = () => {
 
       <CartSVG fill='#3D3D3D' />
 
-      <StyledPopupWrapper>
-        <StyledPopup
-          ref={popupRef}
-          modal
-          trigger={(
-            <Button className="button">
-              <LoginSVG />
-              <span>Login</span>
-            </Button>
-          )}
-        >
-          <Auth closeHandler={closePopup} />
-        </StyledPopup>
-
-      </StyledPopupWrapper>
+      {status === 'resolved' && (
+        <LoginButton
+          authData={authData}
+          isAuthorized={isAuthorized}
+        />)}
 
     </StyledNav>
   )

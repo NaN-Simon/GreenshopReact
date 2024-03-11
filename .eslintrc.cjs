@@ -5,7 +5,12 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   root: true,
   rules: {
-    '@typescript-eslint/no-unused-vars': ['warn', { 'argsIgnorePattern': '^_' }],
+    '@typescript-eslint/no-unused-vars': ['warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_"
+      }],
     '@typescript-eslint/no-explicit-any': 'off'
   }
 };

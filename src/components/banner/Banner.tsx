@@ -106,9 +106,7 @@ const Banner: FC<IBanner> = (props) => {
         <img
           style={{ width: '100%' }}
           src={image} alt={title}
-          onClick={() => {
-            console.log('BannerPicture')
-          }} />
+        />
       </StyledBannerPicture>
     </StyledBannerSection>
   )
