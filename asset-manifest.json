@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.e1acd7d1.css",
-    "main.js": "./static/js/main.f0e1c5bd.js",
+    "main.css": "./static/css/main.e2227c14.css",
+    "main.js": "./static/js/main.d9b8e66c.js",
     "static/media/flower4.png": "./static/media/flower4.8f4286d35a51629d2c95.png",
     "static/media/CeraPro-Medium.ttf": "./static/media/CeraPro-Medium.ee3e268e11a318d8f89f.ttf",
     "static/media/CeraPro-Regular.ttf": "./static/media/CeraPro-Regular.41e4685b30b1ca172404.ttf",
@@ -52,11 +52,11 @@
     "static/media/list.svg": "./static/media/list.571e4ceec3ad46244b6047cdf3df267c.svg",
     "static/media/arrowForward.svg": "./static/media/arrowForward.fa18ae9d984a5d6448c255baff612ad3.svg",
     "static/media/arrowBack.svg": "./static/media/arrowBack.0537bdf529f1f2b50ed6646cfff1bc87.svg",
-    "main.e1acd7d1.css.map": "./static/css/main.e1acd7d1.css.map",
-    "main.f0e1c5bd.js.map": "./static/js/main.f0e1c5bd.js.map"
+    "main.e2227c14.css.map": "./static/css/main.e2227c14.css.map",
+    "main.d9b8e66c.js.map": "./static/js/main.d9b8e66c.js.map"
   },
   "entrypoints": [
-    "static/css/main.e1acd7d1.css",
-    "static/js/main.f0e1c5bd.js"
+    "static/css/main.e2227c14.css",
+    "static/js/main.d9b8e66c.js"
   ]
 }
